@@ -1,0 +1,49 @@
+site_name: 第二期书生·浦语实战营学习笔记及作业提交——acondess
+
+theme:
+  name: material
+  features:
+    - navigation.tabs  # 导航栏选项卡
+    - navigation.expand  # 导航栏展开
+    - navigation.sections  # 导航栏章节
+    - toc.integrate  # 目录集成
+    - toc.numbers  # 目录编号
+    - toc.sections  # 目录章节
+    - search.suggest  # 搜索建议
+    - search.highlight  # 搜索结果高亮
+    - content.tabs.link  # 内容选项卡链接
+    - content.code.annotation  # 代码注释
+    - content.code.copy  # 代码复制
+    - footer  # 页脚
+  language: zh
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: switch to dark mode  # 切换到暗色模式
+      primary: teal
+      accent: purple
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch-outline
+        name: switch to light mode  # 切换到亮色模式
+      primary: teal
+      accent: lime
+copyright:
+   '&copy; 2023 <a href="https://github.com/acondess" target="_blank" rel="noopener">acondess</a>'
+  
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - footnotes
+  - pymdownx.mark
+  - attr_list
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
