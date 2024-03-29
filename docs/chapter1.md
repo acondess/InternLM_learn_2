@@ -34,7 +34,7 @@
 
 [InternLM2 技术报告](https://arxiv.org/pdf/2403.17297.pdf)
 
-[pdf](../docs/2403.17297.pdf)
+<!-- [pdf](../docs/2403.17297.pdf) -->
 
 ### 总结：
 
