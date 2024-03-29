@@ -4,6 +4,8 @@
 
 ## 视频笔记
 
+[视频链接](https://www.bilibili.com/video/BV1Vx421X72D/)
 
 ## 技术报告笔记
 
+[InternLM2 技术报告](https://arxiv.org/pdf/2403.17297.pdf)
