@@ -1,4 +1,4 @@
-site_name: 第二期书生·浦语实战营学习笔记及作业提交——acondess
+site_name: 第二期书生·浦语实战营学习笔记及作业提交
 
 theme:
   name: material
@@ -29,9 +29,13 @@ theme:
         name: switch to light mode  # 切换到亮色模式
       primary: teal
       accent: lime
-copyright:
-   '&copy; 2023 <a href="https://github.com/acondess" target="_blank" rel="noopener">acondess</a>'
-  
+extra:
+  social:
+    - icon: material/github
+      link: https://acondess.github.io/InternLM_learn_2/
+    # - icon: material/wechat
+    #   link: https://acondess.github.io/vrBook/assets/img/wechat_qrcode.JPG
+
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -47,3 +51,7 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_generator: !!python/name:materialx.emoji.to_svg
       emoji_index: !!python/name:materialx.emoji.twemoji
+
+
+copyright:
+   '&copy; 2023 <a href="https://github.com/acondess" target="_blank" rel="noopener">acondess</a>'
