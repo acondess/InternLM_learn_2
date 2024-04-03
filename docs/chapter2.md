@@ -224,9 +224,9 @@ hf_hub_download(repo_id="internlm/internlm2-chat-1_8b", filename="config.json")
 
 ### 部署八戒-Chat-1.8B模型
 
- #### 进入环境&下载源码
+#### 进入环境&下载源码
 
- ``` bash linenums="1"
+``` bash linenums="1"
 conda activate demo
 cd /root/
 git clone https://gitee.com/InternLM/Tutorial -b camp2
