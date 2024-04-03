@@ -3,12 +3,17 @@ site_name: 第二期书生·浦语实战营学习笔记及作业提交
 theme:
   name: material
   features:
+    - navigation.instant # 导航栏即时搜索
+    - navigation.tracking # 导航栏跟踪
+    - navigation.tabs.sticky  # 导航栏选项卡固定
+    - navigation.top # 顶部导航栏
     - navigation.tabs  # 导航栏选项卡
     - navigation.expand  # 导航栏展开
     - navigation.sections  # 导航栏章节
     - toc.integrate  # 目录集成
     - toc.numbers  # 目录编号
     - toc.sections  # 目录章节
+    - toc.follow # 目录跟随
     - search.suggest  # 搜索建议
     - search.highlight  # 搜索结果高亮
     - content.tabs.link  # 内容选项卡链接
