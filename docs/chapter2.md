@@ -18,6 +18,9 @@
 ![寓言故事](image-11.png)
 
 - 熟悉 huggingface 下载功能，使用 huggingface_hub python 包，下载 InternLM2-Chat-7B 的 config.json 文件到本地（截图下载过程）
+
+![下载过程](image-12.png)
+
 - 完成 浦语·灵笔2 的 图文创作 及 视觉问答 部署（截图）
 - 完成 Lagent 工具调用 数据分析 Demo 部署（截图）
 
@@ -30,6 +33,15 @@
 - [模型地址](https://huggingface.co/internlm/internlm2-chat-1_8b)
 
 - [huggingface hub python文档](https://huggingface.co/docs/huggingface_hub/quick-start)
+
+进入demo环境（conda），输入python进入python命令编写如下代码进行模型config下载
+
+``` python linenums="1"
+from huggingface_hub import hf_hub_download
+hf_hub_download(repo_id="internlm/internlm2-chat-1_8b", filename="config.json")
+```
+
+![下载过程](image-12.png)
 
 #### 灵笔2部署
 
@@ -144,7 +156,7 @@
 
   编写脚本——download_mini.py
 
-  ``` python
+  ``` python linenums="1"
   import os  # 导入os模块，用于操作系统相关的操作
   from modelscope.hub.snapshot_download import snapshot_download  # 从modelscope.hub模块导入snapshot_download函数，用于下载模型
 
@@ -210,4 +222,80 @@
   输入提示词：创作一个300字的寓言故事，要求有趣
   ![寓言故事](image-11.png)
 
-  
+### 部署八戒-Chat-1.8B模型
+
+ #### 进入环境&下载源码
+
+ ``` bash linenums="1"
+conda activate demo
+cd /root/
+git clone https://gitee.com/InternLM/Tutorial -b camp2
+# git clone https://github.com/InternLM/Tutorial -b camp2
+cd /root/Tutorial
+```
+
+![源码](image-13.png)
+
+#### 运行Chat-八戒
+
+- bajie_download.py
+
+``` python linenums="1"
+import os
+#模型下载
+from modelscope.hub.snapshot_download import snapshot_download
+
+# 创建保存模型目录
+os.system("mkdir -p /root/models")
+
+# save_dir是模型保存到本地的目录
+save_dir="/root/models"
+
+snapshot_download('JimmyMa99/BaJie-Chat-mini', 
+                  cache_dir=save_dir)
+```
+
+- 运行模型下载代码
+``` bash
+python /root/Tutorial/helloworld/bajie_download.py
+```
+
+![下载模型](image-14.png)
+
+- 运行启动streamlit前端页面
+
+``` bash
+streamlit run /root/Tutorial/helloworld/bajie_chat.py --server.address 127.0.0.1 --server.port 6006
+```
+
+![streamlit app](image-15.png)
+
+- 本地端口映射
+
+点击SSH连接，找寻自己的端口号，并对应修改ssh映射命令的端口号
+
+``` bash
+# 从本地使用 ssh 连接 studio 端口
+# 将下方端口号 38374 替换成自己的端口号
+ssh -CNg -L 6006:127.0.0.1:6006 root@ssh.intern-ai.org.cn -p 38374
+```
+
+``` markdown
+ssh: 这是SSH客户端命令，用于建立安全的远程连接。
+
+-CNg: 这是ssh命令的选项。-C选项启用压缩，-N选项指示ssh不要执行远程命令，-g选项允许远程主机通过隧道连接到本地主机。
+
+-L 6006:127.0.0.1:6006: 这是ssh命令的端口转发选项。它指示ssh在本地主机的端口6006上监听，并将所有传入的连接转发到远程主机的127.0.0.1:6006。
+
+root@ssh.intern-ai.org.cn: 这是远程主机的用户名和主机名。在这个例子中，用户名是root，主机名是ssh.intern-ai.org.cn。
+
+-p 38374: 这是ssh命令的端口选项。它指示ssh使用38374端口连接到远程主机。
+```
+![端口号](image-17.png)
+
+  - 模型加载中
+  ![加载模型](image-16.png)
+  - 加载完成界面
+  ![app](image-18.png)
+  - 对话
+  ![对话](image-19.png)
