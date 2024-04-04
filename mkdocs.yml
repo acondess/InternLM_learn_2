@@ -11,9 +11,9 @@ theme:
     - navigation.expand  # 导航栏展开
     - navigation.sections  # 导航栏章节
     - toc.integrate  # 目录集成
-    - toc.numbers  # 目录编号
     - toc.sections  # 目录章节
     - toc.follow # 目录跟随
+    - toc.numbers  # 目录编号
     - search.suggest  # 搜索建议
     - search.highlight  # 搜索结果高亮
     - content.tabs.link  # 内容选项卡链接
