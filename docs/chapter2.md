@@ -26,9 +26,11 @@
 - 完成 Lagent 工具调用 数据分析 Demo 部署（截图）
 
   - 观察模型加载进度
-  ![alt text](image-28.png)
+
+    ![alt text](image-28.png)
   - 勾选数据分析
-  ![alt text](image-29.png)
+
+    ![alt text](image-29.png)
 
 
 ### 1.1 业笔记
