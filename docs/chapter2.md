@@ -13,15 +13,17 @@
 
 [作业要求](https://github.com/InternLM/Tutorial/blob/camp2/helloworld/homework.md)
 
+### 1.1 作业1
 - 使用 InternLM2-Chat-1.8B 模型生成 300 字的小故事（截图）
 
   ![寓言故事](image-11.png)
 
+### 1.2 作业2
 - 熟悉 huggingface 下载功能，使用 huggingface_hub python 包，下载 InternLM2-Chat-7B 的 config.json 文件到本地（截图下载过程）
 
   ![下载过程](image-12.png)
 
-- 完成 浦语·灵笔2 的 图文创作 及 视觉问答 部署（截图）
+### 1.3 作业3
 
 - 完成 Lagent 工具调用 数据分析 Demo 部署（截图）
 
@@ -32,12 +34,15 @@
 
     ![alt text](image-29.png)
 
+### 1.4 作业4
 
-### 1.1 业笔记
+- 完成 浦语·灵笔2 的 图文创作 及 视觉问答 部署（截图）
 
-#### 1.1.1 模型生成小故事
+### 1.5 业笔记
 
-#### 1.1.2 huggingface下载模型
+#### 1.5.1 模型生成小故事
+
+#### 1.5.2 huggingface下载模型
 
 - [模型地址](https://huggingface.co/internlm/internlm2-chat-1_8b)
 
@@ -52,9 +57,9 @@ hf_hub_download(repo_id="internlm/internlm2-chat-1_8b", filename="config.json")
 
 ![下载过程](image-12.png)
 
-#### 1.1.3 Lagent 智能体
+#### 1.5.3 Lagent 智能体
 
-#### 1.1.4 灵笔2部署
+#### 1.5.4 灵笔2部署
 
 - 图文创作
 
