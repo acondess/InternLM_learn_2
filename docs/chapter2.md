@@ -30,6 +30,7 @@
   - 观察模型加载进度
 
     ![alt text](image-28.png)
+    
   - 勾选数据分析
 
     ![alt text](image-29.png)
