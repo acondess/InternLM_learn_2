@@ -42,6 +42,9 @@
   - 图文创作
     ![alt text](image-41.png)
 
+  - 视觉问答
+    ![alt text](image-45.png)
+
 ### 1.5 业笔记
 
 #### 1.5.1 模型生成小故事
@@ -732,7 +735,7 @@ git checkout f31220eddca2cf6246ee2ddf8e375a40457ff626
 ln -s /root/share/new_models/Shanghai_AI_Laboratory/internlm-xcomposer2-7b /root/models/internlm-xcomposer2-7b
 ln -s /root/share/new_models/Shanghai_AI_Laboratory/internlm-xcomposer2-vl-7b /root/models/internlm-xcomposer2-vl-7b
 ```
-##### 3.4.2.5启动Xcomposer
+##### 3.4.2.5启动Xcomposer图文写作
 
 ``` bash
 cd /root/demo/InternLM-XComposer
@@ -789,3 +792,34 @@ http://127.0.0.1:6006/
   ![alt text](temp_4_1.png)
   结语综上所述，水墨画作为一门古老的艺术形式，不仅具有独特的审美价值，更是中国传统文化的重要组成部分。它的魅力不仅体现在技艺的高超上，更在于其背后所蕴含的深刻思想和文化内涵。让我们共同努力，让这门古老而又鲜活的艺术形式得以传承并发扬光大。
   ![alt text](temp_5_1.png)
+
+##### 3.4.2.7 启动Xcomposer图片理解
+
+- 关闭并重启一个命令框
+  ![alt text](image-42.png)
+
+- 输入启动命令
+
+``` bash 
+conda activate demo
+
+cd /root/demo/InternLM-XComposer
+python /root/demo/InternLM-XComposer/examples/gradio_demo_chat.py  --code_path /root/models/internlm-xcomposer2-vl-7b --private --num_gpus 1 --port 6006
+```
+
+![alt text](image-43.png)
+
+- 本地连接
+  注意开关开发机后，端口会发生变化
+
+``` bash
+# 从本地使用 ssh 连接 studio 端口
+# 将下方端口号 38374 替换成自己的端口号
+ssh -CNg -L 6006:127.0.0.1:6006 root@ssh.intern-ai.org.cn -p 38374
+```
+
+##### 3.4.2.8 上传图片分析图片内容
+
+- 上传图片，输入提示词“分析图片内容”
+
+![alt text](image-44.png)
