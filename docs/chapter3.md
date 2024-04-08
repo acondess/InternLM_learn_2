@@ -12,6 +12,16 @@
 
 ### 1.1 茴香豆web版部署知识问答助手
 
+![alt text](image-67.png)
+
+![alt text](image-68.png)
+
+![alt text](image-69.png)
+
+![alt text](image-70.png)
+
+![alt text](image-71.png)
+
 ### 1.2 茴香豆技术助手
 
   - Q1:huixiangdou 是什么？
@@ -286,3 +296,30 @@ python3 -m huixiangdou.main --standalone
   - Q3:今天天气怎么样？
     - A:ErrorCode.UNRELATED
     ![alt text](image-61.png)
+
+## 4. web版茴香豆笔记
+
+[web版OpenXLab地址](https://openxlab.org.cn/apps/detail/tpoisonooo/huixiangdou-web)
+
+- 首页输入知识库名&密码
+![alt text](image-63.png)
+
+- 上传文档（奇绩论坛（陆奇深圳演讲））
+
+![alt text](image-64.png)
+
+![alt text](image-65.png)
+
+![alt text](image-66.png)
+
+- 聊天测试
+
+![alt text](image-67.png)
+
+![alt text](image-68.png)
+
+![alt text](image-69.png)
+
+![alt text](image-70.png)
+
+![alt text](image-71.png)
