@@ -51,6 +51,10 @@
   - 可以使用 茴香豆 Web 版 或 InternLM Studio 云端服务器部署
   - 涵盖部署全过程的作业报告和个人助手问答截图
 
+#### 1.3.1 多模态大模型综述论文
+
+![alt text](image-92.png)
+
 #### B.【算法方向】尝试修改 `good_questions.json`、调试 prompt 或应用其他 NLP 技术，如其他 chunk 方法，提高个人工作助手的表现。
   - 完成不少于 400 字的笔记 ，记录自己的尝试和调试思路，涵盖全过程和改进效果截图
 
@@ -412,3 +416,81 @@ ssh -CNg -L 7860:127.0.0.1:7860 root@ssh.intern-ai.org.cn -p 41886
 ![alt text](image-70.png)
 
 ![alt text](image-71.png)
+
+## 5. 自定义机器人
+
+### 5.1 飞书自定义机器人
+
+- 点击[创建飞书自定义机器人](https://open.feishu.cn/document/client-docs/bot-v3/add-custom-bot)，获取回调 WEBHOOK_URL，填写到 config.ini
+
+![alt text](image-83.png)
+
+![alt text](image-82.png)
+
+- 验证回调webhook_url
+
+```bash
+curl.exe -X POST -H "Content-Type: application/json" -d '{\"msg_type\":\"text\",\"content\":{\"text\":\"requestexample\"}}' https://open.feishu.cn/open-apis/bot/v2/hook/f79d7ccf-fa1a-48b4-b861-********
+```
+![alt text](image-84.png)
+
+- 运行对话
+
+```bash
+conda activate InternLM2_Huixiangdou
+cd /root/huixiangdou/
+python3 -m huixiangdou.main --standalone
+```
+
+![alt text](image-85.png)
+
+## 6. 多模态大模型综述论文知识库&飞书自定义机器人
+
+### 6.1  repodir——>workdir
+
+教程中将repodir中的所有内容，均向量化后存到向量数据库中，并存放在workdir文件夹中。
+
+#### 6.1.1 文件夹备份
+
+```bash
+cp -r repodir repodir_bk
+cp -r workdir workdir_bk
+```
+
+![alt text](image-86.png)
+
+#### 6.1.2 知识库资料准备
+
+- 复制论文pdf到repodir文件夹下
+
+  ![alt text](image-87.png)
+
+#### 6.1.3 知识库向量化
+
+```bash
+python3 -m huixiangdou.service.feature_store
+```
+![alt text](image-88.png)
+
+#### 6.1.4 基于向量化数据库进行问答
+
+- 修改main.py文件
+
+```python
+    queries = ["多模态大模型是什么？"]
+```
+
+![alt text](image-89.png)
+
+- 运行
+
+```bash
+cd /root/huixiangdou/
+python3 -m huixiangdou.main --standalone
+```
+
+![alt text](image-90.png)
+
+![alt text](image-91.png)
+
+![alt text](image-92.png)
