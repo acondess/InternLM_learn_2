@@ -1,5 +1,8 @@
 # 第二期书生·浦语实战营学习笔记及作业提交
 
+- [课时一 书生·浦语大模型全链路开源开放体系](chapter1.md)
+- 
+
 <!-- For full documentation visit [mkdocs.org](https://www.mkdocs.org). -->
 
 <!-- ## Commands
