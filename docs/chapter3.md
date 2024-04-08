@@ -24,6 +24,7 @@
 
 ### 1.2 茴香豆技术助手
 
+#### 1.2.1 代码版
   - Q1:huixiangdou 是什么？
     - A：![alt text](image-59.png)
 
@@ -34,9 +35,33 @@
     - A:ErrorCode.UNRELATED
     ![alt text](image-61.png)
 
+#### 1.2.2 giradio网页版
+
+![alt text](image-79.png)
+
+- 注意：提问需要带问号，不带问号识别不出是疑问句。。。
+  ![alt text](image-80.png)
+- code为3，不返回结果
+  ![alt text](image-81.png)
+
 ### 1.3 进阶作业
 
+#### A.【应用方向】 结合自己擅长的领域知识（游戏、法律、电子等）、专业背景，搭建个人工作助手或者垂直领域问答助手，参考茴香豆官方文档，部署到下列任一平台。
+  - 飞书、微信
+  - 可以使用 茴香豆 Web 版 或 InternLM Studio 云端服务器部署
+  - 涵盖部署全过程的作业报告和个人助手问答截图
+
+#### B.【算法方向】尝试修改 `good_questions.json`、调试 prompt 或应用其他 NLP 技术，如其他 chunk 方法，提高个人工作助手的表现。
+  - 完成不少于 400 字的笔记 ，记录自己的尝试和调试思路，涵盖全过程和改进效果截图
+
 ### 1.4 大作业项目
+
+#### A.【工程方向】 参与贡献茴香豆前端，将茴香豆助手部署到下列平台
+  - Github issue、Discord、钉钉、X
+#### B.【应用方向】 茴香豆RAG-Agent
+  - 应用茴香豆建立一个 ROS2 的机器人Agent
+#### C.【算法方向】 茴香豆多模态
+  - 参与茴香豆多模态的工作
 
 ## 2. 视频笔记
 
@@ -296,6 +321,70 @@ python3 -m huixiangdou.main --standalone
   - Q3:今天天气怎么样？
     - A:ErrorCode.UNRELATED
     ![alt text](image-61.png)
+
+### 3.6 联网搜索
+
+#### 3.6.1 Serper API调用
+
+- 获取[API key](https://serper.dev/api-key)
+
+
+![alt text](image-72.png)
+
+- 修改config配置文件填写key
+
+![alt text](image-73.png)
+
+### 3.7 其他大模型接口调用
+
+#### 3.7.1 修改配置文件
+
+```bash
+enable_local = 0 # 关闭本地模型
+enable_remote = 1 # 启用云端模型
+```
+![alt text](image-74.png)
+
+#### 3.7.2 创建kimi大模型API key
+
+- [月球背面API key地址](https://platform.moonshot.cn/console/api-keys)
+
+![alt text](image-75.png)
+
+![alt text](image-76.png)
+
+- 添加key到config配置文件
+
+![alt text](image-77.png)
+
+### 3.8 网页demo
+
+#### 3.8.1 安装gradio依赖包
+
+```bash
+conda activate InternLM2_Huixiangdou
+pip install gradio==4.25.0 redis==5.0.3 flask==3.0.2 lark_oapi==1.2.4
+```
+
+#### 3.8.2 运行demo服务
+
+```bash
+cd /root/huixiangdou
+python3 -m tests.test_query_gradio 
+```
+![alt text](image-78.png)
+
+#### 3.8.3 本地映射访问
+
+```bash
+ssh -CNg -L 7860:127.0.0.1:7860 root@ssh.intern-ai.org.cn -p 41886
+```
+本地访问地址：http://127.0.0.1:7860/
+
+![alt text](image-79.png)
+
+注意：提问需要带问号，不带问号识别不出是疑问句。。。
+![alt text](image-80.png)
 
 ## 4. web版茴香豆笔记
 
