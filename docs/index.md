@@ -1,7 +1,10 @@
 # 第二期书生·浦语实战营学习笔记及作业提交
 
-- [课时一 书生·浦语大模型全链路开源开放体系](chapter1.md)
-- 
+## [课时一 书生·浦语大模型全链路开源开放体系](chapter1.md)
+
+## [课时二 轻松分钟玩转书生·浦语大模型趣味 Demo](chapter2.md)
+
+## [课时三 "茴香豆":零代码搭建你的 RAG 智能助理](chapter3.md)
 
 <!-- For full documentation visit [mkdocs.org](https://www.mkdocs.org). -->
 
