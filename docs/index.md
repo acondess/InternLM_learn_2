@@ -6,6 +6,8 @@
 
 ## [课时三 "茴香豆":零代码搭建你的 RAG 智能助理](chapter3.md)
 
+## [课时四 XTuner微调多模态Agent](chapter4.md)
+
 <!-- For full documentation visit [mkdocs.org](https://www.mkdocs.org). -->
 
 <!-- ## Commands
