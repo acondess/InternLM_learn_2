@@ -97,6 +97,9 @@ pip install -e '.[all]'
 - 配置文件
 
 ![alt text](image-100.png)
+
+<details>
+<summary>展开内容</summary>
 ```bash
 ==========================CONFIGS===========================
 baichuan2_13b_base_qlora_alpaca_e3
@@ -401,6 +404,6 @@ yi_34b_qlora_alpaca_enzh_e3
 yi_6b_qlora_alpaca_enzh_e3
 zephyr_7b_beta_qlora_alpaca_e3
 =============================================================
-```
+</details> ```
 
 ## 3. 视频总结
