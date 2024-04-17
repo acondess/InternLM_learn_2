@@ -95,6 +95,9 @@ pip install -e '.[all]'
 ```
 
 - 配置文件
+```bash
+xtuner list-cfg
+```
 
 ![alt text](image-100.png)
 
@@ -404,6 +407,7 @@ yi_34b_qlora_alpaca_enzh_e3
 yi_6b_qlora_alpaca_enzh_e3
 zephyr_7b_beta_qlora_alpaca_e3
 =============================================================
-</details> ```
+```
+</details> 
 
 ## 3. 视频总结
