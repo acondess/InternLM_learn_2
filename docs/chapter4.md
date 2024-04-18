@@ -484,7 +484,7 @@ from xtuner.utils import PROMPT_TEMPLATE
 #######################################################################
 # Model
 # pretrained_model_name_or_path = 'internlm/internlm-chat-7b'
-pretrained_model_name_or_path = 'internlm/internlm-chat-7b'
+pretrained_model_name_or_path = './internlm-chat-7b'
 
 # Data
 # data_path = 'timdettmers/openassistant-guanaco'
@@ -650,5 +650,23 @@ randomness = dict(seed=None, deterministic=False)
 
 ##### 2.2.2.5 开始微调
 
+- 训练
+
+```bash
+# 单卡
+## 用刚才改好的config文件训练
+xtuner train ./internlm_chat_7b_qlora_oasst1_e3_copy.py --deepspeed deepspeed_zero2
+```
+
+![alt text](image-107.png)
+
+##### 2.2.2.6 转换PTH模型为LoRA模型
+
+```bash
+mkdir hf
+export MKL_SERVICE_FORCE_INTEL=1
+export MKL_THREADING_LAYER=GNU
+xtuner convert pth_to_hf ./internlm_chat_7b_qlora_oasst1_e3_copy.py ./work_dirs/internlm_chat_7b_qlora_oasst1_e3_copy/epoch_1.pth ./hf
+```
 
 ## 3. 视频总结
