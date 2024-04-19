@@ -660,6 +660,8 @@ xtuner train ./internlm_chat_7b_qlora_oasst1_e3_copy.py --deepspeed deepspeed_ze
 
 ![alt text](image-107.png)
 
+![alt text](image-108.png)
+
 ##### 2.2.2.6 转换PTH模型为LoRA模型
 
 ```bash
@@ -668,5 +670,67 @@ export MKL_SERVICE_FORCE_INTEL=1
 export MKL_THREADING_LAYER=GNU
 xtuner convert pth_to_hf ./internlm_chat_7b_qlora_oasst1_e3_copy.py ./work_dirs/internlm_chat_7b_qlora_oasst1_e3_copy/epoch_1.pth ./hf
 ```
+
+![alt text](image-109.png)
+
+#### 2.2.3 部署&测试
+
+##### 2.2.3.1 合并hf的adapter到大模型
+
+```bash
+xtuner convert merge ./internlm-chat-7b ./hf ./merged --max-shard-size 2GB
+```
+
+![alt text](image-110.png)
+
+
+##### 2.2.3.2 与合并后的模型对话
+
+```bash
+xtuner chat ./merged --prompt-template internlm_chat
+```
+
+
+##### 2.2.3.3 运行测试cli_demo.py
+
+修改模型为合并后的模型
+
+```python numbers="1"
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+
+# model_name_or_path = "/root/model/Shanghai_AI_Laboratory/internlm-chat-7b"
+model_name_or_path = "/root/ft-oasst1/merged"
+
+tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained(model_name_or_path, trust_remote_code=True, torch_dtype=torch.bfloat16, device_map='auto')
+model = model.eval()
+
+system_prompt = """You are an AI assistant whose name is InternLM (书生·浦语).
+- InternLM (书生·浦语) is a conversational language model that is developed by Shanghai AI Laboratory (上海人工智能实验室). It is designed to be helpful, honest, and harmless.
+- InternLM (书生·浦语) can understand and communicate fluently in the language chosen by the user such as English and 中文.
+"""
+
+messages = [(system_prompt, '')]
+
+print("=============Welcome to InternLM chatbot, type 'exit' to exit.=============")
+
+while True:
+    input_text = input("User  >>> ")
+    input_text.replace(' ', '')
+    if input_text == "exit":
+        break
+    response, history = model.chat(tokenizer, input_text, history=messages)
+    messages.append((input_text, response))
+    print(f"robot >>> {response}")
+```
+
+运行示例脚本
+```bash
+python Tutorial/xtuner/cli_demo.py
+```
+
+![alt text](image-111.png)
 
 ## 3. 视频总结
