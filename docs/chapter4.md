@@ -695,7 +695,7 @@ xtuner chat ./merged --prompt-template internlm_chat
 
 修改模型为合并后的模型
 
-```python numbers="1"
+```python linenums="1"
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
