@@ -19,12 +19,19 @@
 ![alt text](image-135.png)
 
 - 复现步骤
+
 [复现笔记](#22-lagent-web-demo)
 
 #### 1.1.2 完成 AgentLego 直接使用部分，并在作业中上传截图。
 
 - 结果截图
+
+![alt text](image-143.png)
+
 - 复现步骤
+
+[复现笔记](#23-直接使用-agentlego)
+
 
 ### 1.2 进阶作业
 
@@ -144,3 +151,89 @@ http://localhost:7860/
 - 暂时报错
 
 ![alt text](image-136.png)
+
+### 2.3 直接使用 AgentLego
+
+#### 2.3.1 文件获取
+
+- 获取图片
+
+```bash
+cd /root/agent
+wget http://download.openmmlab.com/agentlego/road.jpg
+```
+
+![alt text](image-137.png)
+
+#### 2.3.2 环境依赖
+
+AgentLego 所实现的目标检测工具是基于 mmdet (MMDetection) 算法库中的 RTMDet-Large 模型，因此我们首先安装 mim，然后通过 mim 工具来安装 mmdet。
+
+```bash
+conda activate agent
+pip install openmim==0.3.9
+mim install mmdet==3.3.0
+```
+
+![alt text](image-138.png)
+
+
+![alt text](image-139.png)
+
+#### 2.3.3 代码检测
+
+- 创建代码
+
+  通过 touch /root/agent/direct_use.py（大小写敏感）的方式在 /root/agent 目录下新建 direct_use.py 以直接使用目标检测工具。
+```bash
+touch /root/agent/direct_use.py
+```
+
+- 编写代码
+
+  direct_use.py 的代码如下：
+
+```python  linenums="1"
+  import re
+
+import cv2
+from agentlego.apis import load_tool
+
+# load tool
+tool = load_tool('ObjectDetection', device='cuda')
+
+# apply tool
+visualization = tool('/root/agent/road.jpg')
+print(visualization)
+
+# visualize
+image = cv2.imread('/root/agent/road.jpg')
+
+preds = visualization.split('\n')
+pattern = r'(\w+) \((\d+), (\d+), (\d+), (\d+)\), score (\d+)'
+
+for pred in preds:
+    name, x1, y1, x2, y2, score = re.match(pattern, pred).groups()
+    x1, y1, x2, y2, score = int(x1), int(y1), int(x2), int(y2), int(score)
+    cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 1)
+    cv2.putText(image, f'{name} {score}', (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 1)
+
+cv2.imwrite('/root/agent/road_detection_direct.jpg', image)
+```
+
+![alt text](image-140.png)
+
+- 执行代码
+
+```bash 
+python /root/agent/direct_use.py
+```
+
+![alt text](image-141.png)
+
+
+- 执行结果
+
+/root/agent 名为 road_detection_direct.jpg 的图片
+
+![alt text](image-142.png)
