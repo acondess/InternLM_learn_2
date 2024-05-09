@@ -27,7 +27,14 @@
 #### 1.1.2 以命令行方式与 InternLM2-Chat-1.8B 模型对话
 
 - 结果截图
+
+![alt text](image-121.png)
+
+![alt text](image-122.png)
+
 - 复现步骤
+
+[复现文档](#22-lmdeploy模型对话chat)
 
 ### 1.2 进阶作业
 
