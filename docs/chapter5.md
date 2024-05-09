@@ -135,3 +135,11 @@ lmdeploy chat /root/internlm2-chat-1_8b
 ![alt text](image-122.png)
 
 > 确实很快 有种grok的感觉
+
+- chat功能参数
+
+```bash
+lmdeploy chat -h
+```
+
+![alt text](image-123.png)
