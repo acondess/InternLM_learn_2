@@ -15,7 +15,11 @@
 #### 1.1.1 完成 Lagent Web Demo 使用，并在作业中上传截图。
 
 - 结果截图
+
+![alt text](image-135.png)
+
 - 复现步骤
+[复现笔记](#22-lagent-web-demo)
 
 #### 1.1.2 完成 AgentLego 直接使用部分，并在作业中上传截图。
 
@@ -58,6 +62,8 @@ studio-conda -t agent -o pytorch-2.1.2
 
 ![alt text](image-126.png)
 
+![alt text](image-127.png)
+
 - 安装 Lagent 和 AgentLego
 
 ```bash
@@ -69,12 +75,20 @@ git clone https://gitee.com/internlm/agentlego.git
 cd agentlego && git checkout 7769e0d && pip install -e . && cd ..
 ```
 
+![alt text](image-128.png)
+
+![alt text](image-129.png)
+
+
+
 - 安装依赖
 
 ```bash
 conda activate agent
 pip install lmdeploy==0.3.0
 ```
+
+![alt text](image-130.png)
 
 - 获取案例源码
 
@@ -83,11 +97,13 @@ cd /root/agent
 git clone -b camp2 https://gitee.com/internlm/Tutorial.git
 ```
 
+![alt text](image-131.png)
+
 ### 2.2 Lagent Web Demo
 
 [文档地址](https://github.com/InternLM/Tutorial/blob/camp2/agent/lagent.md#1-lagent-web-demo)
 
-#### 2.2.1 部署
+#### 2.2.1 部署服务
 
 - 启动api_server
 
@@ -96,3 +112,35 @@ conda activate agent
 
 lmdeploy serve api_server /root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-7b  --server-name 127.0.0.1  --model-name nternlm2-chat-7b   --cache-max-entry-count 0.1
 ```
+
+![alt text](image-132.png)
+
+#### 2.2.2 启动web案例
+
+```bash
+conda activate agent
+cd /root/agent/lagent/examples
+streamlit run internlm2_agent_web_demo.py --server.address 127.0.0.1 --server.port 7860
+```
+![alt text](image-133.png)
+
+#### 2.2.3 本地访问
+
+- 本地打开cmd命令行 
+
+```bash
+ssh -CNg -L 7860:127.0.0.1:7860 -L 23333:127.0.0.1:23333 root@ssh.intern-ai.org.cn -p 48061
+```
+
+![alt text](image-134.png)
+
+- 本地访问链接
+
+```bash
+http://localhost:7860/
+```
+![alt text](image-135.png)
+
+- 暂时报错
+
+![alt text](image-136.png)
