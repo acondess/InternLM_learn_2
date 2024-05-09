@@ -8,6 +8,7 @@
 
 ## [课时四 XTuner微调多模态Agent](chapter4.md)
 
+## [课时五 LMDeploy量化部署LLM实践](chapter5.md)
 <!-- For full documentation visit [mkdocs.org](https://www.mkdocs.org). -->
 
 <!-- ## Commands
