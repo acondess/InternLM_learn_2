@@ -14,7 +14,15 @@
 #### 1.1.1 配置 LMDeploy 运行环境
 
 - 结果截图
+
+  ![alt text](image-118.png)
+
+  ![alt text](image-119.png)
+
 - 复现步骤
+  
+  [lmdeploy环境部署](#21-lmdeploy环境部署)
+  
 
 #### 1.1.2 以命令行方式与 InternLM2-Chat-1.8B 模型对话
 
@@ -51,3 +59,47 @@
 ## 2. 文档复现
 
 [文档地址](https://github.com/InternLM/Tutorial/blob/camp2/lmdeploy/README.md)
+
+### 2.1 LMDeploy环境部署
+
+- 创建开发机
+
+>选择镜像Cuda12.2-conda；选择10% A100*1GPU；点击“立即创建”。
+
+>***注意***   请不要选择Cuda11.7-conda的镜像，新版本的lmdeploy会出现兼容性问题。
+
+![alt text](image-114.png)
+
+- 终端模式
+
+切换到命令行模式。
+
+![alt text](image-115.png)
+
+- conda环境
+
+```bash
+studio-conda -t lmdeploy -o pytorch-2.1.2
+```
+
+![alt text](image-116.png)
+
+![alt text](image-117.png)
+
+- 安装依赖
+
+  - 激活lmdeploy环境
+
+  ```bash
+  conda activate lmdeploy
+  ```
+
+  - 安装依赖
+
+  ```bash
+  pip install lmdeploy[all]==0.3.0
+  ```
+
+  ![alt text](image-118.png)
+
+  ![alt text](image-119.png)
