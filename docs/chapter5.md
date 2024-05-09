@@ -103,3 +103,28 @@ studio-conda -t lmdeploy -o pytorch-2.1.2
   ![alt text](image-118.png)
 
   ![alt text](image-119.png)
+
+### 2.2 LMDeploy模型对话（chat）
+
+- internlm2-chat-1_8b模型下载
+
+开发机已有模型软链接方式：
+
+```bash
+ls
+ls /root/share/new_models/Shanghai_AI_Laboratory/
+ln -s /root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-1_8b /root/
+ls
+```
+![alt text](image-120.png)
+
+- 直接对话（省略Transform对比——我要速通-_-` ）
+
+```bash
+lmdeploy chat /root/internlm2-chat-1_8b
+```
+![alt text](image-121.png)
+
+![alt text](image-122.png)
+
+> 确实很快 有种grok的感觉
