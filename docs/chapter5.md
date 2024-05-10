@@ -77,7 +77,12 @@
 ### 1.2.4 使用 LMDeploy 运行视觉多模态大模型 llava gradio demo。
 
 - 结果截图
+
+![alt text](image-182.png)
+
 - 复现步骤
+
+[复现文档](#25-lmdeploy运行多模态大模型)
 
 ### 1.2.5 将 LMDeploy Web Demo 部署到 OpenXLab 。
 
@@ -345,3 +350,80 @@ python /root/pipeline_kv.py
 ```
 
 ![alt text](image-175.png)
+
+### 2.5 LMDeploy运行多模态大模型
+
+#### 2.5.1 调整开发机配置
+
+- 升级GPU配额
+
+![alt text](image-178.png)
+
+#### 2.5.2 环境搭建
+
+- 激活conda环境
+
+```bash
+conda activate lmdeploy
+```
+
+- 安装源码及依赖
+
+```bash
+pip install git+https://github.com/haotian-liu/LLaVA.git@4e2277a060da264c4f21b364c867cc622c945874
+```
+![alt text](image-179.png)
+
+#### 2.5.3 创建界面化运行llava多模态
+
+- 创建python脚本
+
+```bash
+touch /root/gradio_llava.py
+```
+
+- 填写python脚本
+
+```python linenums="1"
+import gradio as gr
+from lmdeploy import pipeline, TurbomindEngineConfig
+
+
+backend_config = TurbomindEngineConfig(session_len=8192) # 图片分辨率较高时请调高session_len
+# pipe = pipeline('liuhaotian/llava-v1.6-vicuna-7b', backend_config=backend_config) 非开发机运行此命令
+pipe = pipeline('/share/new_models/liuhaotian/llava-v1.6-vicuna-7b', backend_config=backend_config)
+
+def model(image, text):
+    if image is None:
+        return [(text, "请上传一张图片。")]
+    else:
+        response = pipe((text, image)).text
+        return [(text, response)]
+
+demo = gr.Interface(fn=model, inputs=[gr.Image(type="pil"), gr.Textbox()], outputs=gr.Chatbot())
+demo.launch()   
+```
+
+![alt text](image-180.png)
+
+- 运行python脚本
+
+```bash
+python /root/gradio_llava.py
+```
+
+- 本地连接
+
+```bash
+ssh -CNg -L 7860:127.0.0.1:7860 root@ssh.intern-ai.org.cn -p 48048
+```
+
+![alt text](image-181.png)
+
+- 本地访问
+
+http://127.0.0.1:7860
+
+![alt text](image-182.png)
+
+多模态还是战力不足啊
