@@ -52,7 +52,15 @@
 ### 1.2.2 以API Server方式启动 lmdeploy，开启 W4A16量化，调整KV Cache的占用比例为0.4，分别使用命令行客户端与Gradio网页客户端与模型对话。
 
 - 结果截图
+  - 命令行
+![alt text](image-170.png)
+![alt text](image-171.png)
+
+  - web网页
+![alt text](image-173.png)
+
 - 复现步骤
+[复现文档](#24-lmdeploy服务serve)
 
 ### 1.2.3 使用W4A16量化，调整KV Cache的占用比例为0.4，使用Python代码集成的方式运行internlm2-chat-1.8b模型。
 
@@ -231,3 +239,70 @@ lmdeploy chat /root/internlm2-chat-1_8b-4bit --model-format awq --cache-max-entr
 ```
 量化后显存占用量为百分之60，推理回复速度贼快
 ![alt text](image-163.png)
+
+### 2.4 LMDeploy服务(serve)
+
+#### 2.4.1 启动API服务器
+
+- 开启服务
+
+```bash
+lmdeploy serve api_server \
+    /root/internlm2-chat-1_8b \
+    --model-format hf \
+    --quant-policy 0 \
+    --server-name 0.0.0.0 \
+    --server-port 23333 \
+    --tp 1
+```
+
+![alt text](image-165.png)
+
+- 访问服务接口页面
+
+本地ssh连接
+
+```bash
+ssh -CNg -L 23333:127.0.0.1:23333 root@ssh.intern-ai.org.cn -p 48048 
+```
+![alt text](image-164.png)
+
+![alt text](image-166.png)
+
+- 开启量化模型作为服务
+
+```bash
+lmdeploy serve api_server \
+/root/internlm2-chat-1_8b-4bit \
+--model-format awq \
+--cache-max-entry-count 0.4 \
+--quant-policy 0 \
+--server-name 0.0.0.0 \
+--server-port 23333 \
+--tp 1
+```
+![alt text](image-169.png)
+
+#### 2.4.2 命令行与API Serve对话
+
+```bash
+conda activate lmdeploy
+lmdeploy serve api_client http://localhost:23333
+```
+![alt text](image-168.png)
+
+#### 2.4.3 web网页与API Serve对话
+
+```bash
+lmdeploy serve gradio http://localhost:23333 \
+    --server-name 0.0.0.0 \
+    --server-port 6006
+```
+
+本地连接
+
+```bash
+ssh -CNg -L 6006:127.0.0.1:6006 root@ssh.intern-ai.org.cn -p 48048
+```
+
+![alt text](image-172.png)
