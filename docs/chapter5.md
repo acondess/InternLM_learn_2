@@ -65,7 +65,14 @@
 ### 1.2.3 使用W4A16量化，调整KV Cache的占用比例为0.4，使用Python代码集成的方式运行internlm2-chat-1.8b模型。
 
 - 结果截图
+
+![alt text](image-177.png)
+
+![alt text](image-175.png)
+
 - 复现步骤
+
+[复现文档](#245-python代码方式集成量化模型)
 
 ### 1.2.4 使用 LMDeploy 运行视觉多模态大模型 llava gradio demo。
 
@@ -306,3 +313,35 @@ ssh -CNg -L 6006:127.0.0.1:6006 root@ssh.intern-ai.org.cn -p 48048
 ```
 
 ![alt text](image-172.png)
+
+#### 2.4.5 Python代码方式集成量化模型
+
+- 创建python代码
+
+```bash
+conda activate lmdeploy
+touch /root/pipeline_kv.py
+```
+
+- 编写python代码
+
+```python  linenums="1"
+from lmdeploy import pipeline, TurbomindEngineConfig
+
+# 调低 k/v cache内存占比调整为总显存的 40%
+backend_config = TurbomindEngineConfig(cache_max_entry_count=0.4)
+
+pipe = pipeline('/root/internlm2-chat-1_8b-4bit',
+                backend_config=backend_config)
+response = pipe(['Hi, pls intro yourself', '上海是'])
+print(response)
+```
+![alt text](image-176.png)
+
+- 运行python代码
+
+```bash
+python /root/pipeline_kv.py
+```
+
+![alt text](image-175.png)
