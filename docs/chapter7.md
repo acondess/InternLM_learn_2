@@ -1,4 +1,4 @@
-# 第七课 OpenCompass 大模型测评
+# 课时七 OpenCompass 大模型测评
 
 ![alt text](image-144.png)
 

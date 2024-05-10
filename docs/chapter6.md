@@ -1,4 +1,4 @@
-# 第六课 Lagent & AgentLego 智能体应用搭建
+# 课时六 Lagent & AgentLego 智能体应用搭建
 
 ![alt text](image-124.png)
 

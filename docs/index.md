@@ -10,9 +10,9 @@
 
 ## [课时五 LMDeploy量化部署LLM实践](chapter5.md)
 
-## [第六课 Lagent & AgentLego 智能体应用搭建](chapter6.md)
+## [课时六 Lagent & AgentLego 智能体应用搭建](chapter6.md)
 
-## [第七课 OpenCompass 大模型测评](chapter7.md)
+## [课时七 OpenCompass 大模型测评](chapter7.md)
 <!-- For full documentation visit [mkdocs.org](https://www.mkdocs.org). -->
 
 <!-- ## Commands
