@@ -41,7 +41,13 @@
 ### 1.2.1 设置KV Cache最大占用比例为0.4，开启W4A16量化，以命令行方式与模型对话。
 
 - 结果截图
+
+![alt text](image-163.png)
+
+
 - 复现步骤
+
+[复现文档](#23-lmdeploy模型量化lite)
 
 ### 1.2.2 以API Server方式启动 lmdeploy，开启 W4A16量化，调整KV Cache的占用比例为0.4，分别使用命令行客户端与Gradio网页客户端与模型对话。
 
@@ -143,3 +149,85 @@ lmdeploy chat -h
 ```
 
 ![alt text](image-123.png)
+
+### 2.3 LMDeploy模型量化（lite）
+
+#### 2.3.1 量化概念
+
+- 计算密集（compute-bound）: 指推理过程中，绝大部分时间消耗在数值计算上；针对计算密集型场景，可以通过使用更快的硬件计算单元来提升计算速度。
+
+- 访存密集（memory-bound）: 指推理过程中，绝大部分时间消耗在数据读取上；针对访存密集型场景，一般通过减少访存次数、提高计算访存比或降低访存量来优化。
+
+- 大模型推理是访存密集型场景：常见的 LLM 模型由于 Decoder Only 架构的特性，实际推理时大多数的时间都消耗在了逐 Token 生成阶段（Decoding 阶段），是典型的访存密集型场景。
+
+- 使用KV8量化和W4A16量化对大模型推理进行优化：KV8量化是指将逐 Token（Decoding）生成过程中的上下文 K 和 V 中间结果进行 INT8 量化（计算时再反量化），以降低生成过程中的显存占用。W4A16 量化，将 FP16 的模型权重量化为 INT4，Kernel 计算时，访存量直接降为 FP16 模型的 1/4，大幅降低了访存成本。Weight Only 是指仅量化权重，数值计算依然采用 FP16（需要将 INT4 权重反量化）。
+
+#### 2.3.2 设置最大KV Cache缓存大小
+
+KV Cache是一种缓存技术，通过存储键值对的形式来复用计算结果，以达到提高性能和降低内存消耗的目的。在大规模训练和推理中，KV Cache可以显著减少重复计算量，从而提升模型的推理速度。理想情况下，KV Cache全部存储于显存，以加快访存速度。当显存空间不足时，也可以将KV Cache放在内存，通过缓存管理器控制将当前需要使用的数据放入显存。
+
+模型在运行时，占用的显存可大致分为三部分：模型参数本身占用的显存、KV Cache占用的显存，以及中间运算结果占用的显存。LMDeploy的KV Cache管理器可以通过设置--cache-max-entry-count参数，控制KV缓存占用剩余显存的最大比例。默认的比例为0.8。
+
+- 设置KV Cache缓存大小为0.4
+
+```bash
+lmdeploy chat /root/internlm2-chat-1_8b --cache-max-entry-count 0.4
+```
+
+使用0.4 kv cache缓存，8G显存占用量百分之75
+![alt text](image-159.png)
+
+#### 2.3.3 使用W4A16量化
+
+LMDeploy使用AWQ算法，实现模型4bit权重量化。
+
+- 依赖库安装
+
+```bash
+pip install einops==0.7.0
+```
+
+- 执行量化
+
+```bash
+lmdeploy lite auto_awq \
+   /root/internlm2-chat-1_8b \
+  --calib-dataset 'ptb' \
+  --calib-samples 128 \
+  --calib-seqlen 1024 \
+  --w-bits 4 \
+  --w-group-size 128 \
+  --work-dir /root/internlm2-chat-1_8b-4bit
+  ```
+
+```bash
+lmdeploy lite auto_awq \  # lmdeploy工具的命令，lite表示轻量级模式，auto_awq表示自动量化
+/root/internlm2-chat-1_8b \  # 指定要量化的语言模型文件的路径
+  --calib-dataset 'ptb' \  # 指定用于量化校准的数据集名称为'ptb'
+  --calib-samples 128 \  # 在量化校准中使用的样本数量为128个
+  --calib-seqlen 1024 \  # 在量化校准中使用的序列长度为1024
+  --w-bits 4 \  # 量化时使用的权重位数为4位
+  --w-group-size 128 \  # 量化时每个权重组的大小为128
+  --work-dir /root/internlm2-chat-1_8b-4bit  # 指定量化后的工作目录，用于存放量化模型和其他相关文件
+  ```
+
+  ![alt text](image-160.png)
+
+  ![alt text](image-161.png)
+
+  - 使用量化后的模型对话
+
+```bash
+lmdeploy chat /root/internlm2-chat-1_8b-4bit --model-format awq
+```
+
+量化后显存占用量为百分之90
+![alt text](image-162.png)
+
+- 设置KV Cache最大占用比例为0.4，开启W4A16量化，以命令行方式与模型对话。
+
+```bash
+lmdeploy chat /root/internlm2-chat-1_8b-4bit --model-format awq --cache-max-entry-count 0.4
+```
+量化后显存占用量为百分之60，推理回复速度贼快
+![alt text](image-163.png)
