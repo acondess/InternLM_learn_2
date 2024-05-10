@@ -38,7 +38,12 @@
 #### 1.2.1 完成 AgentLego WebUI 使用，并在作业中上传截图。
 
 - 结果截图
+
+![alt text](image-199.png)
+
 - 复现步骤
+
+[复现文档](#24-agentlego-webui)
 
 #### 1.2.2 使用 Lagent 或 AgentLego 实现自定义工具并完成调用，并在作业中上传截图。
 
@@ -237,3 +242,86 @@ python /root/agent/direct_use.py
 /root/agent 名为 road_detection_direct.jpg 的图片
 
 ![alt text](image-142.png)
+
+### 2.4 AgentLego WebUI
+
+[文档地址](https://github.com/InternLM/Tutorial/blob/camp2/agent/agentlego.md#2-%E4%BD%9C%E4%B8%BA%E6%99%BA%E8%83%BD%E4%BD%93%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8)
+
+#### 2.4.1 修改模型调用脚本
+
+修改 /root/agent/agentlego/webui/modules/agents/lagent_agent.py 文件的第 105行位置，将 internlm2-chat-20b 修改为 internlm2-chat-7b
+
+![alt text](image-188.png)
+
+#### 2.4.2 LMDeploy部署服务
+
+使用 LMDeploy 启动一个 api_server。
+
+```bash
+conda activate agent
+lmdeploy serve api_server /root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-7b \
+                            --server-name 127.0.0.1 \
+                            --model-name internlm2-chat-7b \
+                            --cache-max-entry-count 0.1
+```
+![alt text](image-189.png)
+
+#### 2.4.3 启动 AgentLego WebUI
+
+新建一个 terminal 以启动 AgentLego WebUI
+
+```bash
+conda activate agent
+cd /root/agent/agentlego/webui
+python one_click.py
+```
+
+- 本地连接
+
+```bash
+ssh -CNg -L 7860:127.0.0.1:7860 -L 23333:127.0.0.1:23333 root@ssh.intern-ai.org.cn -p 48061 
+```
+
+![alt text](image-190.png)
+
+#### 2.4.4 使用 AgentLego WebUI
+
+- 选择Agent Tag页
+
+![alt text](image-191.png)
+
+- 下拉选择New Agent
+
+![alt text](image-192.png)
+
+- 选择 Agent Class 为 lagent.InternLM2Agent
+
+![alt text](image-193.png)
+
+- 输入 Agent name，自定义即可，图中输入了acondess
+
+- 点击 save to 以保存配置，这样在下次使用时只需在第2步时选择 Agent 为 internlm2 后点击 load 以加载就可以了。
+
+![alt text](image-194.png)
+
+- 点击Load 加载Agent
+
+![alt text](image-195.png)
+
+- 配置工具
+
+![alt text](image-196.png)
+
+- 加载完成
+
+![alt text](image-197.png)
+
+- 对话
+
+等待工具加载完成后，点击上方 Chat 以进入对话页面。在页面下方选择工具部分只选择 ObjectDetection 工具，如下图所示。为了确保调用工具的成功率，请在使用时确保仅有这一个工具启用。
+
+![alt text](image-198.png)
+
+- 上传图片，输入检测要求
+
+![alt text](image-199.png)

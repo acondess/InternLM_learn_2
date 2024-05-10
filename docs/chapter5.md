@@ -427,3 +427,39 @@ http://127.0.0.1:7860
 ![alt text](image-182.png)
 
 多模态还是战力不足啊
+
+### 2.6 在OpenXLab部署LMDeploy web demo
+
+[文档地址](https://github.com/InternLM/Tutorial/tree/camp2/tools/openxlab-deploy)
+
+[OpenXLab](https://openxlab.org.cn/home)
+
+![alt text](image-183.png)
+
+#### 2.6.1 创建模型仓库
+
+![alt text](image-184.png)
+
+#### 2.6.2 创建本地空间
+
+![alt text](image-185.png)
+
+#### 2.6.3 创建令牌
+
+![alt text](image-186.png)
+
+![alt text](image-187.png)
+
+#### 2.6.4 获取大模型
+
+[大模型地址](https://openxlab.org.cn/models/detail/OpenLMLab/internlm2-chat-7b/tree/main)
+
+```bash
+git lfs install
+git clone https://code.openxlab.org.cn/OpenLMLab/internlm2-chat-7b.git
+```
+
+#### 2.6.5 上传大模型
+
+
+
