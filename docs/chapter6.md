@@ -48,7 +48,12 @@
 #### 1.2.2 使用 Lagent 或 AgentLego 实现自定义工具并完成调用，并在作业中上传截图。
 
 - 结果截图
+
+![alt text](image-207.png)
+
 - 复现步骤
+
+[复现文档](#25-agentlego-自定义工具)
 
 ## 2. 文档复现
 
@@ -325,3 +330,175 @@ ssh -CNg -L 7860:127.0.0.1:7860 -L 23333:127.0.0.1:23333 root@ssh.intern-ai.org.
 - 上传图片，输入检测要求
 
 ![alt text](image-199.png)
+
+### 2.5 AgentLego 自定义工具
+
+实现一个调用 MagicMaker 的 API 以实现图像生成的工具,提供图像生成、图像编辑和视频生成。
+
+[MagicMaker地址](https://magicmaker.openxlab.org.cn/home)
+
+#### 2.5.1 创建工具文件
+
+- 新建python脚本
+
+```bash
+touch /root/agent/agentlego/agentlego/tools/magicmaker_image_generation.py
+```
+
+![alt text](image-200.png)
+
+- 编写python脚本
+
+```python linenums="1"
+import json
+import requests
+
+import numpy as np
+
+from agentlego.types import Annotated, ImageIO, Info
+from agentlego.utils import require
+from .base import BaseTool
+
+
+class MagicMakerImageGeneration(BaseTool):
+
+    default_desc = ('This tool can call the api of magicmaker to '
+                    'generate an image according to the given keywords.')
+
+    styles_option = [
+        'dongman',  # 动漫
+        'guofeng',  # 国风
+        'xieshi',   # 写实
+        'youhua',   # 油画
+        'manghe',   # 盲盒
+    ]
+    aspect_ratio_options = [
+        '16:9', '4:3', '3:2', '1:1',
+        '2:3', '3:4', '9:16'
+    ]
+
+    @require('opencv-python')
+    def __init__(self,
+                 style='guofeng',
+                 aspect_ratio='4:3'):
+        super().__init__()
+        if style in self.styles_option:
+            self.style = style
+        else:
+            raise ValueError(f'The style must be one of {self.styles_option}')
+        
+        if aspect_ratio in self.aspect_ratio_options:
+            self.aspect_ratio = aspect_ratio
+        else:
+            raise ValueError(f'The aspect ratio must be one of {aspect_ratio}')
+
+    def apply(self,
+              keywords: Annotated[str,
+                                  Info('A series of Chinese keywords separated by comma.')]
+        ) -> ImageIO:
+        import cv2
+        response = requests.post(
+            url='https://magicmaker.openxlab.org.cn/gw/edit-anything/api/v1/bff/sd/generate',
+            data=json.dumps({
+                "official": True,
+                "prompt": keywords,
+                "style": self.style,
+                "poseT": False,
+                "aspectRatio": self.aspect_ratio
+            }),
+            headers={'content-type': 'application/json'}
+        )
+        image_url = response.json()['data']['imgUrl']
+        image_response = requests.get(image_url)
+        image = cv2.cvtColor(cv2.imdecode(np.frombuffer(image_response.content, np.uint8), cv2.IMREAD_COLOR),cv2.COLOR_BGR2RGB)
+        return ImageIO(image)
+```
+
+#### 2.5.2 注册新工具
+
+修改 /root/agent/agentlego/agentlego/tools/__init__.py 文件，将我们的工具注册在工具列表中。
+
+将 MagicMakerImageGeneration 通过 from .magicmaker_image_generation import MagicMakerImageGeneration 导入到了文件中，并且将其加入了 __all__ 列表中。
+
+![alt text](image-201.png)
+
+```python linenums="1"
+from .base import BaseTool
+from .calculator import Calculator
+from .func import make_tool
+from .image_canny import CannyTextToImage, ImageToCanny
+from .image_depth import DepthTextToImage, ImageToDepth
+from .image_editing import ImageExpansion, ImageStylization, ObjectRemove, ObjectReplace
+from .image_pose import HumanBodyPose, HumanFaceLandmark, PoseToImage
+from .image_scribble import ImageToScribble, ScribbleTextToImage
+from .image_text import ImageDescription, TextToImage
+from .imagebind import AudioImageToImage, AudioTextToImage, AudioToImage, ThermalToImage
+from .object_detection import ObjectDetection, TextToBbox
+from .ocr import OCR
+from .scholar import *  # noqa: F401, F403
+from .search import BingSearch, GoogleSearch
+from .segmentation import SegmentAnything, SegmentObject, SemanticSegmentation
+from .speech_text import SpeechToText, TextToSpeech
+from .translation import Translation
+from .vqa import VQA
+
+from .magicmaker_image_generation import MagicMakerImageGeneration
+
+__all__ = [
+    'CannyTextToImage', 'ImageToCanny', 'DepthTextToImage', 'ImageToDepth',
+    'ImageExpansion', 'ObjectRemove', 'ObjectReplace', 'HumanFaceLandmark',
+    'HumanBodyPose', 'PoseToImage', 'ImageToScribble', 'ScribbleTextToImage',
+    'ImageDescription', 'TextToImage', 'VQA', 'ObjectDetection', 'TextToBbox', 'OCR',
+    'SegmentObject', 'SegmentAnything', 'SemanticSegmentation', 'ImageStylization',
+    'AudioToImage', 'ThermalToImage', 'AudioImageToImage', 'AudioTextToImage',
+    'SpeechToText', 'TextToSpeech', 'Translation', 'GoogleSearch', 'Calculator',
+    'BaseTool', 'make_tool', 'BingSearch','MagicMakerImageGeneration',
+]
+```
+#### 2.5.3 启动自定义工具
+
+在两个 terminal 中分别启动 LMDeploy 服务和 AgentLego 的 WebUI 以体验我们自定义的工具的效果。
+
+- 启动 LMDeploy 服务
+
+```bash
+conda activate agent
+lmdeploy serve api_server /root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-7b \
+                            --server-name 127.0.0.1 \
+                            --model-name internlm2-chat-7b \
+                            --cache-max-entry-count 0.1
+```
+
+- 启动 AgentLego 服务
+
+```bash
+conda activate agent
+cd /root/agent/agentlego/webui
+python one_click.py
+```
+![alt text](image-202.png)
+
+- 本地连接
+
+```bash
+ssh -CNg -L 7860:127.0.0.1:7860 -L 23333:127.0.0.1:23333 root@ssh.intern-ai.org.cn -p 48061 
+```
+
+- 设置Tools
+
+Tool class 选择MagicMakerImageGeneration并点击save
+
+![alt text](image-204.png)
+
+#### 2.5.4 应用结果
+
+- 选择自定义tools
+
+![alt text](image-205.png)
+
+- 输入文字要求
+
+![alt text](image-206.png)
+
+![alt text](image-207.png)
+
