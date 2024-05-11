@@ -24,6 +24,8 @@
 
 - 复现结果截图
 
+![alt text](image-221.png)
+
 - 复现过程文档
 
 [多模态微调复现](#225-多模态微调)
@@ -898,6 +900,8 @@ xtuner train /root/tutorial/xtuner/llava/llava_internlm2_chat_1_8b_qlora_clip_vi
 
 ![alt text](image-216.png)
 
+![alt text](image-218.png)
+
 ##### 2.2.5.4 微调模型对话
 
 - 多卡环境设置
@@ -916,6 +920,7 @@ xtuner convert pth_to_hf \
   /root/tutorial/xtuner/llava/llava_data/iter_1200_hf
 ```
 
+![alt text](image-219.png)
 
 - chat
 
@@ -927,7 +932,7 @@ xtuner chat /root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-1_8b \
   --image /root/tutorial/xtuner/llava/llava_data/test_img/oph.jpg
 ```
 
-
+![alt text](image-220.png)
 
 
 ## 3. 视频总结
