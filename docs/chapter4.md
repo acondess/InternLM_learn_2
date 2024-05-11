@@ -22,6 +22,12 @@
 
 ### 1.3  复现多模态微调
 
+- 复现结果截图
+
+- 复现过程文档
+
+[多模态微调复现](#225-多模态微调)
+
 ## 2. 文档复现笔记
 
 [文档地址](https://github.com/InternLM/tutorial/blob/main/xtuner/README.md)
@@ -735,5 +741,193 @@ python Tutorial/xtuner/cli_demo.py
 ```
 
 ![alt text](image-111.png)
+
+#### 2.2.4 模型&应用部署到OpenXLab
+
+[Streamlit部署参考文档](https://aicarrier.feishu.cn/docx/MQH6dygcKolG37x0ekcc4oZhnCe)
+
+[gradio部署参考文档](https://openxlab.org.cn/docs/apps/Gradio%E5%BA%94%E7%94%A8.html#gradio-%E5%BA%94%E7%94%A8)
+
+#### 2.2.5 多模态微调
+
+[文档地址](https://github.com/InternLM/Tutorial/blob/camp2/xtuner/llava/xtuner_llava.md)
+
+##### 2.2.5.1 环境设置
+
+- 创建开发机
+
+填写 开发机名称 后，点击 选择镜像 使用 Cuda11.7-conda 镜像，然后在资源配置中，使用 50% A100 * 1 的选项，然后立即创建开发机器。
+![alt text](image-208.png)
+
+- Xtuner安装
+  - conda环境安装
+  
+```bash
+  cd ~ && studio-conda xtuner0.1.17
+  # 如果你是在其他平台：
+  # conda create --name xtuner0.1.17 python=3.10 -y
+```
+
+![alt text](image-209.png)
+
+- 激活环境
+
+```bash
+# 激活环境
+conda activate xtuner0.1.17
+```
+
+- 获取源码&安装
+```bash
+# 进入家目录 （~的意思是 “当前用户的home路径”）
+cd ~
+# 创建版本文件夹并进入
+mkdir -p /root/xtuner0117 && cd /root/xtuner0117
+
+# 拉取 0.1.17 的版本源码
+git clone -b v0.1.17  https://github.com/InternLM/xtuner
+# 无法访问github的用户请从 gitee 拉取:
+# git clone -b v0.1.15 https://gitee.com/Internlm/xtuner
+
+# 进入源码目录
+cd /root/xtuner0117/xtuner
+
+# 从源码安装 XTuner
+pip install -e '.[all]' && cd ~
+```
+
+![alt text](image-210.png)
+
+![alt text](image-211.png)
+
+##### 2.2.5.2 预训练
+
+提供了Pretrain阶段的产物——iter_2181.pth文件。它就是幼稚园阶段的Image Projector！大家带着iter_2181.pth文件继续进入下一阶段进行Finetune即可。
+
+```bash
+share/new_models/xtuner/iter_2181.pth
+```
+
+![alt text](image-212.png)
+
+
+##### 2.2.5.3 微调
+
+- 格式示意
+
+```json
+[
+  {
+    "id": "000000033471",
+    "image": "coco/train2017/000000033471.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nWhat are the colors of the bus in the image?"
+      },
+      {
+        "from": "gpt",
+        "value": "The bus in the image is white and red."
+      },
+      {
+        "from": "human",
+        "value": "What feature can be seen on the back of the bus?"
+      },
+      {
+        "from": "gpt",
+        "value": "The back of the bus features an advertisement."
+      },
+      {
+        "from": "human",
+        "value": "Is the bus driving down the street or pulled off to the side?"
+      },
+      {
+        "from": "gpt",
+        "value": "The bus is driving down the street, which is crowded with people and other vehicles."
+      }
+    ]
+  },
+  {
+    "id": "000000052846",
+    "image": "coco/train2017/000000052846.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nWhere is the cat positioned in the image?"
+      },
+      {
+        "from": "gpt",
+        "value": "The cat is positioned on top of the back of the couch in the living room."
+      }
+    ]
+  }
+ ]
+ ```
+
+ - 生成问答对数据(repeat_data.json)
+
+ ```bash
+ cd ~ && git clone https://github.com/InternLM/tutorial -b camp2 && conda activate xtuner0.1.17 && cd tutorial
+
+python /root/tutorial/xtuner/llava/llava_data/repeat.py \
+  -i /root/tutorial/xtuner/llava/llava_data/unique_data.json \
+  -o /root/tutorial/xtuner/llava/llava_data/repeated_data.json \
+  -n 200
+  ```
+
+![alt text](image-213.png)
+
+- 获取配置文件
+
+```bash
+cp /root/tutorial/xtuner/llava/llava_data/internlm2_chat_1_8b_llava_tutorial_fool_config.py /root/tutorial/xtuner/llava/llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy.py
+```
+
+![alt text](image-214.png)
+
+- 开始微调
+
+```bash
+cd /root/tutorial/xtuner/llava/
+xtuner train /root/tutorial/xtuner/llava/llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy.py --deepspeed deepspeed_zero2
+```
+
+
+
+![alt text](image-215.png)
+
+![alt text](image-216.png)
+
+##### 2.2.5.4 微调模型对话
+
+- 多卡环境设置
+
+```bash
+export MKL_SERVICE_FORCE_INTEL=1
+export MKL_THREADING_LAYER=GNU
+```
+
+- pth转huggingface
+
+```bash
+xtuner convert pth_to_hf \
+  /root/tutorial/xtuner/llava/llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy.py \
+  /root/tutorial/xtuner/llava/work_dirs/llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy/iter_1200.pth \
+  /root/tutorial/xtuner/llava/llava_data/iter_1200_hf
+  ```
+
+
+- chat
+
+```bash
+xtuner chat /root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-1_8b \
+  --visual-encoder /root/share/new_models/openai/clip-vit-large-patch14-336 \
+  --llava /root/tutorial/xtuner/llava/llava_data/iter_1200_hf \
+  --prompt-template internlm2_chat \
+  --image /root/tutorial/xtuner/llava/llava_data/test_img/oph.jpg
+  ```
+
+
+
 
 ## 3. 视频总结
