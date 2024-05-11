@@ -914,7 +914,7 @@ xtuner convert pth_to_hf \
   /root/tutorial/xtuner/llava/llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy.py \
   /root/tutorial/xtuner/llava/work_dirs/llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy/iter_1200.pth \
   /root/tutorial/xtuner/llava/llava_data/iter_1200_hf
-  ```
+```
 
 
 - chat
@@ -925,7 +925,7 @@ xtuner chat /root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-1_8b \
   --llava /root/tutorial/xtuner/llava/llava_data/iter_1200_hf \
   --prompt-template internlm2_chat \
   --image /root/tutorial/xtuner/llava/llava_data/test_img/oph.jpg
-  ```
+```
 
 
 
