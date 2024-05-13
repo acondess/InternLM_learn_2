@@ -13,6 +13,10 @@
 ## [课时六 Lagent & AgentLego 智能体应用搭建](chapter6.md)
 
 ## [课时七 OpenCompass 大模型测评](chapter7.md)
+
+## 证书 & 荣誉
+
+![alt text](InternLM-C2-S961.png)
 <!-- For full documentation visit [mkdocs.org](https://www.mkdocs.org). -->
 
 <!-- ## Commands
