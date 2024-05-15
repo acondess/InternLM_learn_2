@@ -1,0 +1,1653 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter2/">
+      
+      
+        <link rel="next" href="../chapter4/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
+    
+    
+      
+        <title>课时三 "茴香豆":零代码搭建你的 RAG 智能助理 - 第二期书生·浦语实战营学习笔记及作业提交</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.732c4fb1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rag" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="第二期书生·浦语实战营学习笔记及作业提交" class="md-header__button md-logo" aria-label="第二期书生·浦语实战营学习笔记及作业提交" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            第二期书生·浦语实战营学习笔记及作业提交
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              课时三 "茴香豆":零代码搭建你的 RAG 智能助理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4m0-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  第二期书生·浦语实战营学习笔记及作业提交
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter1/" class="md-tabs__link">
+        
+  
+    
+  
+  课时一 书生·浦语大模型全链路开源开放体系
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter2/" class="md-tabs__link">
+        
+  
+    
+  
+  课时二 轻松分钟玩转书生·浦语大模型趣味 Demo
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  课时三 "茴香豆":零代码搭建你的 RAG 智能助理
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter4/" class="md-tabs__link">
+        
+  
+    
+  
+  课时四 XTuner微调多模态Agent
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter5/" class="md-tabs__link">
+        
+  
+    
+  
+  课时五 LMDeploy量化部署LLM实践
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter6/" class="md-tabs__link">
+        
+  
+    
+  
+  课时六 Lagent &amp; AgentLego 智能体应用搭建
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter7/" class="md-tabs__link">
+        
+  
+    
+  
+  课时七 OpenCompass 大模型测评
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="第二期书生·浦语实战营学习笔记及作业提交" class="md-nav__button md-logo" aria-label="第二期书生·浦语实战营学习笔记及作业提交" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    第二期书生·浦语实战营学习笔记及作业提交
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第二期书生·浦语实战营学习笔记及作业提交
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时一 书生·浦语大模型全链路开源开放体系
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时二 轻松分钟玩转书生·浦语大模型趣味 Demo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    课时三 "茴香豆":零代码搭建你的 RAG 智能助理
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    课时三 "茴香豆":零代码搭建你的 RAG 智能助理
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 提交的作业结果
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 提交的作业结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 茴香豆web版部署知识问答助手
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 茴香豆技术助手
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 茴香豆技术助手">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.1 代码版
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-giradio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.2 giradio网页版
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 进阶作业
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 进阶作业">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    <span class="md-ellipsis">
+      A.【应用方向】 结合自己擅长的领域知识（游戏、法律、电子等）、专业背景，搭建个人工作助手或者垂直领域问答助手，参考茴香豆官方文档，部署到下列任一平台。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#131" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.1 多模态大模型综述论文
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-good_questionsjson-prompt-nlp-chunk" class="md-nav__link">
+    <span class="md-ellipsis">
+      B.【算法方向】尝试修改 good_questions.json、调试 prompt 或应用其他 NLP 技术，如其他 chunk 方法，提高个人工作助手的表现。
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 大作业项目
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 大作业项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      A.【工程方向】 参与贡献茴香豆前端，将茴香豆助手部署到下列平台
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-rag-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      B.【应用方向】 茴香豆RAG-Agent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      C.【算法方向】 茴香豆多模态
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 视频笔记
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 文档笔记
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 文档笔记">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 前置知识
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-huixiangdouconda" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 创建huixiangdou环境（conda）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 模型文件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 模型文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 RAG模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-share" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2 share模型软链接
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 下载安装茴香豆
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 下载安装茴香豆">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 安装茴香豆依赖包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2 获取茴香豆源码
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 搭建RAG助手
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 搭建RAG助手">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351-configini" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.1 修改config.ini配置文件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.2 创建知识库
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5.2 创建知识库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3521" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.2.1 下载语料
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3522" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.2.2 接受&amp;拒绝向量数据库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3523" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.2.3 增加茴香豆相关的问题到接受问题示例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3524" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.2.4 创建测试问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3525" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.2.5 创建知识库的向量库
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#353-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.3 运行茴香豆RAG助手
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5.3 运行茴香豆RAG助手">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3531-mainpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.3.1 修改main.py文件中的问题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6 联网搜索
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 联网搜索">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#361-serper-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6.1 Serper API调用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.7 其他大模型接口调用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.7 其他大模型接口调用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#371" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.7.1 修改配置文件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#372-kimiapi-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.7.2 创建kimi大模型API key
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.8 网页demo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8 网页demo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#381-gradio" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.8.1 安装gradio依赖包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#382-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.8.2 运行demo服务
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#383" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.8.3 本地映射访问
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. web版茴香豆笔记
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 自定义机器人
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 自定义机器人">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 飞书自定义机器人
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 多模态大模型综述论文知识库&amp;飞书自定义机器人
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 多模态大模型综述论文知识库&飞书自定义机器人">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-repodirworkdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 repodir——&gt;workdir
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 repodir——>workdir">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1 文件夹备份
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2 知识库资料准备
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.3 知识库向量化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#614" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.4 基于向量化数据库进行问答
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时四 XTuner微调多模态Agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时五 LMDeploy量化部署LLM实践
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时六 Lagent &amp; AgentLego 智能体应用搭建
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时七 OpenCompass 大模型测评
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="rag">课时三 "茴香豆":零代码搭建你的 RAG 智能助理</h1>
+<p><img alt="alt text" src="../image-46.png" /></p>
+<p><a href="https://aicarrier.feishu.cn/wiki/Vv4swUFMni5DiMkcasUczUp9nid#LSBkd2cTHorhsAx5jZAcO0B3nqe">飞书地址</a></p>
+<p><a href="https://studio.intern-ai.org.cn/">算力平台</a></p>
+<h2 id="1">1. 提交的作业结果</h2>
+<p><a href="https://github.com/InternLM/Tutorial/blob/camp2/huixiangdou/homework.md">作业要求</a></p>
+<h3 id="11-web">1.1 茴香豆web版部署知识问答助手</h3>
+<p><img alt="alt text" src="../image-67.png" /></p>
+<p><img alt="alt text" src="../image-68.png" /></p>
+<p><img alt="alt text" src="../image-69.png" /></p>
+<p><img alt="alt text" src="../image-70.png" /></p>
+<p><img alt="alt text" src="../image-71.png" /></p>
+<h3 id="12">1.2 茴香豆技术助手</h3>
+<h4 id="121">1.2.1 代码版</h4>
+<ul>
+<li>
+<p>Q1:huixiangdou 是什么？</p>
+<ul>
+<li>A：<img alt="alt text" src="../image-59.png" /></li>
+</ul>
+</li>
+<li>
+<p>Q2:茴香豆怎么部署到微信群?</p>
+<ul>
+<li>A:<img alt="alt text" src="../image-60.png" /></li>
+</ul>
+</li>
+<li>
+<p>Q3:今天天气怎么样？</p>
+<ul>
+<li>A:ErrorCode.UNRELATED
+<img alt="alt text" src="../image-61.png" /></li>
+</ul>
+</li>
+</ul>
+<h4 id="122-giradio">1.2.2 giradio网页版</h4>
+<p><img alt="alt text" src="../image-79.png" /></p>
+<ul>
+<li>注意：提问需要带问号，不带问号识别不出是疑问句。。。
+  <img alt="alt text" src="../image-80.png" /></li>
+<li>code为3，不返回结果
+  <img alt="alt text" src="../image-81.png" /></li>
+</ul>
+<h3 id="13">1.3 进阶作业</h3>
+<h4 id="a">A.【应用方向】 结合自己擅长的领域知识（游戏、法律、电子等）、专业背景，搭建个人工作助手或者垂直领域问答助手，参考茴香豆官方文档，部署到下列任一平台。</h4>
+<ul>
+<li>飞书、微信</li>
+<li>可以使用 茴香豆 Web 版 或 InternLM Studio 云端服务器部署</li>
+<li>涵盖部署全过程的作业报告和个人助手问答截图</li>
+</ul>
+<h4 id="131">1.3.1 多模态大模型综述论文</h4>
+<p><img alt="alt text" src="../image-92.png" /></p>
+<h4 id="b-good_questionsjson-prompt-nlp-chunk">B.【算法方向】尝试修改 <code>good_questions.json</code>、调试 prompt 或应用其他 NLP 技术，如其他 chunk 方法，提高个人工作助手的表现。</h4>
+<ul>
+<li>完成不少于 400 字的笔记 ，记录自己的尝试和调试思路，涵盖全过程和改进效果截图</li>
+</ul>
+<h3 id="14">1.4 大作业项目</h3>
+<h4 id="a_1">A.【工程方向】 参与贡献茴香豆前端，将茴香豆助手部署到下列平台</h4>
+<ul>
+<li>Github issue、Discord、钉钉、X</li>
+</ul>
+<h4 id="b-rag-agent">B.【应用方向】 茴香豆RAG-Agent</h4>
+<ul>
+<li>应用茴香豆建立一个 ROS2 的机器人Agent</li>
+</ul>
+<h4 id="c">C.【算法方向】 茴香豆多模态</h4>
+<ul>
+<li>参与茴香豆多模态的工作</li>
+</ul>
+<h2 id="2">2. 视频笔记</h2>
+<p><a href="https://www.bilibili.com/video/BV1QA4m1F7t4/">视频地址</a></p>
+<h2 id="3">3. 文档笔记</h2>
+<p><a href="https://github.com/InternLM/Tutorial/blob/camp2/huixiangdou/readme.md">文档地址</a></p>
+<h3 id="31">3.1 前置知识</h3>
+<p>RAG（Retrieval Augmented Generation）技术，通过检索与用户输入相关的信息片段，并结合<strong><em>外部知识库</em></strong>来生成更准确、更丰富的回答。解决 LLMs 在处理知识密集型任务时可能遇到的挑战, 如<strong>幻觉、知识过时和缺乏透明、可追溯的推理过程</strong>等。提供更准确的回答、降低推理成本、实现外部记忆。</p>
+<p><img alt="alt text" src="../image-52.png" /></p>
+<h3 id="32-huixiangdouconda">3.2 创建huixiangdou环境（conda）</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>studio-conda<span class="w"> </span>-o<span class="w"> </span>internlm-base<span class="w"> </span>-t<span class="w"> </span>InternLM2_Huixiangdou
+</code></pre></div>
+<img alt="alt text" src="../image-47.png" /></p>
+<ul>
+<li>进入huixiangdou环境</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>InternLM2_Huixiangdou
+</code></pre></div>
+<p><img alt="alt text" src="../image-48.png" /></p>
+<h3 id="33">3.3 模型文件</h3>
+<h4 id="331-rag">3.3.1 RAG模型</h4>
+<ul>
+<li>
+<p>Github地址</p>
+</li>
+<li>
+<p><a href="https://github.com/netease-youdao/BCEmbedding/blob/master/README_zh.md">BCEmbedding</a></p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">模型名称</th>
+<th style="text-align: center;">模型类型</th>
+<th style="text-align: center;">支持语种</th>
+<th style="text-align: center;">参数量</th>
+<th style="text-align: center;">开源权重</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">bce-embedding-base_v1</td>
+<td style="text-align: center;"><code>EmbeddingModel</code></td>
+<td style="text-align: center;">中英</td>
+<td style="text-align: center;">279M</td>
+<td style="text-align: center;"><a href="https://huggingface.co/maidalun1020/bce-embedding-base_v1">Huggingface(推荐)</a>, <a href="https://hf-mirror.com/maidalun1020/bce-embedding-base_v1">国内通道</a>, <a href="https://www.modelscope.cn/models/maidalun/bce-embedding-base_v1/summary">ModelScope</a>, <a href="https://wisemodel.cn/models/Netease_Youdao/bce-embedding-base_v1">WiseModel</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">bce-reranker-base_v1</td>
+<td style="text-align: center;"><code>RerankerModel</code></td>
+<td style="text-align: center;">中英日韩</td>
+<td style="text-align: center;">279M</td>
+<td style="text-align: center;"><a href="https://huggingface.co/maidalun1020/bce-reranker-base_v1">Huggingface(推荐)</a>, <a href="https://hf-mirror.com/maidalun1020/bce-reranker-base_v1">国内通道</a>, <a href="https://www.modelscope.cn/models/maidalun/bce-reranker-base_v1/summary">ModelScope</a>, <a href="https://wisemodel.cn/models/Netease_Youdao/bce-reranker-base_v1">WiseModel</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="332-share">3.3.2 share模型软链接</h4>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 创建模型文件夹</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>/root<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>models
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># 复制BCE模型</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>ln<span class="w"> </span>-s<span class="w"> </span>/root/share/new_models/maidalun1020/bce-embedding-base_v1<span class="w"> </span>/root/models/bce-embedding-base_v1
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>ln<span class="w"> </span>-s<span class="w"> </span>/root/share/new_models/maidalun1020/bce-reranker-base_v1<span class="w"> </span>/root/models/bce-reranker-base_v1
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># 复制大模型参数（下面的模型，根据作业进度和任务进行**选择一个**就行）</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>ln<span class="w"> </span>-s<span class="w"> </span>/root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-7b<span class="w"> </span>/root/models/internlm2-chat-7b
+</code></pre></div>
+<img alt="alt text" src="../image-49.png" /></p>
+<h3 id="34">3.4 下载安装茴香豆</h3>
+<h4 id="341">3.4.1 安装茴香豆依赖包</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># 安装 python 依赖</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># pip install -r requirements.txt</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">protobuf</span><span class="o">==</span><span class="m">4</span>.25.3<span class="w"> </span><span class="nv">accelerate</span><span class="o">==</span><span class="m">0</span>.28.0<span class="w"> </span><span class="nv">aiohttp</span><span class="o">==</span><span class="m">3</span>.9.3<span class="w"> </span>auto-gptq<span class="o">==</span><span class="m">0</span>.7.1<span class="w"> </span><span class="nv">bcembedding</span><span class="o">==</span><span class="m">0</span>.1.3<span class="w"> </span><span class="nv">beautifulsoup4</span><span class="o">==</span><span class="m">4</span>.8.2<span class="w"> </span><span class="nv">einops</span><span class="o">==</span><span class="m">0</span>.7.0<span class="w"> </span>faiss-gpu<span class="o">==</span><span class="m">1</span>.7.2<span class="w"> </span><span class="nv">langchain</span><span class="o">==</span><span class="m">0</span>.1.14<span class="w"> </span><span class="nv">loguru</span><span class="o">==</span><span class="m">0</span>.7.2<span class="w"> </span><span class="nv">lxml_html_clean</span><span class="o">==</span><span class="m">0</span>.1.0<span class="w"> </span><span class="nv">openai</span><span class="o">==</span><span class="m">1</span>.16.1<span class="w"> </span><span class="nv">openpyxl</span><span class="o">==</span><span class="m">3</span>.1.2<span class="w"> </span><span class="nv">pandas</span><span class="o">==</span><span class="m">2</span>.2.1<span class="w"> </span><span class="nv">pydantic</span><span class="o">==</span><span class="m">2</span>.6.4<span class="w"> </span><span class="nv">pymupdf</span><span class="o">==</span><span class="m">1</span>.24.1<span class="w"> </span>python-docx<span class="o">==</span><span class="m">1</span>.1.0<span class="w"> </span><span class="nv">pytoml</span><span class="o">==</span><span class="m">0</span>.1.21<span class="w"> </span>readability-lxml<span class="o">==</span><span class="m">0</span>.8.1<span class="w"> </span><span class="nv">redis</span><span class="o">==</span><span class="m">5</span>.0.3<span class="w"> </span><span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.31.0<span class="w"> </span>scikit-learn<span class="o">==</span><span class="m">1</span>.4.1.post1<span class="w"> </span><span class="nv">sentence_transformers</span><span class="o">==</span><span class="m">2</span>.2.2<span class="w"> </span><span class="nv">textract</span><span class="o">==</span><span class="m">1</span>.6.5<span class="w"> </span><span class="nv">tiktoken</span><span class="o">==</span><span class="m">0</span>.6.0<span class="w"> </span><span class="nv">transformers</span><span class="o">==</span><span class="m">4</span>.39.3<span class="w"> </span><span class="nv">transformers_stream_generator</span><span class="o">==</span><span class="m">0</span>.0.5<span class="w"> </span><span class="nv">unstructured</span><span class="o">==</span><span class="m">0</span>.11.2
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1">## 因为 Intern Studio 不支持对系统文件的永久修改，在 Intern Studio 安装部署的同学不建议安装 Word 依赖，后续的操作和作业不会涉及 Word 解析。</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1">## 想要自己尝试解析 Word 文件的同学，uncomment 掉下面这行，安装解析 .doc .docx 必需的依赖</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># apt update &amp;&amp; apt -y install python-dev python libxml2-dev libxslt1-dev antiword unrtf poppler-utils pstotext tesseract-ocr flac ffmpeg lame libmad0 libsox-fmt-mp3 sox libjpeg-dev swig libpulse-dev</span>
+</code></pre></div>
+<p><img alt="alt text" src="../image-50.png" /></p>
+<h4 id="342">3.4.2 获取茴香豆源码</h4>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>/root
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># 下载 repo</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/internlm/huixiangdou<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>huixiangdou
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>git<span class="w"> </span>checkout<span class="w"> </span>447c6f7e68a1657fce1c4f7c740ea1700bde0440
+</code></pre></div>
+<img alt="alt text" src="../image-51.png" /></p>
+<h3 id="35-rag">3.5 搭建RAG助手</h3>
+<h4 id="351-configini">3.5.1 修改config.ini配置文件</h4>
+<p>通过命令行修改三个模型路径：嵌入模型、重排模型、大语言模型：
+- embedding_model_path（向量数据库和词嵌入的模型）
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;6s#.*#embedding_model_path = &quot;/root/models/bce-embedding-base_v1&quot;#&#39;</span><span class="w"> </span>/root/huixiangdou/config.ini
+</code></pre></div></p>
+<blockquote>
+<p>这个命令是用来在指定文件中的特定行进行替换操作的。这个命令的不同部分：
+    - sed：这是一个流编辑器，用于对文本进行处理和转换。
+    - -i：这是sed命令的一个选项，表示直接在原始文件中进行修改，而不是将结果输出到标准输出。
+    - '6s#.<em>#embedding_model_path = "/root/models/bce-embedding-base_v1"#'：这是sed命令的一个模式，用于指定要替换的行和替换的内容。在这个例子中，6表示要替换的行号，s表示替换操作，#是分隔符，.</em>表示匹配任意字符，embedding_model_path = "/root/models/bce-embedding-base_v1"是要替换的内容。
+    - /root/huixiangdou/config.ini：这是要进行替换操作的文件的路径。
+  这个命令的作用是将/root/huixiangdou/config.ini文件中的第6行替换为embedding_model_path = "/root/models/bce-embedding-base_v1"。
+- reranker_model_path（检索的重排序模型）
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;7s#.*#reranker_model_path = &quot;/root/models/bce-reranker-base_v1&quot;#&#39;</span><span class="w"> </span>/root/huixiangdou/config.ini
+</code></pre></div>
+- local_llm_path（大语言模型）
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;29s#.*#local_llm_path = &quot;/root/models/internlm2-chat-7b&quot;#&#39;</span><span class="w"> </span>/root/huixiangdou/config.ini
+</code></pre></div>
+<img alt="alt text" src="../image-53.png" /></p>
+</blockquote>
+<p><strong>注意：</strong> 也可以直接打开config.ini文件进行文档编辑修改。</p>
+<h4 id="352">3.5.2 创建知识库</h4>
+<p>使用 InternLM 的 Huixiangdou 文档作为新增知识数据检索来源，在不重新训练的情况下，打造一个 Huixiangdou 技术问答助手。</p>
+<h5 id="3521">3.5.2.1 下载语料</h5>
+<p>直接下载茴香豆源码到/root/huixiangdou/repodir下用作语料。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span>/root/huixiangdou<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>repodir
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/internlm/huixiangdou<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>repodir/huixiangdou
+</code></pre></div>
+<h5 id="3522">3.5.2.2 接受&amp;拒绝向量数据库</h5>
+<p>除了语料知识的向量数据库，茴香豆建立接受和拒答两个向量数据库，用来在检索的过程中更加精确的判断提问的相关性，这两个数据库的来源分别是：
+  - 接受问题列表，希望茴香豆助手回答的示例问题
+    - 存储在 huixiangdou/resource/good_questions.json 中
+  - 拒绝问题列表，希望茴香豆助手拒答的示例问题
+    - 存储在 huixiangdou/resource/bad_questions.json 中
+    - 其中多为技术无关的主题或闲聊。
+    - 如："nihui 是谁", "具体在哪些位置进行修改？", "你是谁？", "1+1"</p>
+<h5 id="3523">3.5.2.3 增加茴香豆相关的问题到接受问题示例</h5>
+<p>从/root/huixiangdou/resource/good_questions.json文件备份为/root/huixiangdou/resource/good_questions_bk.json文件；使用echo方法新增内容并创建/root/huixiangdou/resource/good_questions.json文件。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span>/root/huixiangdou
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>mv<span class="w"> </span>resource/good_questions.json<span class="w"> </span>resource/good_questions_bk.json
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;[</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="s1">    &quot;mmpose中怎么调用mmyolo接口&quot;,</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="s1">    &quot;mmpose实现姿态估计后怎么实现行为识别&quot;,</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="s1">    &quot;mmpose执行提取关键点命令不是分为两步吗，一步是目标检测，另一步是关键点提取，我现在目标检测这部分的代码是demo/topdown_demo_with_mmdet.py demo/mmdetection_cfg/faster_rcnn_r50_fpn_coco.py checkpoints/faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth   现在我想把这个mmdet的checkpoints换位yolo的，那么应该怎么操作&quot;,</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="s1">    &quot;在mmdetection中，如何同时加载两个数据集，两个dataloader&quot;,</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="s1">    &quot;如何将mmdetection2.28.2的retinanet配置文件改为单尺度的呢？&quot;,</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="s1">    &quot;1.MMPose_Tutorial.ipynb、inferencer_demo.py、image_demo.py、bottomup_demo.py、body3d_pose_lifter_demo.py这几个文件和topdown_demo_with_mmdet.py的区别是什么，\n2.我如果要使用mmdet是不是就只能使用topdown_demo_with_mmdet.py文件，&quot;,</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="s1">    &quot;mmpose 测试 map 一直是 0 怎么办？&quot;,</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="s1">    &quot;如何使用mmpose检测人体关键点？&quot;,</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="s1">    &quot;我使用的数据集是labelme标注的，我想知道mmpose的数据集都是什么样式的，全都是单目标的数据集标注，还是里边也有多目标然后进行标注&quot;,</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="s1">    &quot;如何生成openmmpose的c++推理脚本&quot;,</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="s1">    &quot;mmpose&quot;,</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="s1">    &quot;mmpose的目标检测阶段调用的模型，一定要是demo文件夹下的文件吗，有没有其他路径下的文件&quot;,</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="s1">    &quot;mmpose可以实现行为识别吗，如果要实现的话应该怎么做&quot;,</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="s1">    &quot;我在mmyolo的v0.6.0 (15/8/2023)更新日志里看到了他新增了支持基于 MMPose 的 YOLOX-Pose，我现在是不是只需要在mmpose/project/yolox-Pose内做出一些设置就可以，换掉demo/mmdetection_cfg/faster_rcnn_r50_fpn_coco.py 改用mmyolo来进行目标检测了&quot;,</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="s1">    &quot;mac m1从源码安装的mmpose是x86_64的&quot;,</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="s1">    &quot;想请教一下mmpose有没有提供可以读取外接摄像头，做3d姿态并达到实时的项目呀？&quot;,</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="s1">    &quot;huixiangdou 是什么？&quot;,</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="s1">    &quot;使用科研仪器需要注意什么？&quot;,</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="s1">    &quot;huixiangdou 是什么？&quot;,</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="s1">    &quot;茴香豆 是什么？&quot;,</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="s1">    &quot;茴香豆 能部署到微信吗？&quot;,</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="s1">    &quot;茴香豆 怎么应用到飞书&quot;,</span>
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="s1">    &quot;茴香豆 能部署到微信群吗？&quot;,</span>
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="s1">    &quot;茴香豆 怎么应用到飞书群&quot;,</span>
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="s1">    &quot;huixiangdou 能部署到微信吗？&quot;,</span>
+<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="s1">    &quot;huixiangdou 怎么应用到飞书&quot;,</span>
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="s1">    &quot;huixiangdou 能部署到微信群吗？&quot;,</span>
+<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="s1">    &quot;huixiangdou 怎么应用到飞书群&quot;,</span>
+<a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a><span class="s1">    &quot;huixiangdou&quot;,</span>
+<a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a><span class="s1">    &quot;茴香豆&quot;,</span>
+<a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a><span class="s1">    &quot;茴香豆 有哪些应用场景&quot;,</span>
+<a id="__codelineno-9-36" name="__codelineno-9-36" href="#__codelineno-9-36"></a><span class="s1">    &quot;huixiangdou 有什么用&quot;,</span>
+<a id="__codelineno-9-37" name="__codelineno-9-37" href="#__codelineno-9-37"></a><span class="s1">    &quot;huixiangdou 的优势有哪些？&quot;,</span>
+<a id="__codelineno-9-38" name="__codelineno-9-38" href="#__codelineno-9-38"></a><span class="s1">    &quot;茴香豆 已经应用的场景&quot;,</span>
+<a id="__codelineno-9-39" name="__codelineno-9-39" href="#__codelineno-9-39"></a><span class="s1">    &quot;huixiangdou 已经应用的场景&quot;,</span>
+<a id="__codelineno-9-40" name="__codelineno-9-40" href="#__codelineno-9-40"></a><span class="s1">    &quot;huixiangdou 怎么安装&quot;,</span>
+<a id="__codelineno-9-41" name="__codelineno-9-41" href="#__codelineno-9-41"></a><span class="s1">    &quot;茴香豆 怎么安装&quot;,</span>
+<a id="__codelineno-9-42" name="__codelineno-9-42" href="#__codelineno-9-42"></a><span class="s1">    &quot;茴香豆 最新版本是什么&quot;,</span>
+<a id="__codelineno-9-43" name="__codelineno-9-43" href="#__codelineno-9-43"></a><span class="s1">    &quot;茴香豆 支持哪些大模型&quot;,</span>
+<a id="__codelineno-9-44" name="__codelineno-9-44" href="#__codelineno-9-44"></a><span class="s1">    &quot;茴香豆 支持哪些通讯软件&quot;,</span>
+<a id="__codelineno-9-45" name="__codelineno-9-45" href="#__codelineno-9-45"></a><span class="s1">    &quot;config.ini 文件怎么配置&quot;,</span>
+<a id="__codelineno-9-46" name="__codelineno-9-46" href="#__codelineno-9-46"></a><span class="s1">    &quot;remote_llm_model 可以填哪些模型?&quot;</span>
+<a id="__codelineno-9-47" name="__codelineno-9-47" href="#__codelineno-9-47"></a><span class="s1">]&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>/root/huixiangdou/resource/good_questions.json
+</code></pre></div>
+<p><img alt="alt text" src="../image-54.png" /></p>
+<h5 id="3524">3.5.2.4 创建测试问题</h5>
+<p>使用echo方法新增内容并创建test_queries.json文件</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>/root/huixiangdou
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;[</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="s1">&quot;huixiangdou 是什么？&quot;,</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="s1">&quot;你好，介绍下自己&quot;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="s1">]&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>./test_queries.json
+</code></pre></div>
+<p><img alt="alt text" src="../image-55.png" /></p>
+<h5 id="3525">3.5.2.5 创建知识库的向量库</h5>
+<ul>
+<li>新建workdir文件夹用于存储向量数据库</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># 创建向量数据库存储目录</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">cd</span><span class="w"> </span>/root/huixiangdou<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mkdir<span class="w"> </span>workdir<span class="w"> </span>
+</code></pre></div>
+<ul>
+<li>创建向量数据库
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># 分别向量化知识语料、接受问题和拒绝问题中后保存到 workdir</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>huixiangdou.service.feature_store<span class="w"> </span>--sample<span class="w"> </span>./test_queries.json
+</code></pre></div></li>
+</ul>
+<p><img alt="alt text" src="../image-57.png" /></p>
+<p>检索过程中，茴香豆会将输入问题与两个列表中的问题在向量空间进行相似性比较，判断该问题是否应该回答，避免群聊过程中的问答泛滥。确定的回答的问题会利用基础模型提取关键词，在知识库中检索 top K 相似的 chunk，综合问题和检索到的 chunk 生成答案。</p>
+<h4 id="353-rag">3.5.3 运行茴香豆RAG助手</h4>
+<p>测试向量数据库方式存储的知识库。实现RAG检索后发送给大模型。</p>
+<h5 id="3531-mainpy">3.5.3.1 修改main.py文件中的问题</h5>
+<ul>
+<li>使用命令行sed方式对main文件进行修改</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># 填入问题</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;74s/.*/    queries = [&quot;huixiangdou 是什么？&quot;, &quot;茴香豆怎么部署到微信群&quot;, &quot;今天天气怎么样？&quot;]/&#39;</span><span class="w"> </span>/root/huixiangdou/huixiangdou/main.py
+</code></pre></div>
+<p><img alt="alt text" src="../image-58.png" /></p>
+<ul>
+<li>运行问题</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># 运行茴香豆</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">cd</span><span class="w"> </span>/root/huixiangdou/
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>python3<span class="w"> </span>-m<span class="w"> </span>huixiangdou.main<span class="w"> </span>--standalone
+</code></pre></div>
+<p>RAG 技术的优势就是非参数化的模型调优，这里使用的仍然是基础模型 InternLM2-Chat-7B， 没有任何额外数据的训练。（简而言之：<strong><em>外挂向量化的知识库——&gt;向量检索排序——&gt;结果给大模型作为上下文进行对话——&gt;标识出处</em></strong>）
+  面对同样的问题，我们的茴香豆技术助理能够根据我们提供的数据库生成准确的答案：</p>
+<ul>
+<li>
+<p>Q1:huixiangdou 是什么？</p>
+<ul>
+<li>A：<img alt="alt text" src="../image-59.png" /></li>
+</ul>
+</li>
+<li>
+<p>Q2:茴香豆怎么部署到微信群?</p>
+<ul>
+<li>A:<img alt="alt text" src="../image-60.png" /></li>
+</ul>
+</li>
+<li>
+<p>Q3:今天天气怎么样？</p>
+<ul>
+<li>A:ErrorCode.UNRELATED
+<img alt="alt text" src="../image-61.png" /></li>
+</ul>
+</li>
+</ul>
+<h3 id="36">3.6 联网搜索</h3>
+<h4 id="361-serper-api">3.6.1 Serper API调用</h4>
+<ul>
+<li>获取<a href="https://serper.dev/api-key">API key</a></li>
+</ul>
+<p><img alt="alt text" src="../image-72.png" /></p>
+<ul>
+<li>修改config配置文件填写key</li>
+</ul>
+<p><img alt="alt text" src="../image-73.png" /></p>
+<h3 id="37">3.7 其他大模型接口调用</h3>
+<h4 id="371">3.7.1 修改配置文件</h4>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nv">enable_local</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="c1"># 关闭本地模型</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nv">enable_remote</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="c1"># 启用云端模型</span>
+</code></pre></div>
+<img alt="alt text" src="../image-74.png" /></p>
+<h4 id="372-kimiapi-key">3.7.2 创建kimi大模型API key</h4>
+<ul>
+<li><a href="https://platform.moonshot.cn/console/api-keys">月球背面API key地址</a></li>
+</ul>
+<p><img alt="alt text" src="../image-75.png" /></p>
+<p><img alt="alt text" src="../image-76.png" /></p>
+<ul>
+<li>添加key到config配置文件</li>
+</ul>
+<p><img alt="alt text" src="../image-77.png" /></p>
+<h3 id="38-demo">3.8 网页demo</h3>
+<h4 id="381-gradio">3.8.1 安装gradio依赖包</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>InternLM2_Huixiangdou
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">gradio</span><span class="o">==</span><span class="m">4</span>.25.0<span class="w"> </span><span class="nv">redis</span><span class="o">==</span><span class="m">5</span>.0.3<span class="w"> </span><span class="nv">flask</span><span class="o">==</span><span class="m">3</span>.0.2<span class="w"> </span><span class="nv">lark_oapi</span><span class="o">==</span><span class="m">1</span>.2.4
+</code></pre></div>
+<h4 id="382-demo">3.8.2 运行demo服务</h4>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">cd</span><span class="w"> </span>/root/huixiangdou
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>tests.test_query_gradio<span class="w"> </span>
+</code></pre></div>
+<img alt="alt text" src="../image-78.png" /></p>
+<h4 id="383">3.8.3 本地映射访问</h4>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ssh<span class="w"> </span>-CNg<span class="w"> </span>-L<span class="w"> </span><span class="m">7860</span>:127.0.0.1:7860<span class="w"> </span>root@ssh.intern-ai.org.cn<span class="w"> </span>-p<span class="w"> </span><span class="m">41886</span>
+</code></pre></div>
+本地访问地址：http://127.0.0.1:7860/</p>
+<p><img alt="alt text" src="../image-79.png" /></p>
+<p>注意：提问需要带问号，不带问号识别不出是疑问句。。。
+<img alt="alt text" src="../image-80.png" /></p>
+<h2 id="4-web">4. web版茴香豆笔记</h2>
+<p><a href="https://openxlab.org.cn/apps/detail/tpoisonooo/huixiangdou-web">web版OpenXLab地址</a></p>
+<ul>
+<li>
+<p>首页输入知识库名&amp;密码
+<img alt="alt text" src="../image-63.png" /></p>
+</li>
+<li>
+<p>上传文档（奇绩论坛（陆奇深圳演讲））</p>
+</li>
+</ul>
+<p><img alt="alt text" src="../image-64.png" /></p>
+<p><img alt="alt text" src="../image-65.png" /></p>
+<p><img alt="alt text" src="../image-66.png" /></p>
+<ul>
+<li>聊天测试</li>
+</ul>
+<p><img alt="alt text" src="../image-67.png" /></p>
+<p><img alt="alt text" src="../image-68.png" /></p>
+<p><img alt="alt text" src="../image-69.png" /></p>
+<p><img alt="alt text" src="../image-70.png" /></p>
+<p><img alt="alt text" src="../image-71.png" /></p>
+<h2 id="5">5. 自定义机器人</h2>
+<h3 id="51">5.1 飞书自定义机器人</h3>
+<ul>
+<li>点击<a href="https://open.feishu.cn/document/client-docs/bot-v3/add-custom-bot">创建飞书自定义机器人</a>，获取回调 WEBHOOK_URL，填写到 config.ini</li>
+</ul>
+<p><img alt="alt text" src="../image-83.png" /></p>
+<p><img alt="alt text" src="../image-82.png" /></p>
+<ul>
+<li>验证回调webhook_url</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>curl.exe<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{\&quot;msg_type\&quot;:\&quot;text\&quot;,\&quot;content\&quot;:{\&quot;text\&quot;:\&quot;requestexample\&quot;}}&#39;</span><span class="w"> </span>https://open.feishu.cn/open-apis/bot/v2/hook/f79d7ccf-fa1a-48b4-b861-********
+</code></pre></div>
+<img alt="alt text" src="../image-84.png" /></p>
+<ul>
+<li>运行对话</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>InternLM2_Huixiangdou
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nb">cd</span><span class="w"> </span>/root/huixiangdou/
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>python3<span class="w"> </span>-m<span class="w"> </span>huixiangdou.main<span class="w"> </span>--standalone
+</code></pre></div>
+<p><img alt="alt text" src="../image-85.png" /></p>
+<h2 id="6">6. 多模态大模型综述论文知识库&amp;飞书自定义机器人</h2>
+<h3 id="61-repodirworkdir">6.1  repodir——&gt;workdir</h3>
+<p>教程中将repodir中的所有内容，均向量化后存到向量数据库中，并存放在workdir文件夹中。</p>
+<h4 id="611">6.1.1 文件夹备份</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>cp<span class="w"> </span>-r<span class="w"> </span>repodir<span class="w"> </span>repodir_bk
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>cp<span class="w"> </span>-r<span class="w"> </span>workdir<span class="w"> </span>workdir_bk
+</code></pre></div>
+<p><img alt="alt text" src="../image-86.png" /></p>
+<h4 id="612">6.1.2 知识库资料准备</h4>
+<ul>
+<li>复制论文pdf到repodir文件夹下</li>
+</ul>
+<p><img alt="alt text" src="../image-87.png" /></p>
+<h4 id="613">6.1.3 知识库向量化</h4>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>huixiangdou.service.feature_store
+</code></pre></div>
+<img alt="alt text" src="../image-88.png" /></p>
+<h4 id="614">6.1.4 基于向量化数据库进行问答</h4>
+<ul>
+<li>修改main.py文件</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>    <span class="n">queries</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;多模态大模型是什么？&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p><img alt="alt text" src="../image-89.png" /></p>
+<ul>
+<li>运行</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nb">cd</span><span class="w"> </span>/root/huixiangdou/
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>huixiangdou.main<span class="w"> </span>--standalone
+</code></pre></div>
+<p><img alt="alt text" src="../image-90.png" /></p>
+<p><img alt="alt text" src="../image-91.png" /></p>
+<p><img alt="alt text" src="../image-92.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2023 <a href="https://github.com/acondess" target="_blank" rel="noopener">acondess</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://acondess.github.io/InternLM_learn_2/" target="_blank" rel="noopener" title="acondess.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs.sticky", "navigation.top", "navigation.tabs", "navigation.expand", "navigation.sections", "toc.integrate", "toc.sections", "toc.follow", "toc.numbers", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "footer"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
+      
+    
+  </body>
+</html>

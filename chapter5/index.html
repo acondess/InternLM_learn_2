@@ -1,0 +1,1401 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter4/">
+      
+      
+        <link rel="next" href="../chapter6/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
+    
+    
+      
+        <title>课时五 LMDeploy量化部署LLM实践 - 第二期书生·浦语实战营学习笔记及作业提交</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.732c4fb1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lmdeployllm" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="第二期书生·浦语实战营学习笔记及作业提交" class="md-header__button md-logo" aria-label="第二期书生·浦语实战营学习笔记及作业提交" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            第二期书生·浦语实战营学习笔记及作业提交
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              课时五 LMDeploy量化部署LLM实践
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4m0-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  第二期书生·浦语实战营学习笔记及作业提交
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter1/" class="md-tabs__link">
+        
+  
+    
+  
+  课时一 书生·浦语大模型全链路开源开放体系
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter2/" class="md-tabs__link">
+        
+  
+    
+  
+  课时二 轻松分钟玩转书生·浦语大模型趣味 Demo
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter3/" class="md-tabs__link">
+        
+  
+    
+  
+  课时三 "茴香豆":零代码搭建你的 RAG 智能助理
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter4/" class="md-tabs__link">
+        
+  
+    
+  
+  课时四 XTuner微调多模态Agent
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  课时五 LMDeploy量化部署LLM实践
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter6/" class="md-tabs__link">
+        
+  
+    
+  
+  课时六 Lagent &amp; AgentLego 智能体应用搭建
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter7/" class="md-tabs__link">
+        
+  
+    
+  
+  课时七 OpenCompass 大模型测评
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="第二期书生·浦语实战营学习笔记及作业提交" class="md-nav__button md-logo" aria-label="第二期书生·浦语实战营学习笔记及作业提交" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    第二期书生·浦语实战营学习笔记及作业提交
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第二期书生·浦语实战营学习笔记及作业提交
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时一 书生·浦语大模型全链路开源开放体系
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时二 轻松分钟玩转书生·浦语大模型趣味 Demo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时三 "茴香豆":零代码搭建你的 RAG 智能助理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时四 XTuner微调多模态Agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    课时五 LMDeploy量化部署LLM实践
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    课时五 LMDeploy量化部署LLM实践
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 提交的作业结果
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 提交的作业结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 基础作业
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 基础作业">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-lmdeploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.1 配置 LMDeploy 运行环境
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-internlm2-chat-18b" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.2 以命令行方式与 InternLM2-Chat-1.8B 模型对话
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 进阶作业
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#121-kv-cache04w4a16" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.1 设置KV Cache最大占用比例为0.4，开启W4A16量化，以命令行方式与模型对话。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-api-server-lmdeploy-w4a16kv-cache04gradio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.2 以API Server方式启动 lmdeploy，开启 W4A16量化，调整KV Cache的占用比例为0.4，分别使用命令行客户端与Gradio网页客户端与模型对话。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-w4a16kv-cache04pythoninternlm2-chat-18b" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.3 使用W4A16量化，调整KV Cache的占用比例为0.4，使用Python代码集成的方式运行internlm2-chat-1.8b模型。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-lmdeploy-llava-gradio-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.4 使用 LMDeploy 运行视觉多模态大模型 llava gradio demo。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#125-lmdeploy-web-demo-openxlab" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.5 将 LMDeploy Web Demo 部署到 OpenXLab 。
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 文档复现
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 文档复现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-lmdeploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 LMDeploy环境部署
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-lmdeploychat" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 LMDeploy模型对话（chat）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-lmdeploylite" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 LMDeploy模型量化（lite）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 LMDeploy模型量化（lite）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 量化概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-kv-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 设置最大KV Cache缓存大小
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-w4a16" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3 使用W4A16量化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-lmdeployserve" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 LMDeploy服务(serve)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 LMDeploy服务(serve)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.1 启动API服务器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242-api-serve" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.2 命令行与API Serve对话
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243-webapi-serve" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3 web网页与API Serve对话
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#245-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.5 Python代码方式集成量化模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-lmdeploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 LMDeploy运行多模态大模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 LMDeploy运行多模态大模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.1 调整开发机配置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.2 环境搭建
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253-llava" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.3 创建界面化运行llava多模态
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-openxlablmdeploy-web-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 在OpenXLab部署LMDeploy web demo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 在OpenXLab部署LMDeploy web demo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.1 创建模型仓库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#262" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.2 创建本地空间
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#263" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.3 创建令牌
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#264" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.4 获取大模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#265" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.5 上传大模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时六 Lagent &amp; AgentLego 智能体应用搭建
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时七 OpenCompass 大模型测评
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lmdeployllm">课时五 LMDeploy量化部署LLM实践</h1>
+<p><img alt="alt text" src="../image-113.png" /></p>
+<p><a href="https://aicarrier.feishu.cn/wiki/Vv4swUFMni5DiMkcasUczUp9nid#LSBkd2cTHorhsAx5jZAcO0B3nqe">飞书地址</a></p>
+<p><a href="https://studio.intern-ai.org.cn/">算力平台</a></p>
+<h2 id="1">1. 提交的作业结果</h2>
+<p><a href="https://github.com/InternLM/Tutorial/blob/camp2/lmdeploy/homework.md">作业要求地址</a></p>
+<h3 id="11">1.1 基础作业</h3>
+<h4 id="111-lmdeploy">1.1.1 配置 LMDeploy 运行环境</h4>
+<ul>
+<li>结果截图</li>
+</ul>
+<p><img alt="alt text" src="../image-118.png" /></p>
+<p><img alt="alt text" src="../image-119.png" /></p>
+<ul>
+<li>复现步骤</li>
+</ul>
+<p><a href="#21-lmdeploy环境部署">lmdeploy环境部署</a></p>
+<h4 id="112-internlm2-chat-18b">1.1.2 以命令行方式与 InternLM2-Chat-1.8B 模型对话</h4>
+<ul>
+<li>结果截图</li>
+</ul>
+<p><img alt="alt text" src="../image-121.png" /></p>
+<p><img alt="alt text" src="../image-122.png" /></p>
+<ul>
+<li>复现步骤</li>
+</ul>
+<p><a href="#22-lmdeploy模型对话chat">复现文档</a></p>
+<h3 id="12">1.2 进阶作业</h3>
+<h3 id="121-kv-cache04w4a16">1.2.1 设置KV Cache最大占用比例为0.4，开启W4A16量化，以命令行方式与模型对话。</h3>
+<ul>
+<li>结果截图</li>
+</ul>
+<p><img alt="alt text" src="../image-163.png" /></p>
+<ul>
+<li>复现步骤</li>
+</ul>
+<p><a href="#23-lmdeploy模型量化lite">复现文档</a></p>
+<h3 id="122-api-server-lmdeploy-w4a16kv-cache04gradio">1.2.2 以API Server方式启动 lmdeploy，开启 W4A16量化，调整KV Cache的占用比例为0.4，分别使用命令行客户端与Gradio网页客户端与模型对话。</h3>
+<ul>
+<li>结果截图</li>
+<li>
+<p>命令行
+<img alt="alt text" src="../image-170.png" />
+<img alt="alt text" src="../image-171.png" /></p>
+</li>
+<li>
+<p>web网页
+<img alt="alt text" src="../image-173.png" /></p>
+</li>
+<li>
+<p>复现步骤
+<a href="#24-lmdeploy服务serve">复现文档</a></p>
+</li>
+</ul>
+<h3 id="123-w4a16kv-cache04pythoninternlm2-chat-18b">1.2.3 使用W4A16量化，调整KV Cache的占用比例为0.4，使用Python代码集成的方式运行internlm2-chat-1.8b模型。</h3>
+<ul>
+<li>结果截图</li>
+</ul>
+<p><img alt="alt text" src="../image-177.png" /></p>
+<p><img alt="alt text" src="../image-175.png" /></p>
+<ul>
+<li>复现步骤</li>
+</ul>
+<p><a href="#245-python代码方式集成量化模型">复现文档</a></p>
+<h3 id="124-lmdeploy-llava-gradio-demo">1.2.4 使用 LMDeploy 运行视觉多模态大模型 llava gradio demo。</h3>
+<ul>
+<li>结果截图</li>
+</ul>
+<p><img alt="alt text" src="../image-182.png" /></p>
+<ul>
+<li>复现步骤</li>
+</ul>
+<p><a href="#25-lmdeploy运行多模态大模型">复现文档</a></p>
+<h3 id="125-lmdeploy-web-demo-openxlab">1.2.5 将 LMDeploy Web Demo 部署到 OpenXLab 。</h3>
+<ul>
+<li>结果截图</li>
+<li>复现步骤</li>
+</ul>
+<h2 id="2">2. 文档复现</h2>
+<p><a href="https://github.com/InternLM/Tutorial/blob/camp2/lmdeploy/README.md">文档地址</a></p>
+<h3 id="21-lmdeploy">2.1 LMDeploy环境部署</h3>
+<ul>
+<li>创建开发机</li>
+</ul>
+<blockquote>
+<p>选择镜像Cuda12.2-conda；选择10% A100*1GPU；点击“立即创建”。</p>
+<p><strong><em>注意</em></strong>   请不要选择Cuda11.7-conda的镜像，新版本的lmdeploy会出现兼容性问题。</p>
+</blockquote>
+<p><img alt="alt text" src="../image-114.png" /></p>
+<ul>
+<li>终端模式</li>
+</ul>
+<p>切换到命令行模式。</p>
+<p><img alt="alt text" src="../image-115.png" /></p>
+<ul>
+<li>conda环境</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>studio-conda<span class="w"> </span>-t<span class="w"> </span>lmdeploy<span class="w"> </span>-o<span class="w"> </span>pytorch-2.1.2
+</code></pre></div>
+<p><img alt="alt text" src="../image-116.png" /></p>
+<p><img alt="alt text" src="../image-117.png" /></p>
+<ul>
+<li>
+<p>安装依赖</p>
+</li>
+<li>
+<p>激活lmdeploy环境</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>lmdeploy
+</code></pre></div>
+<ul>
+<li>安装依赖</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>lmdeploy<span class="o">[</span>all<span class="o">]==</span><span class="m">0</span>.3.0
+</code></pre></div>
+<p><img alt="alt text" src="../image-118.png" /></p>
+<p><img alt="alt text" src="../image-119.png" /></p>
+<h3 id="22-lmdeploychat">2.2 LMDeploy模型对话（chat）</h3>
+<ul>
+<li>internlm2-chat-1_8b模型下载</li>
+</ul>
+<p>开发机已有模型软链接方式：</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ls
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ls<span class="w"> </span>/root/share/new_models/Shanghai_AI_Laboratory/
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>ln<span class="w"> </span>-s<span class="w"> </span>/root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-1_8b<span class="w"> </span>/root/
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>ls
+</code></pre></div>
+<img alt="alt text" src="../image-120.png" /></p>
+<ul>
+<li>直接对话（省略Transform对比——我要速通-_-` ）</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>lmdeploy<span class="w"> </span>chat<span class="w"> </span>/root/internlm2-chat-1_8b
+</code></pre></div>
+<img alt="alt text" src="../image-121.png" /></p>
+<p><img alt="alt text" src="../image-122.png" /></p>
+<blockquote>
+<p>确实很快 有种grok的感觉</p>
+</blockquote>
+<ul>
+<li>chat功能参数</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>lmdeploy<span class="w"> </span>chat<span class="w"> </span>-h
+</code></pre></div>
+<p><img alt="alt text" src="../image-123.png" /></p>
+<h3 id="23-lmdeploylite">2.3 LMDeploy模型量化（lite）</h3>
+<h4 id="231">2.3.1 量化概念</h4>
+<ul>
+<li>
+<p>计算密集（compute-bound）: 指推理过程中，绝大部分时间消耗在数值计算上；针对计算密集型场景，可以通过使用更快的硬件计算单元来提升计算速度。</p>
+</li>
+<li>
+<p>访存密集（memory-bound）: 指推理过程中，绝大部分时间消耗在数据读取上；针对访存密集型场景，一般通过减少访存次数、提高计算访存比或降低访存量来优化。</p>
+</li>
+<li>
+<p>大模型推理是访存密集型场景：常见的 LLM 模型由于 Decoder Only 架构的特性，实际推理时大多数的时间都消耗在了逐 Token 生成阶段（Decoding 阶段），是典型的访存密集型场景。</p>
+</li>
+<li>
+<p>使用KV8量化和W4A16量化对大模型推理进行优化：KV8量化是指将逐 Token（Decoding）生成过程中的上下文 K 和 V 中间结果进行 INT8 量化（计算时再反量化），以降低生成过程中的显存占用。W4A16 量化，将 FP16 的模型权重量化为 INT4，Kernel 计算时，访存量直接降为 FP16 模型的 1/4，大幅降低了访存成本。Weight Only 是指仅量化权重，数值计算依然采用 FP16（需要将 INT4 权重反量化）。</p>
+</li>
+</ul>
+<h4 id="232-kv-cache">2.3.2 设置最大KV Cache缓存大小</h4>
+<p>KV Cache是一种缓存技术，通过存储键值对的形式来复用计算结果，以达到提高性能和降低内存消耗的目的。在大规模训练和推理中，KV Cache可以显著减少重复计算量，从而提升模型的推理速度。理想情况下，KV Cache全部存储于显存，以加快访存速度。当显存空间不足时，也可以将KV Cache放在内存，通过缓存管理器控制将当前需要使用的数据放入显存。</p>
+<p>模型在运行时，占用的显存可大致分为三部分：模型参数本身占用的显存、KV Cache占用的显存，以及中间运算结果占用的显存。LMDeploy的KV Cache管理器可以通过设置--cache-max-entry-count参数，控制KV缓存占用剩余显存的最大比例。默认的比例为0.8。</p>
+<ul>
+<li>设置KV Cache缓存大小为0.4</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>lmdeploy<span class="w"> </span>chat<span class="w"> </span>/root/internlm2-chat-1_8b<span class="w"> </span>--cache-max-entry-count<span class="w"> </span><span class="m">0</span>.4
+</code></pre></div>
+<p>使用0.4 kv cache缓存，8G显存占用量百分之75
+<img alt="alt text" src="../image-159.png" /></p>
+<h4 id="233-w4a16">2.3.3 使用W4A16量化</h4>
+<p>LMDeploy使用AWQ算法，实现模型4bit权重量化。</p>
+<ul>
+<li>依赖库安装</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">einops</span><span class="o">==</span><span class="m">0</span>.7.0
+</code></pre></div>
+<ul>
+<li>执行量化</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>lmdeploy<span class="w"> </span>lite<span class="w"> </span>auto_awq<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">   </span>/root/internlm2-chat-1_8b<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span>--calib-dataset<span class="w"> </span><span class="s1">&#39;ptb&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span>--calib-samples<span class="w"> </span><span class="m">128</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span>--calib-seqlen<span class="w"> </span><span class="m">1024</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span>--w-bits<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span>--w-group-size<span class="w"> </span><span class="m">128</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span>--work-dir<span class="w"> </span>/root/internlm2-chat-1_8b-4bit
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">  </span><span class="sb">```</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="sb">```</span>bash
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>lmdeploy<span class="w"> </span>lite<span class="w"> </span>auto_awq<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># lmdeploy工具的命令，lite表示轻量级模式，auto_awq表示自动量化</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>/root/internlm2-chat-1_8b<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># 指定要量化的语言模型文件的路径</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">  </span>--calib-dataset<span class="w"> </span><span class="s1">&#39;ptb&#39;</span><span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># 指定用于量化校准的数据集名称为&#39;ptb&#39;</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">  </span>--calib-samples<span class="w"> </span><span class="m">128</span><span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># 在量化校准中使用的样本数量为128个</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">  </span>--calib-seqlen<span class="w"> </span><span class="m">1024</span><span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># 在量化校准中使用的序列长度为1024</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">  </span>--w-bits<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># 量化时使用的权重位数为4位</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">  </span>--w-group-size<span class="w"> </span><span class="m">128</span><span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># 量化时每个权重组的大小为128</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">  </span>--work-dir<span class="w"> </span>/root/internlm2-chat-1_8b-4bit<span class="w">  </span><span class="c1"># 指定量化后的工作目录，用于存放量化模型和其他相关文件</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">  </span><span class="sb">```</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">  </span>!<span class="o">[</span>alt<span class="w"> </span>text<span class="o">](</span>image-160.png<span class="o">)</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">  </span>!<span class="o">[</span>alt<span class="w"> </span>text<span class="o">](</span>image-161.png<span class="o">)</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">  </span>-<span class="w"> </span>使用量化后的模型对话
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="sb">```</span>bash
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>lmdeploy<span class="w"> </span>chat<span class="w"> </span>/root/internlm2-chat-1_8b-4bit<span class="w"> </span>--model-format<span class="w"> </span>awq
+</code></pre></div>
+<p>量化后显存占用量为百分之90
+<img alt="alt text" src="../image-162.png" /></p>
+<ul>
+<li>设置KV Cache最大占用比例为0.4，开启W4A16量化，以命令行方式与模型对话。</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>lmdeploy<span class="w"> </span>chat<span class="w"> </span>/root/internlm2-chat-1_8b-4bit<span class="w"> </span>--model-format<span class="w"> </span>awq<span class="w"> </span>--cache-max-entry-count<span class="w"> </span><span class="m">0</span>.4
+</code></pre></div>
+量化后显存占用量为百分之60，推理回复速度贼快
+<img alt="alt text" src="../image-163.png" /></p>
+<h3 id="24-lmdeployserve">2.4 LMDeploy服务(serve)</h3>
+<h4 id="241-api">2.4.1 启动API服务器</h4>
+<ul>
+<li>开启服务</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>lmdeploy<span class="w"> </span>serve<span class="w"> </span>api_server<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span>/root/internlm2-chat-1_8b<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span>--model-format<span class="w"> </span>hf<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span>--quant-policy<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span>--server-name<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span>--server-port<span class="w"> </span><span class="m">23333</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span>--tp<span class="w"> </span><span class="m">1</span>
+</code></pre></div>
+<p><img alt="alt text" src="../image-165.png" /></p>
+<ul>
+<li>访问服务接口页面</li>
+</ul>
+<p>本地ssh连接</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ssh<span class="w"> </span>-CNg<span class="w"> </span>-L<span class="w"> </span><span class="m">23333</span>:127.0.0.1:23333<span class="w"> </span>root@ssh.intern-ai.org.cn<span class="w"> </span>-p<span class="w"> </span><span class="m">48048</span><span class="w"> </span>
+</code></pre></div>
+<img alt="alt text" src="../image-164.png" /></p>
+<p><img alt="alt text" src="../image-166.png" /></p>
+<ul>
+<li>开启量化模型作为服务</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>lmdeploy<span class="w"> </span>serve<span class="w"> </span>api_server<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>/root/internlm2-chat-1_8b-4bit<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>--model-format<span class="w"> </span>awq<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>--cache-max-entry-count<span class="w"> </span><span class="m">0</span>.4<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>--quant-policy<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>--server-name<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>--server-port<span class="w"> </span><span class="m">23333</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>--tp<span class="w"> </span><span class="m">1</span>
+</code></pre></div>
+<img alt="alt text" src="../image-169.png" /></p>
+<h4 id="242-api-serve">2.4.2 命令行与API Serve对话</h4>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>lmdeploy
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>lmdeploy<span class="w"> </span>serve<span class="w"> </span>api_client<span class="w"> </span>http://localhost:23333
+</code></pre></div>
+<img alt="alt text" src="../image-168.png" /></p>
+<h4 id="243-webapi-serve">2.4.3 web网页与API Serve对话</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>lmdeploy<span class="w"> </span>serve<span class="w"> </span>gradio<span class="w"> </span>http://localhost:23333<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span>--server-name<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span>--server-port<span class="w"> </span><span class="m">6006</span>
+</code></pre></div>
+<p>本地连接</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ssh<span class="w"> </span>-CNg<span class="w"> </span>-L<span class="w"> </span><span class="m">6006</span>:127.0.0.1:6006<span class="w"> </span>root@ssh.intern-ai.org.cn<span class="w"> </span>-p<span class="w"> </span><span class="m">48048</span>
+</code></pre></div>
+<p><img alt="alt text" src="../image-172.png" /></p>
+<h4 id="245-python">2.4.5 Python代码方式集成量化模型</h4>
+<ul>
+<li>创建python代码</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>lmdeploy
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>touch<span class="w"> </span>/root/pipeline_kv.py
+</code></pre></div>
+<ul>
+<li>编写python代码</li>
+</ul>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span>
+<span class="normal"><a href="#__codelineno-17-5">5</a></span>
+<span class="normal"><a href="#__codelineno-17-6">6</a></span>
+<span class="normal"><a href="#__codelineno-17-7">7</a></span>
+<span class="normal"><a href="#__codelineno-17-8">8</a></span>
+<span class="normal"><a href="#__codelineno-17-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kn">from</span> <span class="nn">lmdeploy</span> <span class="kn">import</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">TurbomindEngineConfig</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="c1"># 调低 k/v cache内存占比调整为总显存的 40%</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="n">backend_config</span> <span class="o">=</span> <span class="n">TurbomindEngineConfig</span><span class="p">(</span><span class="n">cache_max_entry_count</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s1">&#39;/root/internlm2-chat-1_8b-4bit&#39;</span><span class="p">,</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a>                <span class="n">backend_config</span><span class="o">=</span><span class="n">backend_config</span><span class="p">)</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="n">response</span> <span class="o">=</span> <span class="n">pipe</span><span class="p">([</span><span class="s1">&#39;Hi, pls intro yourself&#39;</span><span class="p">,</span> <span class="s1">&#39;上海是&#39;</span><span class="p">])</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<img alt="alt text" src="../image-176.png" /></p>
+<ul>
+<li>运行python代码</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>python<span class="w"> </span>/root/pipeline_kv.py
+</code></pre></div>
+<p><img alt="alt text" src="../image-175.png" /></p>
+<h3 id="25-lmdeploy">2.5 LMDeploy运行多模态大模型</h3>
+<h4 id="251">2.5.1 调整开发机配置</h4>
+<ul>
+<li>升级GPU配额</li>
+</ul>
+<p><img alt="alt text" src="../image-178.png" /></p>
+<h4 id="252">2.5.2 环境搭建</h4>
+<ul>
+<li>激活conda环境</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>lmdeploy
+</code></pre></div>
+<ul>
+<li>安装源码及依赖</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/haotian-liu/LLaVA.git@4e2277a060da264c4f21b364c867cc622c945874
+</code></pre></div>
+<img alt="alt text" src="../image-179.png" /></p>
+<h4 id="253-llava">2.5.3 创建界面化运行llava多模态</h4>
+<ul>
+<li>创建python脚本</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>touch<span class="w"> </span>/root/gradio_llava.py
+</code></pre></div>
+<ul>
+<li>填写python脚本</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-22-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-22-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-22-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-22-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-22-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-22-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-22-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-22-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-22-10">10</a></span>
+<span class="normal"><a href="#__codelineno-22-11">11</a></span>
+<span class="normal"><a href="#__codelineno-22-12">12</a></span>
+<span class="normal"><a href="#__codelineno-22-13">13</a></span>
+<span class="normal"><a href="#__codelineno-22-14">14</a></span>
+<span class="normal"><a href="#__codelineno-22-15">15</a></span>
+<span class="normal"><a href="#__codelineno-22-16">16</a></span>
+<span class="normal"><a href="#__codelineno-22-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">import</span> <span class="nn">gradio</span> <span class="k">as</span> <span class="nn">gr</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kn">from</span> <span class="nn">lmdeploy</span> <span class="kn">import</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">TurbomindEngineConfig</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a>
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="n">backend_config</span> <span class="o">=</span> <span class="n">TurbomindEngineConfig</span><span class="p">(</span><span class="n">session_len</span><span class="o">=</span><span class="mi">8192</span><span class="p">)</span> <span class="c1"># 图片分辨率较高时请调高session_len</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="c1"># pipe = pipeline(&#39;liuhaotian/llava-v1.6-vicuna-7b&#39;, backend_config=backend_config) 非开发机运行此命令</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="n">pipe</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s1">&#39;/share/new_models/liuhaotian/llava-v1.6-vicuna-7b&#39;</span><span class="p">,</span> <span class="n">backend_config</span><span class="o">=</span><span class="n">backend_config</span><span class="p">)</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8"></a>
+<a id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10"></a>    <span class="k">if</span> <span class="n">image</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11"></a>        <span class="k">return</span> <span class="p">[(</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;请上传一张图片。&quot;</span><span class="p">)]</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13"></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">pipe</span><span class="p">((</span><span class="n">text</span><span class="p">,</span> <span class="n">image</span><span class="p">))</span><span class="o">.</span><span class="n">text</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14"></a>        <span class="k">return</span> <span class="p">[(</span><span class="n">text</span><span class="p">,</span> <span class="n">response</span><span class="p">)]</span>
+<a id="__codelineno-22-15" name="__codelineno-22-15"></a>
+<a id="__codelineno-22-16" name="__codelineno-22-16"></a><span class="n">demo</span> <span class="o">=</span> <span class="n">gr</span><span class="o">.</span><span class="n">Interface</span><span class="p">(</span><span class="n">fn</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">gr</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;pil&quot;</span><span class="p">),</span> <span class="n">gr</span><span class="o">.</span><span class="n">Textbox</span><span class="p">()],</span> <span class="n">outputs</span><span class="o">=</span><span class="n">gr</span><span class="o">.</span><span class="n">Chatbot</span><span class="p">())</span>
+<a id="__codelineno-22-17" name="__codelineno-22-17"></a><span class="n">demo</span><span class="o">.</span><span class="n">launch</span><span class="p">()</span>   
+</code></pre></div></td></tr></table></div>
+<p><img alt="alt text" src="../image-180.png" /></p>
+<ul>
+<li>运行python脚本</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>python<span class="w"> </span>/root/gradio_llava.py
+</code></pre></div>
+<ul>
+<li>本地连接</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>ssh<span class="w"> </span>-CNg<span class="w"> </span>-L<span class="w"> </span><span class="m">7860</span>:127.0.0.1:7860<span class="w"> </span>root@ssh.intern-ai.org.cn<span class="w"> </span>-p<span class="w"> </span><span class="m">48048</span>
+</code></pre></div>
+<p><img alt="alt text" src="../image-181.png" /></p>
+<ul>
+<li>本地访问</li>
+</ul>
+<p>http://127.0.0.1:7860</p>
+<p><img alt="alt text" src="../image-182.png" /></p>
+<p>多模态还是战力不足啊</p>
+<h3 id="26-openxlablmdeploy-web-demo">2.6 在OpenXLab部署LMDeploy web demo</h3>
+<p><a href="https://github.com/InternLM/Tutorial/tree/camp2/tools/openxlab-deploy">文档地址</a></p>
+<p><a href="https://openxlab.org.cn/home">OpenXLab</a></p>
+<p><img alt="alt text" src="../image-183.png" /></p>
+<h4 id="261">2.6.1 创建模型仓库</h4>
+<p><img alt="alt text" src="../image-184.png" /></p>
+<h4 id="262">2.6.2 创建本地空间</h4>
+<p><img alt="alt text" src="../image-185.png" /></p>
+<h4 id="263">2.6.3 创建令牌</h4>
+<p><img alt="alt text" src="../image-186.png" /></p>
+<p><img alt="alt text" src="../image-187.png" /></p>
+<h4 id="264">2.6.4 获取大模型</h4>
+<p><a href="https://openxlab.org.cn/models/detail/OpenLMLab/internlm2-chat-7b/tree/main">大模型地址</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>git<span class="w"> </span>lfs<span class="w"> </span>install
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://code.openxlab.org.cn/OpenLMLab/internlm2-chat-7b.git
+</code></pre></div>
+<h4 id="265">2.6.5 上传大模型</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2023 <a href="https://github.com/acondess" target="_blank" rel="noopener">acondess</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://acondess.github.io/InternLM_learn_2/" target="_blank" rel="noopener" title="acondess.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs.sticky", "navigation.top", "navigation.tabs", "navigation.expand", "navigation.sections", "toc.integrate", "toc.sections", "toc.follow", "toc.numbers", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "footer"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
+      
+    
+  </body>
+</html>

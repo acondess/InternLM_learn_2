@@ -1,0 +1,2137 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter1/">
+      
+      
+        <link rel="next" href="../chapter3/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
+    
+    
+      
+        <title>课时二 轻松分钟玩转书生·浦语大模型趣味 Demo - 第二期书生·浦语实战营学习笔记及作业提交</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.732c4fb1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#demo" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="第二期书生·浦语实战营学习笔记及作业提交" class="md-header__button md-logo" aria-label="第二期书生·浦语实战营学习笔记及作业提交" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            第二期书生·浦语实战营学习笔记及作业提交
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              课时二 轻松分钟玩转书生·浦语大模型趣味 Demo
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4m0-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  第二期书生·浦语实战营学习笔记及作业提交
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter1/" class="md-tabs__link">
+        
+  
+    
+  
+  课时一 书生·浦语大模型全链路开源开放体系
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  课时二 轻松分钟玩转书生·浦语大模型趣味 Demo
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter3/" class="md-tabs__link">
+        
+  
+    
+  
+  课时三 "茴香豆":零代码搭建你的 RAG 智能助理
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter4/" class="md-tabs__link">
+        
+  
+    
+  
+  课时四 XTuner微调多模态Agent
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter5/" class="md-tabs__link">
+        
+  
+    
+  
+  课时五 LMDeploy量化部署LLM实践
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter6/" class="md-tabs__link">
+        
+  
+    
+  
+  课时六 Lagent &amp; AgentLego 智能体应用搭建
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter7/" class="md-tabs__link">
+        
+  
+    
+  
+  课时七 OpenCompass 大模型测评
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="第二期书生·浦语实战营学习笔记及作业提交" class="md-nav__button md-logo" aria-label="第二期书生·浦语实战营学习笔记及作业提交" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    第二期书生·浦语实战营学习笔记及作业提交
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第二期书生·浦语实战营学习笔记及作业提交
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时一 书生·浦语大模型全链路开源开放体系
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    课时二 轻松分钟玩转书生·浦语大模型趣味 Demo
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    课时二 轻松分钟玩转书生·浦语大模型趣味 Demo
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 提交的作业结果
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 提交的作业结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 作业1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 作业2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 作业3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 作业4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5 业笔记
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.5 业笔记">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#151" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.1 模型生成小故事
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#152-huggingface" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.2 huggingface下载模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#153-lagent" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.3 Lagent 智能体
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#154-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5.4 灵笔2部署
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 视频笔记
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 视频笔记">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      实战任务
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 文档复现笔记
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 文档复现笔记">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-internlm2-chat-18b" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 部署InternLM2-Chat-1.8B 模型进行智能对话
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 部署InternLM2-Chat-1.8B 模型进行智能对话">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.1 配置基础环境
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.2 下载大模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-chat-18b" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 部署八戒-Chat-1.8B模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 部署八戒-Chat-1.8B模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1 进入环境&amp;下载源码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-chat-" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.2 运行Chat-八戒
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-lagent" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Lagent 智能体
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Lagent 智能体">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 前置知识
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2 实现过程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.2 实现过程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3321" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2.1 开发机设置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3322-lagentinternlm2" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2.2 使用Lagent运行InternLM2大模型的智能体
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.3 源码解析
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-xomposer-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 多模态Xomposer （灵笔·2）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 多模态Xomposer （灵笔·2）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 前置知识
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2 实现过程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4.2 实现过程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3421" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2.1创建开发机资源
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3422conda" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2.2进入conda环境补充依赖包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3423" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2.3下载源码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3424" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2.4创建软链接（模型）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3425xcomposer" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2.5启动Xcomposer图文写作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3426" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2.6本地连接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3427-xcomposer" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2.7 启动Xcomposer图片理解
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3428" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.2.8 上传图片分析图片内容
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时三 "茴香豆":零代码搭建你的 RAG 智能助理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时四 XTuner微调多模态Agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时五 LMDeploy量化部署LLM实践
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时六 Lagent &amp; AgentLego 智能体应用搭建
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时七 OpenCompass 大模型测评
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="demo">课时二 轻松分钟玩转书生·浦语大模型趣味 Demo</h1>
+<p><img alt="Helloword" src="../image.png" /></p>
+<p><a href="https://aicarrier.feishu.cn/wiki/Vv4swUFMni5DiMkcasUczUp9nid#LSBkd2cTHorhsAx5jZAcO0B3nqe">飞书地址</a></p>
+<h2 id="1">1. 提交的作业结果</h2>
+<p><a href="https://github.com/InternLM/Tutorial/blob/camp2/helloworld/homework.md">作业要求</a></p>
+<h3 id="11-1">1.1 作业1</h3>
+<ul>
+<li>使用 InternLM2-Chat-1.8B 模型生成 300 字的小故事（截图）</li>
+</ul>
+<p><img alt="寓言故事" src="../image-11.png" /></p>
+<h3 id="12-2">1.2 作业2</h3>
+<ul>
+<li>熟悉 huggingface 下载功能，使用 huggingface_hub python 包，下载 InternLM2-Chat-7B 的 config.json 文件到本地（截图下载过程）</li>
+</ul>
+<p><img alt="下载过程" src="../image-12.png" /></p>
+<h3 id="13-3">1.3 作业3</h3>
+<ul>
+<li>
+<p>完成 Lagent 工具调用 数据分析 Demo 部署（截图）</p>
+</li>
+<li>
+<p>观察模型加载进度</p>
+<p><img alt="alt text" src="../image-28.png" /></p>
+</li>
+<li>
+<p>勾选数据分析</p>
+<p><img alt="alt text" src="../image-29.png" /></p>
+</li>
+</ul>
+<h3 id="14-4">1.4 作业4</h3>
+<ul>
+<li>
+<p>完成 浦语·灵笔2 的 图文创作 及 视觉问答 部署（截图）</p>
+</li>
+<li>
+<p>图文创作
+    <img alt="alt text" src="../image-41.png" /></p>
+</li>
+<li>
+<p>视觉问答
+    <img alt="alt text" src="../image-45.png" /></p>
+</li>
+</ul>
+<h3 id="15">1.5 业笔记</h3>
+<h4 id="151">1.5.1 模型生成小故事</h4>
+<h4 id="152-huggingface">1.5.2 huggingface下载模型</h4>
+<ul>
+<li>
+<p><a href="https://huggingface.co/internlm/internlm2-chat-1_8b">模型地址</a></p>
+</li>
+<li>
+<p><a href="https://huggingface.co/docs/huggingface_hub/quick-start">huggingface hub python文档</a></p>
+</li>
+</ul>
+<p>进入demo环境（conda），输入python进入python命令编写如下代码进行模型config下载</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">huggingface_hub</span> <span class="kn">import</span> <span class="n">hf_hub_download</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">hf_hub_download</span><span class="p">(</span><span class="n">repo_id</span><span class="o">=</span><span class="s2">&quot;internlm/internlm2-chat-1_8b&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="下载过程" src="../image-12.png" /></p>
+<h4 id="153-lagent">1.5.3 Lagent 智能体</h4>
+<h4 id="154-2">1.5.4 灵笔2部署</h4>
+<ul>
+<li>
+<p>图文创作</p>
+</li>
+<li>
+<p>视觉问答</p>
+</li>
+</ul>
+<h2 id="2">2. 视频笔记</h2>
+<p><a href="https://www.bilibili.com/video/BV1AH4y1H78d/">视频链接</a></p>
+<h3 id="_1">实战任务</h3>
+<ul>
+<li>列表
+  <img alt="alt text" src="../image-31.png" /></li>
+</ul>
+<h2 id="3">3. 文档复现笔记</h2>
+<p><a href="https://github.com/InternLM/Tutorial/blob/camp2/helloworld/hello_world.md">文档链接</a></p>
+<h3 id="31-internlm2-chat-18b">3.1 部署InternLM2-Chat-1.8B 模型进行智能对话</h3>
+<h4 id="311">3.1.1 配置基础环境</h4>
+<ul>
+<li>创建开发机</li>
+</ul>
+<p>进入<a href="https://studio.intern-ai.org.cn/">算力平台</a>点击创建开发机，选择算力——&gt;开发机命名——&gt;选择镜像（cuda11.7-conda）——&gt;设置算力用时。</p>
+<p><img alt="alt text" src="../image-2.png" /></p>
+<ul>
+<li>配置开发机开发环境</li>
+</ul>
+<p>进入开发机终端，输入如下命令安装conda开发环境（实测运行12分钟左右）</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>studio-conda<span class="w"> </span>-o<span class="w"> </span>internlm-base<span class="w"> </span>-t<span class="w"> </span>demo
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># 与 studio-conda 等效的配置方案</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># conda create -n demo python==3.10 -y</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># conda activate demo</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.7 -c pytorch -c nvidia</span>
+</code></pre></div>
+  <img alt="开发机终端" src="../image-1.png" /></p>
+<ul>
+<li>
+<p>conda create -n demo python==3.10 -y: 这个命令使用conda包管理器创建一个名为"demo"的环境，并指定使用Python 3.10版本。-y选项表示在创建环境时自动确认所有提示，无需手动确认。</p>
+</li>
+<li>
+<p>conda activate demo: 这个命令用于激活名为"demo"的环境。激活环境后，所有后续的命令和操作都将在该环境中进行。</p>
+</li>
+<li>
+<p>conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.7 -c pytorch -c nvidia: 这个命令使用conda安装特定版本的PyTorch及其相关库。pytorch==2.0.1表示安装PyTorch 2.0.1版本，torchvision==0.15.2表示安装torchvision库的0.15.2版本，torchaudio==2.0.2表示安装torchaudio库的2.0.2版本。pytorch-cuda=11.7表示安装支持CUDA 11.7的PyTorch版本。-c pytorch -c nvidia指定了从pytorch和nvidia这两个渠道进行安装。</p>
+</li>
+</ul>
+<p><img alt="conda环境安装结果1" src="../image-3.png" /></p>
+<p><img alt="conda环境安装结果2" src="../image-4.png" /></p>
+<p>查看conda环境list</p>
+<p><img alt="alt text" src="../image-5.png" /></p>
+<p>进入开发环境
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">  </span>conda<span class="w"> </span>activate<span class="w"> </span>demo
+</code></pre></div></p>
+<p>进行环境依赖包安装</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>huggingface-hub<span class="o">==</span><span class="m">0</span>.17.3
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">transformers</span><span class="o">==</span><span class="m">4</span>.34<span class="w"> </span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">psutil</span><span class="o">==</span><span class="m">5</span>.9.8
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">accelerate</span><span class="o">==</span><span class="m">0</span>.24.1
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">streamlit</span><span class="o">==</span><span class="m">1</span>.32.2<span class="w"> </span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">matplotlib</span><span class="o">==</span><span class="m">3</span>.8.3<span class="w"> </span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">modelscope</span><span class="o">==</span><span class="m">1</span>.9.5
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">sentencepiece</span><span class="o">==</span><span class="m">0</span>.1.99
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>- huggingface-hub: 提供了与Hugging Face模型和数据集库的交互功能。
+
+- transformers: 提供了用于自然语言处理任务的预训练模型和相关工具。
+
+- psutil: 提供了一个跨平台的库，用于获取系统信息和进程管理。
+
+- accelerate: 提供了用于加速深度学习训练的工具和API。
+
+- streamlit: 提供了一个用于构建交互式Web应用程序的Python库。
+
+- matplotlib: 提供了一个用于绘制图表和可视化数据的Python库。
+
+- modelscope: 提供了一个用于分析和比较机器学习模型的Python库。
+
+- sentencepiece: 提供了一个用于分词和生成子词单元的工具和库。
+</code></pre></div>
+<h4 id="312">3.1.2 下载大模型</h4>
+<p>进入jupyter终端，进入demo环境（conda），cd到当前jupyter路径下。</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">  </span><span class="nb">cd</span><span class="w"> </span>/root
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>conda<span class="w"> </span>activate<span class="w"> </span>demo
+</code></pre></div>
+<img alt="下载大模型环境" src="../image-6.png" /></p>
+<p>创建文件夹&amp;python文件</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w"> </span>mkdir<span class="w"> </span>demo
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>demo
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w"> </span>tourch<span class="w"> </span>cli_demo.py
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w"> </span>tourch<span class="w"> </span>download_mini.py
+</code></pre></div>
+<p><img alt="创建文件夹&amp;文件" src="../image-7.png" /></p>
+<p>编写脚本——download_mini.py</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">os</span>  <span class="c1"># 导入os模块，用于操作系统相关的操作</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kn">from</span> <span class="nn">modelscope.hub.snapshot_download</span> <span class="kn">import</span> <span class="n">snapshot_download</span>  <span class="c1"># 从modelscope.hub模块导入snapshot_download函数，用于下载模型</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1"># 创建保存模型目录</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;mkdir /root/models&quot;</span><span class="p">)</span>  <span class="c1"># 使用os.system执行命令行命令，创建一个名为models的目录在/root路径下</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="c1"># save_dir是模型保存到本地的目录</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="n">save_dir</span><span class="o">=</span><span class="s2">&quot;/root/models&quot;</span>  <span class="c1"># 定义变量save_dir，其值为模型保存的目录路径</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="c1"># 使用snapshot_download函数下载模型，参数包括模型的名字，缓存目录和版本号</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="n">snapshot_download</span><span class="p">(</span><span class="s2">&quot;Shanghai_AI_Laboratory/internlm2-chat-1_8b&quot;</span><span class="p">,</span> 
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>                  <span class="n">cache_dir</span><span class="o">=</span><span class="n">save_dir</span><span class="p">,</span> 
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>                  <span class="n">revision</span><span class="o">=</span><span class="s1">&#39;v1.1.0&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>执行命令下载模型</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">  </span>python<span class="w"> </span>download_mini.py
+</code></pre></div>
+  <img alt="下载大模型" src="../image-8.png" /></p>
+<p><img alt="大模型文件" src="../image-9.png" /></p>
+<p>#### 3.1.3 基于大模型对话</p>
+<div class="highlight"><pre><span></span><code>编写cli_demo.py脚本
+</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span>
+<span class="normal"><a href="#__codelineno-8-16">16</a></span>
+<span class="normal"><a href="#__codelineno-8-17">17</a></span>
+<span class="normal"><a href="#__codelineno-8-18">18</a></span>
+<span class="normal"><a href="#__codelineno-8-19">19</a></span>
+<span class="normal"><a href="#__codelineno-8-20">20</a></span>
+<span class="normal"><a href="#__codelineno-8-21">21</a></span>
+<span class="normal"><a href="#__codelineno-8-22">22</a></span>
+<span class="normal"><a href="#__codelineno-8-23">23</a></span>
+<span class="normal"><a href="#__codelineno-8-24">24</a></span>
+<span class="normal"><a href="#__codelineno-8-25">25</a></span>
+<span class="normal"><a href="#__codelineno-8-26">26</a></span>
+<span class="normal"><a href="#__codelineno-8-27">27</a></span>
+<span class="normal"><a href="#__codelineno-8-28">28</a></span>
+<span class="normal"><a href="#__codelineno-8-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>      <span class="kn">import</span> <span class="nn">torch</span>  <span class="c1"># 导入torch库，用于进行深度学习模型的操作</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>      <span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">AutoModelForCausalLM</span>  <span class="c1"># 从transformers库中导入AutoTokenizer和AutoModelForCausalLM，用于处理自然语言和加载模型</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>      <span class="n">model_name_or_path</span> <span class="o">=</span> <span class="s2">&quot;/root/models/Shanghai_AI_Laboratory/internlm2-chat-1_8b&quot;</span>  <span class="c1"># 模型的名称或路径</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>      <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name_or_path</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">device_map</span><span class="o">=</span><span class="s1">&#39;cuda:0&#39;</span><span class="p">)</span>  <span class="c1"># 加载预训练的tokenizer</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>      <span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name_or_path</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">torch_dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bfloat16</span><span class="p">,</span> <span class="n">device_map</span><span class="o">=</span><span class="s1">&#39;cuda:0&#39;</span><span class="p">)</span>  <span class="c1"># 加载预训练的模型</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>      <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>  <span class="c1"># 将模型设置为评估模式</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>      <span class="n">system_prompt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;You are an AI assistant whose name is InternLM (书生·浦语).</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="s2">      - InternLM (书生·浦语) is a conversational language model that is developed by Shanghai AI Laboratory (上海人工智能实验室). It is designed to be helpful, honest, and harmless.</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="s2">      - InternLM (书生·浦语) can understand and communicate fluently in the language chosen by the user such as English and 中文.</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="s2">      &quot;&quot;&quot;</span>  <span class="c1"># 系统提示信息</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a>      <span class="n">messages</span> <span class="o">=</span> <span class="p">[(</span><span class="n">system_prompt</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)]</span>  <span class="c1"># 初始化消息列表</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a>
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a>      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=============Welcome to InternLM chatbot, type &#39;exit&#39; to exit.=============&quot;</span><span class="p">)</span>  <span class="c1"># 打印欢迎信息</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a>
+<a id="__codelineno-8-19" name="__codelineno-8-19"></a>      <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>  <span class="c1"># 循环接收用户输入</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20"></a>        <span class="n">input_text</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">User  &gt;&gt;&gt; &quot;</span><span class="p">)</span>  <span class="c1"># 获取用户输入</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21"></a>        <span class="n">input_text</span> <span class="o">=</span> <span class="n">input_text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>  <span class="c1"># 去除用户输入的空格</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22"></a>        <span class="k">if</span> <span class="n">input_text</span> <span class="o">==</span> <span class="s2">&quot;exit&quot;</span><span class="p">:</span>  <span class="c1"># 如果用户输入&#39;exit&#39;，则退出循环</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23"></a>          <span class="k">break</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24"></a>
+<a id="__codelineno-8-25" name="__codelineno-8-25"></a>        <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26"></a>        <span class="k">for</span> <span class="n">response</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">stream_chat</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">input_text</span><span class="p">,</span> <span class="n">messages</span><span class="p">):</span>  <span class="c1"># 使用模型进行聊天</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27"></a>          <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># 如果响应不为空</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="n">length</span><span class="p">:],</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>  <span class="c1"># 打印响应</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29"></a>            <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>  <span class="c1"># 更新响应长度</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="运行截图" src="../image-10.png" /></p>
+<p>输入提示词：创作一个300字的寓言故事，要求有趣
+  <img alt="寓言故事" src="../image-11.png" /></p>
+<h3 id="32-chat-18b">3.2 部署八戒-Chat-1.8B模型</h3>
+<h4 id="321">3.2.1 进入环境&amp;下载源码</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>demo
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="nb">cd</span><span class="w"> </span>/root/
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>git<span class="w"> </span>clone<span class="w"> </span>https://gitee.com/InternLM/Tutorial<span class="w"> </span>-b<span class="w"> </span>camp2
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="c1"># git clone https://github.com/InternLM/Tutorial -b camp2</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="nb">cd</span><span class="w"> </span>/root/Tutorial
+</code></pre></div></td></tr></table></div>
+<p><img alt="源码" src="../image-13.png" /></p>
+<h4 id="322-chat-">3.2.2 运行Chat-八戒</h4>
+<ul>
+<li>bajie_download.py</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="c1">#模型下载</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="kn">from</span> <span class="nn">modelscope.hub.snapshot_download</span> <span class="kn">import</span> <span class="n">snapshot_download</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="c1"># 创建保存模型目录</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;mkdir -p /root/models&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="c1"># save_dir是模型保存到本地的目录</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="n">save_dir</span><span class="o">=</span><span class="s2">&quot;/root/models&quot;</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="n">snapshot_download</span><span class="p">(</span><span class="s1">&#39;JimmyMa99/BaJie-Chat-mini&#39;</span><span class="p">,</span> 
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a>                  <span class="n">cache_dir</span><span class="o">=</span><span class="n">save_dir</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>运行模型下载代码
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>python<span class="w"> </span>/root/Tutorial/helloworld/bajie_download.py
+</code></pre></div></li>
+</ul>
+<p><img alt="下载模型" src="../image-14.png" /></p>
+<ul>
+<li>运行启动streamlit前端页面</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>streamlit<span class="w"> </span>run<span class="w"> </span>/root/Tutorial/helloworld/bajie_chat.py<span class="w"> </span>--server.address<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--server.port<span class="w"> </span><span class="m">6006</span>
+</code></pre></div>
+<p><img alt="streamlit app" src="../image-15.png" /></p>
+<ul>
+<li>本地端口映射</li>
+</ul>
+<p>点击SSH连接，找寻自己的端口号，并对应修改ssh映射命令的端口号</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># 从本地使用 ssh 连接 studio 端口</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># 将下方端口号 38374 替换成自己的端口号</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>ssh<span class="w"> </span>-CNg<span class="w"> </span>-L<span class="w"> </span><span class="m">6006</span>:127.0.0.1:6006<span class="w"> </span>root@ssh.intern-ai.org.cn<span class="w"> </span>-p<span class="w"> </span><span class="m">38374</span>
+</code></pre></div>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ssh: 这是SSH客户端命令，用于建立安全的远程连接。
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>-CNg: 这是ssh命令的选项。-C选项启用压缩，-N选项指示ssh不要执行远程命令，-g选项允许远程主机通过隧道连接到本地主机。
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>-L 6006:127.0.0.1:6006: 这是ssh命令的端口转发选项。它指示ssh在本地主机的端口6006上监听，并将所有传入的连接转发到远程主机的127.0.0.1:6006。
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>root@ssh.intern-ai.org.cn: 这是远程主机的用户名和主机名。在这个例子中，用户名是root，主机名是ssh.intern-ai.org.cn。
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>-p 38374: 这是ssh命令的端口选项。它指示ssh使用38374端口连接到远程主机。
+</code></pre></div>
+<img alt="端口号" src="../image-17.png" /></p>
+<ul>
+<li>模型加载中
+  <img alt="加载模型" src="../image-16.png" /></li>
+<li>加载完成界面
+  <img alt="app" src="../image-18.png" /></li>
+<li>对话
+  <img alt="对话" src="../image-19.png" /></li>
+</ul>
+<h3 id="33-lagent">3.3 Lagent 智能体</h3>
+<h4 id="331">3.3.1 前置知识</h4>
+<p>Lagent 是一个轻量级、开源的基于大语言模型的智能体（agent）框架，支持用户快速地将一个大语言模型转变为多种类型的智能体，并提供了一些典型工具为大语言模型赋能。它的整个框架图如下:</p>
+<p><img alt="架构" src="../image-20.png" /></p>
+<h4 id="332">3.3.2 实现过程</h4>
+<h5 id="3321">3.3.2.1 开发机设置</h5>
+<ul>
+<li>开启 30% A100</li>
+</ul>
+<p>创建开发机命名为LagentPro，镜像选择Cuda11.7，资源配置现存20G，内存72G</p>
+<p><img alt="创建开发机" src="../image-21.png" /></p>
+<ul>
+<li>进入开发机，进入demo环境</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>demo
+</code></pre></div>
+<img alt="demo conda" src="../image-22.png" /></p>
+<ul>
+<li>下载Lagent源码</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">cd</span><span class="w"> </span>/root/demo
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://gitee.com/internlm/lagent.git
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1"># git clone https://github.com/internlm/lagent.git</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="nb">cd</span><span class="w"> </span>/root/demo/lagent
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>git<span class="w"> </span>checkout<span class="w"> </span>581d9fb8987a5d9b72bb9ebd37a95efd47d479ac
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span><span class="c1"># 源码安装</span>
+</code></pre></div>
+<p><img alt="Lagent源码" src="../image-23.png" /></p>
+<p><img alt="内容" src="../image-24.png" /></p>
+<h5 id="3322-lagentinternlm2">3.3.2.2 使用Lagent运行InternLM2大模型的智能体</h5>
+<ul>
+<li>构造软链接快捷访问方式</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ln<span class="w"> </span>-s<span class="w"> </span>/root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-7b<span class="w"> </span>/root/models/internlm2-chat-7b
+</code></pre></div>
+- 修改lagent路径下 examples/internlm2_agent_web_demo_hf.py 脚本模型加载路径</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">model_path</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="o">.</span><span class="n">text_input</span><span class="p">(</span><span class="s1">&#39;模型路径：&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;/root/models/internlm2-chat-7b&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p><img alt="模型路径" src="../image-25.png" /></p>
+<ul>
+<li>运行streamlit前端页面</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>streamlit<span class="w"> </span>run<span class="w"> </span>/root/demo/lagent/examples/internlm2_agent_web_demo_hf.py<span class="w"> </span>--server.address<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--server.port<span class="w"> </span><span class="m">6006</span>
+</code></pre></div>
+<p><img alt="streamapp" src="../image-26.png" /></p>
+<ul>
+<li>本地ssh连接设置</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>ssh<span class="w"> </span>-CNg<span class="w"> </span>-L<span class="w"> </span><span class="m">6006</span>:127.0.0.1:6006<span class="w"> </span>root@ssh.intern-ai.org.cn<span class="w"> </span>-p<span class="w"> </span><span class="m">41227</span>
+</code></pre></div>
+<p><img alt="ssh 连接" src="../image-27.png" /></p>
+<ul>
+<li>本地运行streamlit 前端页面</li>
+</ul>
+<p>http://127.0.0.1:6006/</p>
+<ul>
+<li>注意：观察模型加载进度
+  <img alt="alt text" src="../image-28.png" /></li>
+<li>
+<p>注意勾选数据分析（可观测Agent智能体的调用过程——调用了什么方法组合进行解题）
+  <img alt="alt text" src="../image-29.png" /></p>
+</li>
+<li>
+<p>让智能体告诉我他的能力并测验能力</p>
+</li>
+</ul>
+<p>Q:你作为Agent智能体，能给我一个示例能体现你能力吗？
+  A:<img alt="alt text" src="../image-30.png" /></p>
+<h4 id="333">3.3.3 源码解析</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-21-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-21-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-21-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-21-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-21-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-21-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-21-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-21-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-21-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-21-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-21-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-21-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-21-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-21-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-21-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-21-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-21-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-21-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-21-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-21-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-21-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-21-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-21-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-21-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-21-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-21-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-21-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-21-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-21-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-21-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-21-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-21-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-21-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-21-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-21-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-21-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-21-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-21-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-21-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-21-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-21-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-21-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-21-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-21-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-21-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-21-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-21-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-21-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-21-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-21-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-21-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-21-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-21-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-21-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-21-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-21-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-21-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-21-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-21-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-21-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-21-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-21-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-21-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-21-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-21-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-21-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-21-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-21-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-21-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-21-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-21-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-21-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-21-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-21-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-21-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-21-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-21-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-21-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-21-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-21-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-21-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-21-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-21-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-21-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-21-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-21-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-21-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-21-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-21-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-21-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-21-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-21-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-21-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-21-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-21-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-21-100">100</a></span>
+<span class="normal"><a href="#__codelineno-21-101">101</a></span>
+<span class="normal"><a href="#__codelineno-21-102">102</a></span>
+<span class="normal"><a href="#__codelineno-21-103">103</a></span>
+<span class="normal"><a href="#__codelineno-21-104">104</a></span>
+<span class="normal"><a href="#__codelineno-21-105">105</a></span>
+<span class="normal"><a href="#__codelineno-21-106">106</a></span>
+<span class="normal"><a href="#__codelineno-21-107">107</a></span>
+<span class="normal"><a href="#__codelineno-21-108">108</a></span>
+<span class="normal"><a href="#__codelineno-21-109">109</a></span>
+<span class="normal"><a href="#__codelineno-21-110">110</a></span>
+<span class="normal"><a href="#__codelineno-21-111">111</a></span>
+<span class="normal"><a href="#__codelineno-21-112">112</a></span>
+<span class="normal"><a href="#__codelineno-21-113">113</a></span>
+<span class="normal"><a href="#__codelineno-21-114">114</a></span>
+<span class="normal"><a href="#__codelineno-21-115">115</a></span>
+<span class="normal"><a href="#__codelineno-21-116">116</a></span>
+<span class="normal"><a href="#__codelineno-21-117">117</a></span>
+<span class="normal"><a href="#__codelineno-21-118">118</a></span>
+<span class="normal"><a href="#__codelineno-21-119">119</a></span>
+<span class="normal"><a href="#__codelineno-21-120">120</a></span>
+<span class="normal"><a href="#__codelineno-21-121">121</a></span>
+<span class="normal"><a href="#__codelineno-21-122">122</a></span>
+<span class="normal"><a href="#__codelineno-21-123">123</a></span>
+<span class="normal"><a href="#__codelineno-21-124">124</a></span>
+<span class="normal"><a href="#__codelineno-21-125">125</a></span>
+<span class="normal"><a href="#__codelineno-21-126">126</a></span>
+<span class="normal"><a href="#__codelineno-21-127">127</a></span>
+<span class="normal"><a href="#__codelineno-21-128">128</a></span>
+<span class="normal"><a href="#__codelineno-21-129">129</a></span>
+<span class="normal"><a href="#__codelineno-21-130">130</a></span>
+<span class="normal"><a href="#__codelineno-21-131">131</a></span>
+<span class="normal"><a href="#__codelineno-21-132">132</a></span>
+<span class="normal"><a href="#__codelineno-21-133">133</a></span>
+<span class="normal"><a href="#__codelineno-21-134">134</a></span>
+<span class="normal"><a href="#__codelineno-21-135">135</a></span>
+<span class="normal"><a href="#__codelineno-21-136">136</a></span>
+<span class="normal"><a href="#__codelineno-21-137">137</a></span>
+<span class="normal"><a href="#__codelineno-21-138">138</a></span>
+<span class="normal"><a href="#__codelineno-21-139">139</a></span>
+<span class="normal"><a href="#__codelineno-21-140">140</a></span>
+<span class="normal"><a href="#__codelineno-21-141">141</a></span>
+<span class="normal"><a href="#__codelineno-21-142">142</a></span>
+<span class="normal"><a href="#__codelineno-21-143">143</a></span>
+<span class="normal"><a href="#__codelineno-21-144">144</a></span>
+<span class="normal"><a href="#__codelineno-21-145">145</a></span>
+<span class="normal"><a href="#__codelineno-21-146">146</a></span>
+<span class="normal"><a href="#__codelineno-21-147">147</a></span>
+<span class="normal"><a href="#__codelineno-21-148">148</a></span>
+<span class="normal"><a href="#__codelineno-21-149">149</a></span>
+<span class="normal"><a href="#__codelineno-21-150">150</a></span>
+<span class="normal"><a href="#__codelineno-21-151">151</a></span>
+<span class="normal"><a href="#__codelineno-21-152">152</a></span>
+<span class="normal"><a href="#__codelineno-21-153">153</a></span>
+<span class="normal"><a href="#__codelineno-21-154">154</a></span>
+<span class="normal"><a href="#__codelineno-21-155">155</a></span>
+<span class="normal"><a href="#__codelineno-21-156">156</a></span>
+<span class="normal"><a href="#__codelineno-21-157">157</a></span>
+<span class="normal"><a href="#__codelineno-21-158">158</a></span>
+<span class="normal"><a href="#__codelineno-21-159">159</a></span>
+<span class="normal"><a href="#__codelineno-21-160">160</a></span>
+<span class="normal"><a href="#__codelineno-21-161">161</a></span>
+<span class="normal"><a href="#__codelineno-21-162">162</a></span>
+<span class="normal"><a href="#__codelineno-21-163">163</a></span>
+<span class="normal"><a href="#__codelineno-21-164">164</a></span>
+<span class="normal"><a href="#__codelineno-21-165">165</a></span>
+<span class="normal"><a href="#__codelineno-21-166">166</a></span>
+<span class="normal"><a href="#__codelineno-21-167">167</a></span>
+<span class="normal"><a href="#__codelineno-21-168">168</a></span>
+<span class="normal"><a href="#__codelineno-21-169">169</a></span>
+<span class="normal"><a href="#__codelineno-21-170">170</a></span>
+<span class="normal"><a href="#__codelineno-21-171">171</a></span>
+<span class="normal"><a href="#__codelineno-21-172">172</a></span>
+<span class="normal"><a href="#__codelineno-21-173">173</a></span>
+<span class="normal"><a href="#__codelineno-21-174">174</a></span>
+<span class="normal"><a href="#__codelineno-21-175">175</a></span>
+<span class="normal"><a href="#__codelineno-21-176">176</a></span>
+<span class="normal"><a href="#__codelineno-21-177">177</a></span>
+<span class="normal"><a href="#__codelineno-21-178">178</a></span>
+<span class="normal"><a href="#__codelineno-21-179">179</a></span>
+<span class="normal"><a href="#__codelineno-21-180">180</a></span>
+<span class="normal"><a href="#__codelineno-21-181">181</a></span>
+<span class="normal"><a href="#__codelineno-21-182">182</a></span>
+<span class="normal"><a href="#__codelineno-21-183">183</a></span>
+<span class="normal"><a href="#__codelineno-21-184">184</a></span>
+<span class="normal"><a href="#__codelineno-21-185">185</a></span>
+<span class="normal"><a href="#__codelineno-21-186">186</a></span>
+<span class="normal"><a href="#__codelineno-21-187">187</a></span>
+<span class="normal"><a href="#__codelineno-21-188">188</a></span>
+<span class="normal"><a href="#__codelineno-21-189">189</a></span>
+<span class="normal"><a href="#__codelineno-21-190">190</a></span>
+<span class="normal"><a href="#__codelineno-21-191">191</a></span>
+<span class="normal"><a href="#__codelineno-21-192">192</a></span>
+<span class="normal"><a href="#__codelineno-21-193">193</a></span>
+<span class="normal"><a href="#__codelineno-21-194">194</a></span>
+<span class="normal"><a href="#__codelineno-21-195">195</a></span>
+<span class="normal"><a href="#__codelineno-21-196">196</a></span>
+<span class="normal"><a href="#__codelineno-21-197">197</a></span>
+<span class="normal"><a href="#__codelineno-21-198">198</a></span>
+<span class="normal"><a href="#__codelineno-21-199">199</a></span>
+<span class="normal"><a href="#__codelineno-21-200">200</a></span>
+<span class="normal"><a href="#__codelineno-21-201">201</a></span>
+<span class="normal"><a href="#__codelineno-21-202">202</a></span>
+<span class="normal"><a href="#__codelineno-21-203">203</a></span>
+<span class="normal"><a href="#__codelineno-21-204">204</a></span>
+<span class="normal"><a href="#__codelineno-21-205">205</a></span>
+<span class="normal"><a href="#__codelineno-21-206">206</a></span>
+<span class="normal"><a href="#__codelineno-21-207">207</a></span>
+<span class="normal"><a href="#__codelineno-21-208">208</a></span>
+<span class="normal"><a href="#__codelineno-21-209">209</a></span>
+<span class="normal"><a href="#__codelineno-21-210">210</a></span>
+<span class="normal"><a href="#__codelineno-21-211">211</a></span>
+<span class="normal"><a href="#__codelineno-21-212">212</a></span>
+<span class="normal"><a href="#__codelineno-21-213">213</a></span>
+<span class="normal"><a href="#__codelineno-21-214">214</a></span>
+<span class="normal"><a href="#__codelineno-21-215">215</a></span>
+<span class="normal"><a href="#__codelineno-21-216">216</a></span>
+<span class="normal"><a href="#__codelineno-21-217">217</a></span>
+<span class="normal"><a href="#__codelineno-21-218">218</a></span>
+<span class="normal"><a href="#__codelineno-21-219">219</a></span>
+<span class="normal"><a href="#__codelineno-21-220">220</a></span>
+<span class="normal"><a href="#__codelineno-21-221">221</a></span>
+<span class="normal"><a href="#__codelineno-21-222">222</a></span>
+<span class="normal"><a href="#__codelineno-21-223">223</a></span>
+<span class="normal"><a href="#__codelineno-21-224">224</a></span>
+<span class="normal"><a href="#__codelineno-21-225">225</a></span>
+<span class="normal"><a href="#__codelineno-21-226">226</a></span>
+<span class="normal"><a href="#__codelineno-21-227">227</a></span>
+<span class="normal"><a href="#__codelineno-21-228">228</a></span>
+<span class="normal"><a href="#__codelineno-21-229">229</a></span>
+<span class="normal"><a href="#__codelineno-21-230">230</a></span>
+<span class="normal"><a href="#__codelineno-21-231">231</a></span>
+<span class="normal"><a href="#__codelineno-21-232">232</a></span>
+<span class="normal"><a href="#__codelineno-21-233">233</a></span>
+<span class="normal"><a href="#__codelineno-21-234">234</a></span>
+<span class="normal"><a href="#__codelineno-21-235">235</a></span>
+<span class="normal"><a href="#__codelineno-21-236">236</a></span>
+<span class="normal"><a href="#__codelineno-21-237">237</a></span>
+<span class="normal"><a href="#__codelineno-21-238">238</a></span>
+<span class="normal"><a href="#__codelineno-21-239">239</a></span>
+<span class="normal"><a href="#__codelineno-21-240">240</a></span>
+<span class="normal"><a href="#__codelineno-21-241">241</a></span>
+<span class="normal"><a href="#__codelineno-21-242">242</a></span>
+<span class="normal"><a href="#__codelineno-21-243">243</a></span>
+<span class="normal"><a href="#__codelineno-21-244">244</a></span>
+<span class="normal"><a href="#__codelineno-21-245">245</a></span>
+<span class="normal"><a href="#__codelineno-21-246">246</a></span>
+<span class="normal"><a href="#__codelineno-21-247">247</a></span>
+<span class="normal"><a href="#__codelineno-21-248">248</a></span>
+<span class="normal"><a href="#__codelineno-21-249">249</a></span>
+<span class="normal"><a href="#__codelineno-21-250">250</a></span>
+<span class="normal"><a href="#__codelineno-21-251">251</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kn">import</span> <span class="nn">copy</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kn">import</span> <span class="nn">hashlib</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="kn">import</span> <span class="nn">json</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a>
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a>
+<a id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="kn">from</span> <span class="nn">lagent.actions</span> <span class="kn">import</span> <span class="n">ActionExecutor</span><span class="p">,</span> <span class="n">ArxivSearch</span><span class="p">,</span> <span class="n">IPythonInterpreter</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="kn">from</span> <span class="nn">lagent.agents.internlm2_agent</span> <span class="kn">import</span> <span class="n">INTERPRETER_CN</span><span class="p">,</span> <span class="n">META_CN</span><span class="p">,</span> <span class="n">PLUGIN_CN</span><span class="p">,</span> <span class="n">Internlm2Agent</span><span class="p">,</span> <span class="n">Internlm2Protocol</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="kn">from</span> <span class="nn">lagent.llms</span> <span class="kn">import</span> <span class="n">HFTransformer</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="kn">from</span> <span class="nn">lagent.llms.meta_template</span> <span class="kn">import</span> <span class="n">INTERNLM2_META</span> <span class="k">as</span> <span class="n">META</span>
+<a id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="kn">from</span> <span class="nn">lagent.schema</span> <span class="kn">import</span> <span class="n">AgentStatusCode</span>
+<a id="__codelineno-21-13" name="__codelineno-21-13"></a>
+<a id="__codelineno-21-14" name="__codelineno-21-14"></a><span class="c1"># 从streamlit.logger导入get_logger函数，但未使用</span>
+<a id="__codelineno-21-15" name="__codelineno-21-15"></a>
+<a id="__codelineno-21-16" name="__codelineno-21-16"></a>
+<a id="__codelineno-21-17" name="__codelineno-21-17"></a><span class="k">class</span> <span class="nc">SessionState</span><span class="p">:</span>
+<a id="__codelineno-21-18" name="__codelineno-21-18"></a>    <span class="k">def</span> <span class="nf">init_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-21-19" name="__codelineno-21-19"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;初始化会话状态变量.&quot;&quot;&quot;</span>
+<a id="__codelineno-21-20" name="__codelineno-21-20"></a>        <span class="c1"># 在st.session_state中创建&#39;assistant&#39;和&#39;user&#39;列表，用于存储对话历史记录</span>
+<a id="__codelineno-21-21" name="__codelineno-21-21"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;assistant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-21-22" name="__codelineno-21-22"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-21-23" name="__codelineno-21-23"></a>
+<a id="__codelineno-21-24" name="__codelineno-21-24"></a>        <span class="c1"># 创建动作列表，包括ArxivSearch()</span>
+<a id="__codelineno-21-25" name="__codelineno-21-25"></a>        <span class="n">action_list</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-21-26" name="__codelineno-21-26"></a>            <span class="n">ArxivSearch</span><span class="p">(),</span>
+<a id="__codelineno-21-27" name="__codelineno-21-27"></a>        <span class="p">]</span>
+<a id="__codelineno-21-28" name="__codelineno-21-28"></a>        <span class="c1"># 在st.session_state中创建&#39;plugin_map&#39;字典，将动作名称映射到动作对象</span>
+<a id="__codelineno-21-29" name="__codelineno-21-29"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;plugin_map&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-21-30" name="__codelineno-21-30"></a>            <span class="n">action</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">action</span>
+<a id="__codelineno-21-31" name="__codelineno-21-31"></a>            <span class="k">for</span> <span class="n">action</span> <span class="ow">in</span> <span class="n">action_list</span>
+<a id="__codelineno-21-32" name="__codelineno-21-32"></a>        <span class="p">}</span>
+<a id="__codelineno-21-33" name="__codelineno-21-33"></a>        <span class="c1"># 在st.session_state中创建空的&#39;model_map&#39;字典，用于存储模型对象</span>
+<a id="__codelineno-21-34" name="__codelineno-21-34"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;model_map&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-21-35" name="__codelineno-21-35"></a>        <span class="c1"># 在st.session_state中创建&#39;model_selected&#39;变量，用于存储当前选择的模型名称</span>
+<a id="__codelineno-21-36" name="__codelineno-21-36"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;model_selected&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-21-37" name="__codelineno-21-37"></a>        <span class="c1"># 在st.session_state中创建空的&#39;plugin_actions&#39;集合，用于存储当前选择的插件动作</span>
+<a id="__codelineno-21-38" name="__codelineno-21-38"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;plugin_actions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<a id="__codelineno-21-39" name="__codelineno-21-39"></a>        <span class="c1"># 在st.session_state中创建空的&#39;history&#39;列表，用于存储对话历史记录</span>
+<a id="__codelineno-21-40" name="__codelineno-21-40"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;history&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-21-41" name="__codelineno-21-41"></a>
+<a id="__codelineno-21-42" name="__codelineno-21-42"></a>    <span class="k">def</span> <span class="nf">clear_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-21-43" name="__codelineno-21-43"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;清除现有的会话状态.&quot;&quot;&quot;</span>
+<a id="__codelineno-21-44" name="__codelineno-21-44"></a>        <span class="c1"># 清空&#39;assistant&#39;和&#39;user&#39;列表，以及&#39;model_selected&#39;变量和&#39;file&#39;集合</span>
+<a id="__codelineno-21-45" name="__codelineno-21-45"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;assistant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-21-46" name="__codelineno-21-46"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-21-47" name="__codelineno-21-47"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;model_selected&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-21-48" name="__codelineno-21-48"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<a id="__codelineno-21-49" name="__codelineno-21-49"></a>        <span class="c1"># 如果&#39;chatbot&#39;存在于st.session_state中，则清空其会话历史记录</span>
+<a id="__codelineno-21-50" name="__codelineno-21-50"></a>        <span class="k">if</span> <span class="s1">&#39;chatbot&#39;</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">:</span>
+<a id="__codelineno-21-51" name="__codelineno-21-51"></a>            <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;chatbot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_session_history</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-21-52" name="__codelineno-21-52"></a>
+<a id="__codelineno-21-53" name="__codelineno-21-53"></a>
+<a id="__codelineno-21-54" name="__codelineno-21-54"></a><span class="k">class</span> <span class="nc">StreamlitUI</span><span class="p">:</span>
+<a id="__codelineno-21-55" name="__codelineno-21-55"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_state</span><span class="p">:</span> <span class="n">SessionState</span><span class="p">):</span>
+<a id="__codelineno-21-56" name="__codelineno-21-56"></a>        <span class="c1"># 初始化StreamlitUI对象，并设置其session_state属性为传入的SessionState对象</span>
+<a id="__codelineno-21-57" name="__codelineno-21-57"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">init_streamlit</span><span class="p">()</span>
+<a id="__codelineno-21-58" name="__codelineno-21-58"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">session_state</span> <span class="o">=</span> <span class="n">session_state</span>
+<a id="__codelineno-21-59" name="__codelineno-21-59"></a>
+<a id="__codelineno-21-60" name="__codelineno-21-60"></a>    <span class="k">def</span> <span class="nf">init_streamlit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-21-61" name="__codelineno-21-61"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;初始化Streamlit的UI设置.&quot;&quot;&quot;</span>
+<a id="__codelineno-21-62" name="__codelineno-21-62"></a>        <span class="c1"># 设置页面配置，包括布局、页面标题和页面图标</span>
+<a id="__codelineno-21-63" name="__codelineno-21-63"></a>        <span class="n">st</span><span class="o">.</span><span class="n">set_page_config</span><span class="p">(</span>
+<a id="__codelineno-21-64" name="__codelineno-21-64"></a>            <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;wide&#39;</span><span class="p">,</span>
+<a id="__codelineno-21-65" name="__codelineno-21-65"></a>            <span class="n">page_title</span><span class="o">=</span><span class="s1">&#39;lagent-web&#39;</span><span class="p">,</span>
+<a id="__codelineno-21-66" name="__codelineno-21-66"></a>            <span class="n">page_icon</span><span class="o">=</span><span class="s1">&#39;./docs/imgs/lagent_icon.png&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-67" name="__codelineno-21-67"></a>        <span class="c1"># 在页面上显示标题和分隔线</span>
+<a id="__codelineno-21-68" name="__codelineno-21-68"></a>        <span class="n">st</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s1">&#39;:robot_face: :blue[Lagent] Web Demo &#39;</span><span class="p">,</span> <span class="n">divider</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-69" name="__codelineno-21-69"></a>        <span class="c1"># 在侧边栏上显示标题</span>
+<a id="__codelineno-21-70" name="__codelineno-21-70"></a>        <span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;模型控制&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-71" name="__codelineno-21-71"></a>        <span class="c1"># 在st.session_state中创建空的&#39;file&#39;集合，用于存储上传的文件</span>
+<a id="__codelineno-21-72" name="__codelineno-21-72"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<a id="__codelineno-21-73" name="__codelineno-21-73"></a>        <span class="c1"># 在st.session_state中创建&#39;model_path&#39;变量，用于存储模型路径</span>
+<a id="__codelineno-21-74" name="__codelineno-21-74"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;model_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-21-75" name="__codelineno-21-75"></a>
+<a id="__codelineno-21-76" name="__codelineno-21-76"></a>    <span class="k">def</span> <span class="nf">setup_sidebar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-21-77" name="__codelineno-21-77"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;设置侧边栏，用于模型和插件选择.&quot;&quot;&quot;</span>
+<a id="__codelineno-21-78" name="__codelineno-21-78"></a>        <span class="c1"># 从侧边栏获取模型名称输入，默认值为&#39;internlm2-chat-7b&#39;</span>
+<a id="__codelineno-21-79" name="__codelineno-21-79"></a>        <span class="n">model_name</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="o">.</span><span class="n">text_input</span><span class="p">(</span><span class="s1">&#39;模型名称：&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;internlm2-chat-7b&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-80" name="__codelineno-21-80"></a>        <span class="c1"># 从侧边栏获取系统提示词输入，默认值为META_CN</span>
+<a id="__codelineno-21-81" name="__codelineno-21-81"></a>        <span class="n">meta_prompt</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="o">.</span><span class="n">text_area</span><span class="p">(</span><span class="s1">&#39;系统提示词&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">META_CN</span><span class="p">)</span>
+<a id="__codelineno-21-82" name="__codelineno-21-82"></a>        <span class="c1"># 从侧边栏获取数据分析提示词输入，默认值为INTERPRETER_CN</span>
+<a id="__codelineno-21-83" name="__codelineno-21-83"></a>        <span class="n">da_prompt</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="o">.</span><span class="n">text_area</span><span class="p">(</span><span class="s1">&#39;数据分析提示词&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">INTERPRETER_CN</span><span class="p">)</span>
+<a id="__codelineno-21-84" name="__codelineno-21-84"></a>        <span class="c1"># 从侧边栏获取插件提示词输入，默认值为PLUGIN_CN</span>
+<a id="__codelineno-21-85" name="__codelineno-21-85"></a>        <span class="n">plugin_prompt</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="o">.</span><span class="n">text_area</span><span class="p">(</span><span class="s1">&#39;插件提示词&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">PLUGIN_CN</span><span class="p">)</span>
+<a id="__codelineno-21-86" name="__codelineno-21-86"></a>        <span class="c1"># 从侧边栏获取模型路径输入，默认值为&#39;/root/models/internlm2-chat-7b&#39;</span>
+<a id="__codelineno-21-87" name="__codelineno-21-87"></a>        <span class="n">model_path</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="o">.</span><span class="n">text_input</span><span class="p">(</span>
+<a id="__codelineno-21-88" name="__codelineno-21-88"></a>            <span class="s1">&#39;模型路径：&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;/root/models/internlm2-chat-7b&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-89" name="__codelineno-21-89"></a>
+<a id="__codelineno-21-90" name="__codelineno-21-90"></a>        <span class="c1"># 检查模型名称或模型路径是否已更改，如果是，则初始化新模型并清除会话状态</span>
+<a id="__codelineno-21-91" name="__codelineno-21-91"></a>        <span class="k">if</span> <span class="n">model_name</span> <span class="o">!=</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;model_selected&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;model_path&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">model_path</span><span class="p">:</span>
+<a id="__codelineno-21-92" name="__codelineno-21-92"></a>            <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;model_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model_path</span>
+<a id="__codelineno-21-93" name="__codelineno-21-93"></a>            <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_model</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">model_path</span><span class="p">)</span>
+<a id="__codelineno-21-94" name="__codelineno-21-94"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">clear_state</span><span class="p">()</span>
+<a id="__codelineno-21-95" name="__codelineno-21-95"></a>            <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;model_selected&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model_name</span>
+<a id="__codelineno-21-96" name="__codelineno-21-96"></a>            <span class="k">if</span> <span class="s1">&#39;chatbot&#39;</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">:</span>
+<a id="__codelineno-21-97" name="__codelineno-21-97"></a>                <span class="k">del</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;chatbot&#39;</span><span class="p">]</span>
+<a id="__codelineno-21-98" name="__codelineno-21-98"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-21-99" name="__codelineno-21-99"></a>            <span class="c1"># 如果模型未更改，则从st.session_state中的&#39;model_map&#39;字典获取现有模型对象</span>
+<a id="__codelineno-21-100" name="__codelineno-21-100"></a>            <span class="n">model</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;model_map&#39;</span><span class="p">][</span><span class="n">model_name</span><span class="p">]</span>
+<a id="__codelineno-21-101" name="__codelineno-21-101"></a>
+<a id="__codelineno-21-102" name="__codelineno-21-102"></a>        <span class="c1"># 从侧边栏获取插件名称的多选输入，默认值为空列表</span>
+<a id="__codelineno-21-103" name="__codelineno-21-103"></a>        <span class="n">plugin_name</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="o">.</span><span class="n">multiselect</span><span class="p">(</span>
+<a id="__codelineno-21-104" name="__codelineno-21-104"></a>            <span class="s1">&#39;插件选择&#39;</span><span class="p">,</span>
+<a id="__codelineno-21-105" name="__codelineno-21-105"></a>            <span class="n">options</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;plugin_map&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span>
+<a id="__codelineno-21-106" name="__codelineno-21-106"></a>            <span class="n">default</span><span class="o">=</span><span class="p">[],</span>
+<a id="__codelineno-21-107" name="__codelineno-21-107"></a>        <span class="p">)</span>
+<a id="__codelineno-21-108" name="__codelineno-21-108"></a>        <span class="c1"># 从侧边栏获取数据分析的复选框输入，默认值为False</span>
+<a id="__codelineno-21-109" name="__codelineno-21-109"></a>        <span class="n">da_flag</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="o">.</span><span class="n">checkbox</span><span class="p">(</span>
+<a id="__codelineno-21-110" name="__codelineno-21-110"></a>            <span class="s1">&#39;数据分析&#39;</span><span class="p">,</span>
+<a id="__codelineno-21-111" name="__codelineno-21-111"></a>            <span class="n">value</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-21-112" name="__codelineno-21-112"></a>        <span class="p">)</span>
+<a id="__codelineno-21-113" name="__codelineno-21-113"></a>        <span class="c1"># 从插件名称列表中获取插件动作列表</span>
+<a id="__codelineno-21-114" name="__codelineno-21-114"></a>        <span class="n">plugin_action</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-21-115" name="__codelineno-21-115"></a>            <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;plugin_map&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">plugin_name</span>
+<a id="__codelineno-21-116" name="__codelineno-21-116"></a>        <span class="p">]</span>
+<a id="__codelineno-21-117" name="__codelineno-21-117"></a>
+<a id="__codelineno-21-118" name="__codelineno-21-118"></a>        <span class="c1"># 如果&#39;chatbot&#39;存在于st.session_state中，则根据选择的插件和数据分析设置更新其属性</span>
+<a id="__codelineno-21-119" name="__codelineno-21-119"></a>        <span class="k">if</span> <span class="s1">&#39;chatbot&#39;</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">:</span>
+<a id="__codelineno-21-120" name="__codelineno-21-120"></a>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">plugin_action</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-21-121" name="__codelineno-21-121"></a>                <span class="c1"># 如果选择了插件，则创建ActionExecutor对象并设置chatbot的_action_executor属性为该对象</span>
+<a id="__codelineno-21-122" name="__codelineno-21-122"></a>                <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;chatbot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_action_executor</span> <span class="o">=</span> <span class="n">ActionExecutor</span><span class="p">(</span><span class="n">actions</span><span class="o">=</span><span class="n">plugin_action</span><span class="p">)</span>
+<a id="__codelineno-21-123" name="__codelineno-21-123"></a>            <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-21-124" name="__codelineno-21-124"></a>                <span class="c1"># 如果没有选择插件，则将chatbot的_action_executor属性设置为None</span>
+<a id="__codelineno-21-125" name="__codelineno-21-125"></a>                <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;chatbot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_action_executor</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-21-126" name="__codelineno-21-126"></a>            <span class="k">if</span> <span class="n">da_flag</span><span class="p">:</span>
+<a id="__codelineno-21-127" name="__codelineno-21-127"></a>                <span class="c1"># 如果选择了数据分析，则创建ActionExecutor对象并设置chatbot的_interpreter_executor属性为该对象</span>
+<a id="__codelineno-21-128" name="__codelineno-21-128"></a>                <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;chatbot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_interpreter_executor</span> <span class="o">=</span> <span class="n">ActionExecutor</span><span class="p">(</span><span class="n">actions</span><span class="o">=</span><span class="p">[</span><span class="n">IPythonInterpreter</span><span class="p">()])</span>
+<a id="__codelineno-21-129" name="__codelineno-21-129"></a>            <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-21-130" name="__codelineno-21-130"></a>                <span class="c1"># 如果没有选择数据分析，则将chatbot的_interpreter_executor属性设置为None</span>
+<a id="__codelineno-21-131" name="__codelineno-21-131"></a>                <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;chatbot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_interpreter_executor</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-21-132" name="__codelineno-21-132"></a>            <span class="c1"># 更新chatbot的提示词属性为侧边栏输入的值</span>
+<a id="__codelineno-21-133" name="__codelineno-21-133"></a>            <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;chatbot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_protocol</span><span class="o">.</span><span class="n">_meta_template</span> <span class="o">=</span> <span class="n">meta_prompt</span>
+<a id="__codelineno-21-134" name="__codelineno-21-134"></a>            <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;chatbot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_protocol</span><span class="o">.</span><span class="n">plugin_prompt</span> <span class="o">=</span> <span class="n">plugin_prompt</span>
+<a id="__codelineno-21-135" name="__codelineno-21-135"></a>            <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;chatbot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_protocol</span><span class="o">.</span><span class="n">interpreter_prompt</span> <span class="o">=</span> <span class="n">da_prompt</span>
+<a id="__codelineno-21-136" name="__codelineno-21-136"></a>        <span class="k">if</span> <span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="o">.</span><span class="n">button</span><span class="p">(</span><span class="s1">&#39;清空对话&#39;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;clear&#39;</span><span class="p">):</span>
+<a id="__codelineno-21-137" name="__codelineno-21-137"></a>            <span class="c1"># 如果点击了侧边栏上的“清空对话”按钮，则调用SessionState对象的clear_state方法来清除会话状态</span>
+<a id="__codelineno-21-138" name="__codelineno-21-138"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">clear_state</span><span class="p">()</span>
+<a id="__codelineno-21-139" name="__codelineno-21-139"></a>        <span class="c1"># 从侧边栏获取文件上传器输入，用于上传文件到应用程序中使用</span>
+<a id="__codelineno-21-140" name="__codelineno-21-140"></a>        <span class="n">uploaded_file</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="o">.</span><span class="n">file_uploader</span><span class="p">(</span><span class="s1">&#39;上传文件&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-141" name="__codelineno-21-141"></a>        <span class="k">return</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">plugin_action</span><span class="p">,</span> <span class="n">uploaded_file</span><span class="p">,</span> <span class="n">model_path</span>
+<a id="__codelineno-21-142" name="__codelineno-21-142"></a>
+<a id="__codelineno-21-143" name="__codelineno-21-143"></a>    <span class="k">def</span> <span class="nf">init_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<a id="__codelineno-21-144" name="__codelineno-21-144"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;根据输入的模型名称初始化模型.&quot;&quot;&quot;</span>
+<a id="__codelineno-21-145" name="__codelineno-21-145"></a>        <span class="c1"># 使用HFTransformer类初始化模型对象，并将模型路径和其他参数传递给构造函数。将模型对象存储在st.session_state中的&#39;model_map&#39;字典中。</span>
+<a id="__codelineno-21-146" name="__codelineno-21-146"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;model_map&#39;</span><span class="p">][</span><span class="n">model_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">HFTransformer</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">meta_template</span><span class="o">=</span><span class="n">META</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">top_p</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">repetition_penalty</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">stop_words</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&lt;|im_end|&gt;&#39;</span><span class="p">])</span>
+<a id="__codelineno-21-147" name="__codelineno-21-147"></a>        <span class="k">return</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;model_map&#39;</span><span class="p">][</span><span class="n">model_name</span><span class="p">]</span>
+<a id="__codelineno-21-148" name="__codelineno-21-148"></a>    <span class="k">def</span> <span class="nf">initialize_chatbot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">plugin_action</span><span class="p">):</span>
+<a id="__codelineno-21-149" name="__codelineno-21-149"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;使用给定的模型和插件动作初始化聊天机器人.&quot;&quot;&quot;</span>
+<a id="__codelineno-21-150" name="__codelineno-21-150"></a>    <span class="c1"># 使用Internlm2Agent类初始化聊天机器人对象，并将LLM（语言模型）、协议和最大回合数传递给构造函数。返回聊天机器人对象。</span>
+<a id="__codelineno-21-151" name="__codelineno-21-151"></a>    <span class="k">return</span> <span class="n">Internlm2Agent</span><span class="p">(</span>
+<a id="__codelineno-21-152" name="__codelineno-21-152"></a>        <span class="n">llm</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+<a id="__codelineno-21-153" name="__codelineno-21-153"></a>        <span class="n">protocol</span><span class="o">=</span><span class="n">Internlm2Protocol</span><span class="p">(</span>
+<a id="__codelineno-21-154" name="__codelineno-21-154"></a>            <span class="n">tool</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-21-155" name="__codelineno-21-155"></a>                <span class="n">begin</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{start_token}{name}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+<a id="__codelineno-21-156" name="__codelineno-21-156"></a>                <span class="n">start_token</span><span class="o">=</span><span class="s1">&#39;&lt;|action_start|&gt;&#39;</span><span class="p">,</span>
+<a id="__codelineno-21-157" name="__codelineno-21-157"></a>                <span class="n">name_map</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-21-158" name="__codelineno-21-158"></a>                    <span class="n">plugin</span><span class="o">=</span><span class="s1">&#39;&lt;|plugin|&gt;&#39;</span><span class="p">,</span> <span class="n">interpreter</span><span class="o">=</span><span class="s1">&#39;&lt;|interpreter|&gt;&#39;</span><span class="p">),</span>
+<a id="__codelineno-21-159" name="__codelineno-21-159"></a>                <span class="n">belong</span><span class="o">=</span><span class="s1">&#39;assistant&#39;</span><span class="p">,</span>
+<a id="__codelineno-21-160" name="__codelineno-21-160"></a>                <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&lt;|action_end|&gt;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+<a id="__codelineno-21-161" name="__codelineno-21-161"></a>            <span class="p">),</span> <span class="p">),</span>
+<a id="__codelineno-21-162" name="__codelineno-21-162"></a>        <span class="n">max_turn</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<a id="__codelineno-21-163" name="__codelineno-21-163"></a>
+<a id="__codelineno-21-164" name="__codelineno-21-164"></a><span class="k">def</span> <span class="nf">render_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-21-165" name="__codelineno-21-165"></a>    <span class="c1"># 使用st.chat_message(&#39;user&#39;)在聊天窗口中创建一个新的用户消息，并使用st.markdown(prompt)显示提示文本。</span>
+<a id="__codelineno-21-166" name="__codelineno-21-166"></a>    <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">):</span>
+<a id="__codelineno-21-167" name="__codelineno-21-167"></a>        <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<a id="__codelineno-21-168" name="__codelineno-21-168"></a>
+<a id="__codelineno-21-169" name="__codelineno-21-169"></a><span class="k">def</span> <span class="nf">render_assistant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent_return</span><span class="p">):</span>
+<a id="__codelineno-21-170" name="__codelineno-21-170"></a>    <span class="c1"># 使用st.chat_message(&#39;assistant&#39;)在聊天窗口中创建一个新的助手消息，并迭代agent_return中的actions。对于每个不是FinishAction的非空动作，调用render_action方法来显示它。最后，使用st.markdown(agent_return.response)显示agent_return的响应。</span>
+<a id="__codelineno-21-171" name="__codelineno-21-171"></a>    <span class="k">with</span> <span class="n">st</span><span class="o">.</span><span class="n">chat_message</span><span class="p">(</span><span class="s1">&#39;assistant&#39;</span><span class="p">):</span>
+<a id="__codelineno-21-172" name="__codelineno-21-172"></a>        <span class="k">for</span> <span class="n">action</span> <span class="ow">in</span> <span class="n">agent_return</span><span class="o">.</span><span class="n">actions</span><span class="p">:</span>
+<a id="__codelineno-21-173" name="__codelineno-21-173"></a>            <span class="k">if</span> <span class="p">(</span><span class="n">action</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s1">&#39;FinishAction&#39;</span><span class="p">):</span>
+<a id="__codelineno-21-174" name="__codelineno-21-174"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">render_action</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+<a id="__codelineno-21-175" name="__codelineno-21-175"></a>        <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">agent_return</span><span class="o">.</span><span class="n">response</span><span class="p">)</span>
+<a id="__codelineno-21-176" name="__codelineno-21-176"></a>
+<a id="__codelineno-21-177" name="__codelineno-21-177"></a><span class="k">def</span> <span class="nf">render_plugin_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+<a id="__codelineno-21-178" name="__codelineno-21-178"></a>    <span class="c1"># 从动作中获取动作名称和参数，并将它们转换为JSON格式的字符串。使用st.markdown显示该字符串。</span>
+<a id="__codelineno-21-179" name="__codelineno-21-179"></a>    <span class="n">action_name</span> <span class="o">=</span> <span class="n">action</span><span class="o">.</span><span class="n">type</span>
+<a id="__codelineno-21-180" name="__codelineno-21-180"></a>    <span class="n">args</span> <span class="o">=</span> <span class="n">action</span><span class="o">.</span><span class="n">args</span>
+<a id="__codelineno-21-181" name="__codelineno-21-181"></a>    <span class="kn">import</span> <span class="nn">json</span>
+<a id="__codelineno-21-182" name="__codelineno-21-182"></a>    <span class="n">parameter_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">action_name</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+<a id="__codelineno-21-183" name="__codelineno-21-183"></a>    <span class="n">parameter_str</span> <span class="o">=</span> <span class="s1">&#39;```json</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">parameter_dict</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">```&#39;</span>
+<a id="__codelineno-21-184" name="__codelineno-21-184"></a>    <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">parameter_str</span><span class="p">)</span>
+<a id="__codelineno-21-185" name="__codelineno-21-185"></a>
+<a id="__codelineno-21-186" name="__codelineno-21-186"></a><span class="k">def</span> <span class="nf">render_interpreter_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+<a id="__codelineno-21-187" name="__codelineno-21-187"></a>    <span class="c1"># 使用st.info显示动作类型，并使用st.markdown显示动作参数中的文本。</span>
+<a id="__codelineno-21-188" name="__codelineno-21-188"></a>    <span class="n">st</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+<a id="__codelineno-21-189" name="__codelineno-21-189"></a>    <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">])</span>
+<a id="__codelineno-21-190" name="__codelineno-21-190"></a>
+<a id="__codelineno-21-191" name="__codelineno-21-191"></a><span class="k">def</span> <span class="nf">render_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+<a id="__codelineno-21-192" name="__codelineno-21-192"></a>    <span class="c1"># 使用st.markdown显示动作的thought属性。如果动作类型是IPythonInterpreter，则调用render_interpreter_args方法来显示参数。否则，如果动作类型不是FinishAction，则调用render_plugin_args方法来显示参数。最后，调用render_action_results方法来显示动作的结果。</span>
+<a id="__codelineno-21-193" name="__codelineno-21-193"></a>    <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">thought</span><span class="p">)</span>
+<a id="__codelineno-21-194" name="__codelineno-21-194"></a>    <span class="k">if</span> <span class="n">action</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;IPythonInterpreter&#39;</span><span class="p">:</span>
+<a id="__codelineno-21-195" name="__codelineno-21-195"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">render_interpreter_args</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+<a id="__codelineno-21-196" name="__codelineno-21-196"></a>    <span class="k">elif</span> <span class="n">action</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;FinishAction&#39;</span><span class="p">:</span>
+<a id="__codelineno-21-197" name="__codelineno-21-197"></a>        <span class="k">pass</span>
+<a id="__codelineno-21-198" name="__codelineno-21-198"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-21-199" name="__codelineno-21-199"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">render_plugin_args</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+<a id="__codelineno-21-200" name="__codelineno-21-200"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">render_action_results</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+<a id="__codelineno-21-201" name="__codelineno-21-201"></a>
+<a id="__codelineno-21-202" name="__codelineno-21-202"></a><span class="k">def</span> <span class="nf">render_action_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+<a id="__codelineno-21-203" name="__codelineno-21-203"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;显示动作的结果，包括文本、图像、视频和音频.&quot;&quot;&quot;</span>
+<a id="__codelineno-21-204" name="__codelineno-21-204"></a>    <span class="c1"># 如果动作结果是字典，则检查它是否包含文本、图像、视频或音频，并使用相应的st方法显示它们。如果结果是列表，则迭代每个项目，并根据其类型显示相应的内容。如果动作有错误消息，则使用st.error显示它。</span>
+<a id="__codelineno-21-205" name="__codelineno-21-205"></a>    <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">result</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)):</span>
+<a id="__codelineno-21-206" name="__codelineno-21-206"></a>        <span class="k">if</span> <span class="s1">&#39;text&#39;</span> <span class="ow">in</span> <span class="n">action</span><span class="o">.</span><span class="n">result</span><span class="p">:</span>
+<a id="__codelineno-21-207" name="__codelineno-21-207"></a>            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s1">&#39;```</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">action</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">```&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-208" name="__codelineno-21-208"></a>        <span class="k">if</span> <span class="s1">&#39;image&#39;</span> <span class="ow">in</span> <span class="n">action</span><span class="o">.</span><span class="n">result</span><span class="p">:</span>
+<a id="__codelineno-21-209" name="__codelineno-21-209"></a>            <span class="c1"># image_path = action.result[&#39;image&#39;]</span>
+<a id="__codelineno-21-210" name="__codelineno-21-210"></a>            <span class="k">for</span> <span class="n">image_path</span> <span class="ow">in</span> <span class="n">action</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]:</span>
+<a id="__codelineno-21-211" name="__codelineno-21-211"></a>                <span class="n">image_data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-21-212" name="__codelineno-21-212"></a>                <span class="n">st</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">image_data</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s1">&#39;Generated Image&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-213" name="__codelineno-21-213"></a>        <span class="k">if</span> <span class="s1">&#39;video&#39;</span> <span class="ow">in</span> <span class="n">action</span><span class="o">.</span><span class="n">result</span><span class="p">:</span>
+<a id="__codelineno-21-214" name="__codelineno-21-214"></a>            <span class="n">video_data</span> <span class="o">=</span> <span class="n">action</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;video&#39;</span><span class="p">]</span>
+<a id="__codelineno-21-215" name="__codelineno-21-215"></a>            <span class="n">video_data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">video_data</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-21-216" name="__codelineno-21-216"></a>            <span class="n">st</span><span class="o">.</span><span class="n">video</span><span class="p">(</span><span class="n">video_data</span><span class="p">)</span>
+<a id="__codelineno-21-217" name="__codelineno-21-217"></a>        <span class="k">if</span> <span class="s1">&#39;audio&#39;</span> <span class="ow">in</span> <span class="n">action</span><span class="o">.</span><span class="n">result</span><span class="p">:</span>
+<a id="__codelineno-21-218" name="__codelineno-21-218"></a>            <span class="n">audio_data</span> <span class="o">=</span> <span class="n">action</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;audio&#39;</span><span class="p">]</span>
+<a id="__codelineno-21-219" name="__codelineno-21-219"></a>            <span class="n">audio_data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">audio_data</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-21-220" name="__codelineno-21-220"></a>            <span class="n">st</span><span class="o">.</span><span class="n">audio</span><span class="p">(</span><span class="n">audio_data</span><span class="p">)</span>
+<a id="__codelineno-21-221" name="__codelineno-21-221"></a>    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">result</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+<a id="__codelineno-21-222" name="__codelineno-21-222"></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">action</span><span class="o">.</span><span class="n">result</span><span class="p">:</span>
+<a id="__codelineno-21-223" name="__codelineno-21-223"></a>            <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;text&#39;</span><span class="p">:</span>
+<a id="__codelineno-21-224" name="__codelineno-21-224"></a>                <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s1">&#39;```</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">```&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-225" name="__codelineno-21-225"></a>            <span class="k">elif</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;image&#39;</span><span class="p">:</span>
+<a id="__codelineno-21-226" name="__codelineno-21-226"></a>                <span class="n">image_data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">],</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-21-227" name="__codelineno-21-227"></a>                <span class="n">st</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">image_data</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s1">&#39;Generated Image&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-228" name="__codelineno-21-228"></a>            <span class="k">elif</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;video&#39;</span><span class="p">:</span>
+<a id="__codelineno-21-229" name="__codelineno-21-229"></a>                <span class="n">video_data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">],</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-21-230" name="__codelineno-21-230"></a>                <span class="n">st</span><span class="o">.</span><span class="n">video</span><span class="p">(</span><span class="n">video_data</span><span class="p">)</span>
+<a id="__codelineno-21-231" name="__codelineno-21-231"></a>            <span class="k">elif</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;audio&#39;</span><span class="p">:</span>
+<a id="__codelineno-21-232" name="__codelineno-21-232"></a>                <span class="n">audio_data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">],</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-21-233" name="__codelineno-21-233"></a>                <span class="n">st</span><span class="o">.</span><span class="n">audio</span><span class="p">(</span><span class="n">audio_data</span><span class="p">)</span>
+<a id="__codelineno-21-234" name="__codelineno-21-234"></a>    <span class="k">if</span> <span class="n">action</span><span class="o">.</span><span class="n">errmsg</span><span class="p">:</span>
+<a id="__codelineno-21-235" name="__codelineno-21-235"></a>        <span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">action</span><span class="o">.</span><span class="n">errmsg</span><span class="p">)</span>
+<a id="__codelineno-21-236" name="__codelineno-21-236"></a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<a id="__codelineno-21-237" name="__codelineno-21-237"></a>    <span class="c1"># 如果&#39;ui&#39;不在st.session_state中，则初始化SessionState对象和StreamlitUI对象，并将它们存储在st.session_state中。否则，设置页面配置并显示标题和分隔线。然后，调用StreamlitUI对象的setup_sidebar方法来设置侧边栏。接下来，检查&#39;chatbot&#39;是否存在于st.session_state中，或者模型是否已更改。如果是，则调用initialize_chatbot方法来初始化聊天机器人，并将会话历史记录设置为空列表。最后，迭代会话状态中的用户提示和代理返回，并调用相应的render方法来显示它们。由于代码片段不完整，无法提供完整的main函数注释。请注意，您可能需要提供缺少的代码和变量以使main函数正常工作。</span>
+<a id="__codelineno-21-238" name="__codelineno-21-238"></a>    <span class="k">if</span> <span class="s1">&#39;ui&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">:</span>
+<a id="__codelineno-21-239" name="__codelineno-21-239"></a>        <span class="n">session_state</span> <span class="o">=</span> <span class="n">SessionState</span><span class="p">()</span>
+<a id="__codelineno-21-240" name="__codelineno-21-240"></a>        <span class="n">session_state</span><span class="o">.</span><span class="n">init_state</span><span class="p">()</span>
+<a id="__codelineno-21-241" name="__codelineno-21-241"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;ui&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">StreamlitUI</span><span class="p">(</span><span class="n">session_state</span><span class="p">)</span>
+<a id="__codelineno-21-242" name="__codelineno-21-242"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-21-243" name="__codelineno-21-243"></a>        <span class="n">st</span><span class="o">.</span><span class="n">set_page_config</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="s1">&#39;wide&#39;</span><span class="p">,</span> <span class="n">page_title</span><span class="o">=</span><span class="s1">&#39;lagent-web&#39;</span><span class="p">,</span> <span class="n">page_icon</span><span class="o">=</span><span class="s1">&#39;./docs/imgs/lagent_icon.png&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-244" name="__codelineno-21-244"></a>        <span class="n">st</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s1">&#39;:robot_face: :blue[Lagent] Web Demo &#39;</span><span class="p">,</span> <span class="n">divider</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-245" name="__codelineno-21-245"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">plugin_action</span><span class="p">,</span> <span class="n">uploaded_file</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;ui&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">setup_sidebar</span><span class="p">()</span>
+<a id="__codelineno-21-246" name="__codelineno-21-246"></a>    <span class="k">if</span> <span class="s1">&#39;chatbot&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span> <span class="ow">or</span> <span class="n">model</span> <span class="o">!=</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;chatbot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_llm</span><span class="p">:</span>
+<a id="__codelineno-21-247" name="__codelineno-21-247"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;chatbot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;ui&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">initialize_chatbot</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">plugin_action</span><span class="p">)</span>
+<a id="__codelineno-21-248" name="__codelineno-21-248"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;session_history&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-21-249" name="__codelineno-21-249"></a>    <span class="k">for</span> <span class="n">prompt</span><span class="p">,</span> <span class="n">agent_return</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;assistant&#39;</span><span class="p">]):</span> <span class="c1"># 假设这些变量存在于会话状态中并包含适当的值。您可能需要根据您的应用程序逻辑进行调整。</span>
+<a id="__codelineno-21-250" name="__codelineno-21-250"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;ui&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">render_user</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span> <span class="c1"># 显示用户提示。您可能需要根据您的应用程序逻辑进行调整。</span>
+<a id="__codelineno-21-251" name="__codelineno-21-251"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s1">&#39;ui&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">render_assistant</span><span class="p">(</span><span class="n">agent_return</span><span class="p">)</span> <span class="c1"># 显示代理返回。您可能需要根据您的应用程序逻辑进行调整</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="34-xomposer-2">3.4 多模态Xomposer （灵笔·2）</h3>
+<h4 id="341">3.4.1 前置知识</h4>
+<p><a href="https://github.com/InternLM/InternLM-XComposer/blob/main/README_CN.md">Xomposer地址</a></p>
+<p><a href="https://arxiv.org/abs/2401.16420">论文地址</a></p>
+<p><a href="../2401.16420.pdf">论文pdf</a></p>
+<blockquote>
+<p>浦语·灵笔2是基于书生·浦语2大语言模型研发的突破性的图文多模态大模型，具有非凡的图文写作和图像理解能力，在多种应用场景表现出色：
+- <strong>自由指令输入的图文写作</strong>： 浦语·灵笔2可以理解<em>自由形式的图文指令输入</em>，包括<em>大纲、文章细节要求、参考图片</em>等，为用户打造图文并貌的专属文章。生成的文章文采斐然，图文相得益彰，提供沉浸式的阅读体验。
+- <strong>准确的图文问题解答</strong>： 浦语·灵笔2具有海量图文知识，可以准确的回复各种图文问答难题，在<em>识别、感知、细节描述、视觉推理</em>等能力上表现惊人。
+- <strong>杰出性能</strong>： 浦语·灵笔2基于书生·浦语2-7B模型，我们在13项多模态评测中大幅领先同量级多模态模型，在其中6项评测中超过 GPT-4V 和 Gemini Pro。</p>
+</blockquote>
+<hr />
+<ul>
+<li>模型合集</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>用途</th>
+<th>Transformers(HF)</th>
+<th>ModelScope(HF)</th>
+<th>开源日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>InternLM-XComposer2</strong></td>
+<td>图文创作</td>
+<td><a href="https://huggingface.co/internlm/internlm-xcomposer2-7b">🤗internlm-xcomposer2-7b</a></td>
+<td><a href="https://modelscope.cn/models/Shanghai_AI_Laboratory/internlm-xcomposer2-7b/summary"><img src="./assets/modelscope_logo.png" width="20px" /> internlm-xcomposer2-7b</a></td>
+<td>2024-01-26</td>
+</tr>
+<tr>
+<td><strong>InternLM-XComposer2-VL</strong></td>
+<td>Benchmark, 视觉问答</td>
+<td><a href="https://huggingface.co/internlm/internlm-xcomposer2-vl-7b">🤗internlm-xcomposer2-vl-7b</a></td>
+<td><a href="https://modelscope.cn/models/Shanghai_AI_Laboratory/internlm-xcomposer2-vl-7b/summary"><img src="./assets/modelscope_logo.png" width="20px" /> internlm-xcomposer2-vl-7b</a></td>
+<td>2024-01-26</td>
+</tr>
+<tr>
+<td><strong>InternLM-XComposer2-4bit</strong></td>
+<td>图文创作</td>
+<td><a href="https://huggingface.co/internlm/internlm-xcomposer2-7b-4bit">🤗internlm-xcomposer2-7b-4bit</a></td>
+<td><a href="https://modelscope.cn/models/Shanghai_AI_Laboratory/internlm-xcomposer2-7b-4bit/summary"><img src="./assets/modelscope_logo.png" width="20px" /> internlm-xcomposer2-7b-4bit</a></td>
+<td>2024-02-06</td>
+</tr>
+<tr>
+<td><strong>InternLM-XComposer2-VL-4bit</strong></td>
+<td>Benchmark, 视觉问答</td>
+<td><a href="https://huggingface.co/internlm/internlm-xcomposer2-vl-7b-4bit">🤗internlm-xcomposer2-vl-7b-4bit</a></td>
+<td><a href="https://modelscope.cn/models/Shanghai_AI_Laboratory/internlm-xcomposer2-vl-7b-4bit/summary"><img src="./assets/modelscope_logo.png" width="20px" /> internlm-xcomposer2-vl-7b-4bit</a></td>
+<td>2024-02-06</td>
+</tr>
+<tr>
+<td><strong>InternLM-XComposer</strong></td>
+<td>图文创作, 视觉问答</td>
+<td><a href="https://huggingface.co/internlm/internlm-xcomposer-7b">🤗internlm-xcomposer-7b</a></td>
+<td><a href="https://modelscope.cn/models/Shanghai_AI_Laboratory/internlm-xcomposer-7b/summary"><img src="./assets/modelscope_logo.png" width="20px" /> internlm-xcomposer-7b</a></td>
+<td>2023-09-26</td>
+</tr>
+<tr>
+<td><strong>InternLM-XComposer-4bit</strong></td>
+<td>图文创作, 视觉问答</td>
+<td><a href="https://huggingface.co/internlm/internlm-xcomposer-7b-4bit">🤗internlm-xcomposer-7b-4bit</a></td>
+<td><a href="https://modelscope.cn/models/Shanghai_AI_Laboratory/internlm-xcomposer-7b-4bit/summary"><img src="./assets/modelscope_logo.png" width="20px" /> internlm-xcomposer-7b-4bit</a></td>
+<td>2023-09-26</td>
+</tr>
+<tr>
+<td><strong>InternLM-XComposer-VL</strong></td>
+<td>Benchmark</td>
+<td><a href="https://huggingface.co/internlm/internlm-xcomposer-vl-7b">🤗internlm-xcomposer-vl-7b</a></td>
+<td><a href="https://modelscope.cn/models/Shanghai_AI_Laboratory/internlm-xcomposer-vl-7b/summary"><img src="./assets/modelscope_logo.png" width="20px" /> internlm-xcomposer-vl-7b</a></td>
+<td>2023-09-26</td>
+</tr>
+</tbody>
+</table>
+<h4 id="342">3.4.2 实现过程</h4>
+<h5 id="3421">3.4.2.1创建开发机资源</h5>
+<p>开启 50% A100 
+<img alt="开发机" src="../image-32.png" /></p>
+<h5 id="3422conda">3.4.2.2进入conda环境补充依赖包</h5>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>demo
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="c1"># 补充环境包</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">timm</span><span class="o">==</span><span class="m">0</span>.4.12<span class="w"> </span><span class="nv">sentencepiece</span><span class="o">==</span><span class="m">0</span>.1.99<span class="w"> </span><span class="nv">markdown2</span><span class="o">==</span><span class="m">2</span>.4.10<span class="w"> </span><span class="nv">xlsxwriter</span><span class="o">==</span><span class="m">3</span>.1.2<span class="w"> </span><span class="nv">gradio</span><span class="o">==</span><span class="m">4</span>.13.0<span class="w"> </span><span class="nv">modelscope</span><span class="o">==</span><span class="m">1</span>.9.5
+</code></pre></div>
+<img alt="环境包" src="../image-33.png" /></p>
+<h5 id="3423">3.4.2.3下载源码</h5>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nb">cd</span><span class="w"> </span>/root/demo
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://gitee.com/internlm/InternLM-XComposer.git
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="c1"># git clone https://github.com/internlm/InternLM-XComposer.git</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="nb">cd</span><span class="w"> </span>/root/demo/InternLM-XComposer
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>git<span class="w"> </span>checkout<span class="w"> </span>f31220eddca2cf6246ee2ddf8e375a40457ff626
+</code></pre></div>
+<img alt="源码" src="../image-34.png" /></p>
+<h5 id="3424">3.4.2.4创建软链接（模型）</h5>
+<p>通过创建这些符号链接，可以在/root/models目录下访问到原始文件或目录的内容，而无需直接在/root/models目录下复制这些文件或目录的副本。这样可以<strong>节省磁盘空间，并且对于需要在多个位置访问相同文件或目录的情况非常有用</strong>。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>ln<span class="w"> </span>-s<span class="w"> </span>/root/share/new_models/Shanghai_AI_Laboratory/internlm-xcomposer2-7b<span class="w"> </span>/root/models/internlm-xcomposer2-7b
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>ln<span class="w"> </span>-s<span class="w"> </span>/root/share/new_models/Shanghai_AI_Laboratory/internlm-xcomposer2-vl-7b<span class="w"> </span>/root/models/internlm-xcomposer2-vl-7b
+</code></pre></div>
+<h5 id="3425xcomposer">3.4.2.5启动Xcomposer图文写作</h5>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nb">cd</span><span class="w"> </span>/root/demo/InternLM-XComposer
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>python<span class="w"> </span>/root/demo/InternLM-XComposer/examples/gradio_demo_composition.py<span class="w">  </span>--code_path<span class="w"> </span>/root/models/internlm-xcomposer2-7b<span class="w"> </span>--private<span class="w"> </span>--num_gpus<span class="w"> </span><span class="m">1</span><span class="w"> </span>--port<span class="w"> </span><span class="m">6006</span>
+</code></pre></div>
+<img alt="Xcomposer" src="../image-35.png" /></p>
+<p><img alt="launch" src="../image-36.png" /></p>
+<h5 id="3426">3.4.2.6本地连接</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="c1"># 从本地使用 ssh 连接 studio 端口</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="c1"># 将下方端口号 38374 替换成自己的端口号</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>ssh<span class="w"> </span>-CNg<span class="w"> </span>-L<span class="w"> </span><span class="m">6006</span>:127.0.0.1:6006<span class="w"> </span>root@ssh.intern-ai.org.cn<span class="w"> </span>-p<span class="w"> </span><span class="m">38374</span>
+</code></pre></div>
+<p><img alt="ssh" src="../image-37.png" /></p>
+<ul>
+<li>本地打开链接</li>
+</ul>
+<p>http://127.0.0.1:6006/</p>
+<p><img alt="alt text" src="../image-38.png" /></p>
+<ul>
+<li>运行提交</li>
+</ul>
+<p><img alt="alt text" src="../image-39.png" /></p>
+<p><img alt="alt text" src="../image-40.png" /></p>
+<ul>
+<li>默认设置</li>
+<li>提示词
+    &gt;根据以下标题：“中国水墨画：流动的诗意与东方美学”，创作长文章，字数不少于800字。请结合以下文本素材：“水墨画是由水和墨调配成不同深浅的墨色所画出的画，是绘画的一种形式，更多时候，水墨画被视为中国传统绘画，也就是国画的代表。也称国画，中国画。墨水画是中国传统画之一。墨水是国画的起源，以笔墨运用的技法基础画成墨水画。线条中锋笔，侧锋笔，顺锋和逆锋，点染，擦，破墨，拨墨的技法。墨于水的变化分为五色。画成作品，题款，盖章。就是完整的墨水画作品。基本的水墨画，仅有水与墨，黑与白色，但进阶的水墨画，也有工笔花鸟画，色彩缤纷。后者有时也称为彩墨画。在中国画中，以中国画特有的材料之一，墨为主要原料加以清水的多少引为浓墨、淡墨、干墨、湿墨、焦墨等，画出不同浓淡（黑、白、灰）层次。别有一番韵味称为“墨韵”。而形成水墨为主的一种绘画形式。”</li>
+<li>插图数量 6</li>
+<li>随机种子</li>
+<li>输出结果<blockquote>
+<p>根据以下标题：“中国水墨画：流动的诗意与东方美学”，创作长文章，字数不少于800字。请结合以下文本素材：“水墨画是由水和墨调配成不同深浅的墨色所画出的画，是绘画的一种形式，更多时候，水墨画被视为中国传统绘画，也就是国画的代表。也称国画，中国画。墨水画是中国传统画之一。墨水是国画的起源，以笔墨运用的技法基础画成墨水画。线条中锋笔，侧锋笔，顺锋和逆锋，点染，擦，破墨，拨墨的技法。墨于水的变化分为五色。画成作品，题款，盖章。就是完整的墨水画作品。基本的水墨画，仅有水与墨，黑与白色，但进阶的水墨画，也有工笔花鸟画，色彩缤纷。后者有时也称为彩墨画。在中国画中，以中国画特有的材料之一，墨为主要原料加以清水的多少引为浓墨、淡墨、干墨、湿墨、焦墨等，画出不同浓淡（黑、白、灰）层次。别有一番韵味称为“墨韵”。而形成水墨为主的一种绘画形式。”
+  1
+  1.005
+  4096
+  True
+  8909</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>中国水墨画：流动的诗意与东方美学中国的传统绘画，特别是水墨画，被誉为“墨韵之舞”，以笔墨挥洒、线条交织的形式，展现了中国特有的审美情趣和文化内涵。水墨画是一种独特的艺术形式，它不仅体现了中国传统文化的精髓，也彰显了东方的美学观念和哲学思想。在这篇文章中，我们将深入探讨水墨画的艺术特点，及其在中国文化中的重要地位。
+  <img alt="alt text" src="../temp_0_3.png" />
+  起源与发展水墨画的历史可以追溯到中国古代的战国时期（公元前475年—公元前221年）。当时的绘画主要是用毛笔在绢或纸上绘制，而颜料则是从矿物、植物和动物中提取。随着时代的发展，绘画技法不断丰富，其中最重要的贡献之一就是墨的发现和使用。据传，秦始皇统一六国后，下令烧毁书籍，但一位书生藏起了一本珍贵的古书。这本古书后来被无意中丢弃，落入水中被泡湿。当书生捞起书页时，意外地发现上面的文字并未被水破坏，反而更加清晰了。这个故事告诉我们，水与墨的搭配是创造奇迹的关键。从此以后，中国人开始将水和墨结合起来创作出具有独特韵味的画作。
+  <img alt="alt text" src="../temp_1_2.png" />
+  核心元素水墨画的核心元素包括笔法、墨色和构图。首先，笔法在水墨画中至关重要。不同的笔触和笔力能够产生丰富的视觉效果，如粗犷豪放的皴擦，细腻柔美的点染等。其次，墨色的运用也是水墨画的精髓所在。通过调节水的多少，可以产生浓淡干湿的变化，创造出深邃神秘的氛围。最后，构图则决定了画面的整体布局和意境表达。合理的构图能够引导观者的视线流动，增强画面的艺术感染力。
+  <img alt="alt text" src="../temp_2_2.png" />
+  技法与表现力水墨画的技法非常多样化，常见的有泼墨、破墨、积墨、宿墨、枯墨等。这些技法各有特色，能够产生不同的效果。例如，泼墨适用于表现山峦起伏的大气磅礴；破墨则适合描绘树木枝叶的繁茂纷杂；积墨则多用于营造厚重深邃的山水气氛。此外，水墨画还常常结合诗词歌赋，形成一种诗情画意的境界。这种融合不仅提升了画作的意境，也让欣赏者能够更好地领略到其中的文化内涵。
+  <img alt="alt text" src="../temp_3_3.png" />
+  价值与意义水墨画作为中国传统文化的瑰宝，不仅是中国艺术的代表，更是世界文化艺术宝库中的一颗璀璨明珠。它的价值不仅仅在于其独特的艺术风格和技术手段，更在于其所承载的深厚文化底蕴和精神内涵。通过欣赏水墨画，人们不仅可以感受到艺术家对自然的感悟和对生命的思考，也能够领悟到中国哲学的智慧和道德准则。因此，保护和传承水墨画这一宝贵的文化遗产显得尤为重要。
+  <img alt="alt text" src="../temp_4_1.png" />
+  结语综上所述，水墨画作为一门古老的艺术形式，不仅具有独特的审美价值，更是中国传统文化的重要组成部分。它的魅力不仅体现在技艺的高超上，更在于其背后所蕴含的深刻思想和文化内涵。让我们共同努力，让这门古老而又鲜活的艺术形式得以传承并发扬光大。
+  <img alt="alt text" src="../temp_5_1.png" /></p>
+</blockquote>
+<h5 id="3427-xcomposer">3.4.2.7 启动Xcomposer图片理解</h5>
+<ul>
+<li>
+<p>关闭并重启一个命令框
+  <img alt="alt text" src="../image-42.png" /></p>
+</li>
+<li>
+<p>输入启动命令</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>demo
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="nb">cd</span><span class="w"> </span>/root/demo/InternLM-XComposer
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>python<span class="w"> </span>/root/demo/InternLM-XComposer/examples/gradio_demo_chat.py<span class="w">  </span>--code_path<span class="w"> </span>/root/models/internlm-xcomposer2-vl-7b<span class="w"> </span>--private<span class="w"> </span>--num_gpus<span class="w"> </span><span class="m">1</span><span class="w"> </span>--port<span class="w"> </span><span class="m">6006</span>
+</code></pre></div>
+<p><img alt="alt text" src="../image-43.png" /></p>
+<ul>
+<li>本地连接
+  注意开关开发机后，端口会发生变化</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="c1"># 从本地使用 ssh 连接 studio 端口</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="c1"># 将下方端口号 38374 替换成自己的端口号</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>ssh<span class="w"> </span>-CNg<span class="w"> </span>-L<span class="w"> </span><span class="m">6006</span>:127.0.0.1:6006<span class="w"> </span>root@ssh.intern-ai.org.cn<span class="w"> </span>-p<span class="w"> </span><span class="m">38374</span>
+</code></pre></div>
+<h5 id="3428">3.4.2.8 上传图片分析图片内容</h5>
+<ul>
+<li>上传图片，输入提示词“分析图片内容”</li>
+</ul>
+<p><img alt="alt text" src="../image-44.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2023 <a href="https://github.com/acondess" target="_blank" rel="noopener">acondess</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://acondess.github.io/InternLM_learn_2/" target="_blank" rel="noopener" title="acondess.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs.sticky", "navigation.top", "navigation.tabs", "navigation.expand", "navigation.sections", "toc.integrate", "toc.sections", "toc.follow", "toc.numbers", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "footer"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
+      
+    
+  </body>
+</html>

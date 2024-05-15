@@ -1,0 +1,1485 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../chapter5/">
+      
+      
+        <link rel="next" href="../chapter7/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
+    
+    
+      
+        <title>课时六 Lagent & AgentLego 智能体应用搭建 - 第二期书生·浦语实战营学习笔记及作业提交</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.732c4fb1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lagent-agentlego" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="第二期书生·浦语实战营学习笔记及作业提交" class="md-header__button md-logo" aria-label="第二期书生·浦语实战营学习笔记及作业提交" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            第二期书生·浦语实战营学习笔记及作业提交
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              课时六 Lagent &amp; AgentLego 智能体应用搭建
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4m0-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  第二期书生·浦语实战营学习笔记及作业提交
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter1/" class="md-tabs__link">
+        
+  
+    
+  
+  课时一 书生·浦语大模型全链路开源开放体系
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter2/" class="md-tabs__link">
+        
+  
+    
+  
+  课时二 轻松分钟玩转书生·浦语大模型趣味 Demo
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter3/" class="md-tabs__link">
+        
+  
+    
+  
+  课时三 "茴香豆":零代码搭建你的 RAG 智能助理
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter4/" class="md-tabs__link">
+        
+  
+    
+  
+  课时四 XTuner微调多模态Agent
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter5/" class="md-tabs__link">
+        
+  
+    
+  
+  课时五 LMDeploy量化部署LLM实践
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  课时六 Lagent &amp; AgentLego 智能体应用搭建
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../chapter7/" class="md-tabs__link">
+        
+  
+    
+  
+  课时七 OpenCompass 大模型测评
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="第二期书生·浦语实战营学习笔记及作业提交" class="md-nav__button md-logo" aria-label="第二期书生·浦语实战营学习笔记及作业提交" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    第二期书生·浦语实战营学习笔记及作业提交
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第二期书生·浦语实战营学习笔记及作业提交
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时一 书生·浦语大模型全链路开源开放体系
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时二 轻松分钟玩转书生·浦语大模型趣味 Demo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时三 "茴香豆":零代码搭建你的 RAG 智能助理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时四 XTuner微调多模态Agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时五 LMDeploy量化部署LLM实践
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    课时六 Lagent &amp; AgentLego 智能体应用搭建
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    课时六 Lagent &amp; AgentLego 智能体应用搭建
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 提交的作业结果
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 提交的作业结果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 基础作业
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 基础作业">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-lagent-web-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.1 完成 Lagent Web Demo 使用，并在作业中上传截图。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-agentlego" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.2 完成 AgentLego 直接使用部分，并在作业中上传截图。
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 进阶作业
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 进阶作业">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-agentlego-webui" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.1 完成 AgentLego WebUI 使用，并在作业中上传截图。
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-lagent-agentlego" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.2 使用 Lagent 或 AgentLego 实现自定义工具并完成调用，并在作业中上传截图。
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 文档复现
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 文档复现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 开发环境设置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-lagent-web-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Lagent Web Demo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Lagent Web Demo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 部署服务
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2 启动web案例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.3 本地访问
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-agentlego" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 直接使用 AgentLego
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 直接使用 AgentLego">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 文件获取
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 环境依赖
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3 代码检测
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-agentlego-webui" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 AgentLego WebUI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 AgentLego WebUI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.1 修改模型调用脚本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242-lmdeploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.2 LMDeploy部署服务
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243-agentlego-webui" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3 启动 AgentLego WebUI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244-agentlego-webui" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.4 使用 AgentLego WebUI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-agentlego" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 AgentLego 自定义工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 AgentLego 自定义工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.1 创建工具文件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.2 注册新工具
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.3 启动自定义工具
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#254" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.4 应用结果
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课时七 OpenCompass 大模型测评
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lagent-agentlego">课时六 Lagent &amp; AgentLego 智能体应用搭建</h1>
+<p><img alt="alt text" src="../image-124.png" /></p>
+<p><a href="https://aicarrier.feishu.cn/wiki/Vv4swUFMni5DiMkcasUczUp9nid#LSBkd2cTHorhsAx5jZAcO0B3nqe">飞书地址</a></p>
+<p><a href="https://studio.intern-ai.org.cn/">算力平台</a></p>
+<h2 id="1">1. 提交的作业结果</h2>
+<p><a href="https://github.com/InternLM/Tutorial/blob/camp2/agent/homework.md">作业要求地址</a></p>
+<h3 id="11">1.1 基础作业</h3>
+<h4 id="111-lagent-web-demo">1.1.1 完成 Lagent Web Demo 使用，并在作业中上传截图。</h4>
+<ul>
+<li>结果截图</li>
+</ul>
+<p><img alt="alt text" src="../image-135.png" /></p>
+<ul>
+<li>复现步骤</li>
+</ul>
+<p><a href="#22-lagent-web-demo">复现笔记</a></p>
+<h4 id="112-agentlego">1.1.2 完成 AgentLego 直接使用部分，并在作业中上传截图。</h4>
+<ul>
+<li>结果截图</li>
+</ul>
+<p><img alt="alt text" src="../image-143.png" /></p>
+<ul>
+<li>复现步骤</li>
+</ul>
+<p><a href="#23-直接使用-agentlego">复现笔记</a></p>
+<h3 id="12">1.2 进阶作业</h3>
+<h4 id="121-agentlego-webui">1.2.1 完成 AgentLego WebUI 使用，并在作业中上传截图。</h4>
+<ul>
+<li>结果截图</li>
+</ul>
+<p><img alt="alt text" src="../image-199.png" /></p>
+<ul>
+<li>复现步骤</li>
+</ul>
+<p><a href="#24-agentlego-webui">复现文档</a></p>
+<h4 id="122-lagent-agentlego">1.2.2 使用 Lagent 或 AgentLego 实现自定义工具并完成调用，并在作业中上传截图。</h4>
+<ul>
+<li>结果截图</li>
+</ul>
+<p><img alt="alt text" src="../image-207.png" /></p>
+<ul>
+<li>复现步骤</li>
+</ul>
+<p><a href="#25-agentlego-自定义工具">复现文档</a></p>
+<h2 id="2">2. 文档复现</h2>
+<p><a href="https://github.com/InternLM/Tutorial/blob/camp2/agent/README.md">文档地址</a></p>
+<h3 id="21">2.1 开发环境设置</h3>
+<ul>
+<li>创建开发机</li>
+</ul>
+<p>在创建开发机界面选择镜像为 Cuda12.2-conda，并选择 GPU 为30% A100。</p>
+<p><img alt="alt text" src="../image-125.png" /></p>
+<ul>
+<li>配置环境</li>
+</ul>
+<p>同时满足 Lagent 和 AgentLego 运行时所需依赖。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">#创建一个用于存放 Agent 相关文件的目录</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>/root/agent
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>studio-conda<span class="w"> </span>-t<span class="w"> </span>agent<span class="w"> </span>-o<span class="w"> </span>pytorch-2.1.2
+</code></pre></div>
+<p><img alt="alt text" src="../image-126.png" /></p>
+<p><img alt="alt text" src="../image-127.png" /></p>
+<ul>
+<li>安装 Lagent 和 AgentLego</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>/root/agent
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>agent
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>git<span class="w"> </span>clone<span class="w"> </span>https://gitee.com/internlm/lagent.git
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">cd</span><span class="w"> </span>lagent<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>581d9fb<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>git<span class="w"> </span>clone<span class="w"> </span>https://gitee.com/internlm/agentlego.git
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nb">cd</span><span class="w"> </span>agentlego<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>7769e0d<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div>
+<p><img alt="alt text" src="../image-128.png" /></p>
+<p><img alt="alt text" src="../image-129.png" /></p>
+<ul>
+<li>安装依赖</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>agent
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">lmdeploy</span><span class="o">==</span><span class="m">0</span>.3.0
+</code></pre></div>
+<p><img alt="alt text" src="../image-130.png" /></p>
+<ul>
+<li>获取案例源码</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>/root/agent
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>camp2<span class="w"> </span>https://gitee.com/internlm/Tutorial.git
+</code></pre></div>
+<p><img alt="alt text" src="../image-131.png" /></p>
+<h3 id="22-lagent-web-demo">2.2 Lagent Web Demo</h3>
+<p><a href="https://github.com/InternLM/Tutorial/blob/camp2/agent/lagent.md#1-lagent-web-demo">文档地址</a></p>
+<h4 id="221">2.2.1 部署服务</h4>
+<ul>
+<li>启动api_server</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>agent
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>lmdeploy<span class="w"> </span>serve<span class="w"> </span>api_server<span class="w"> </span>/root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-7b<span class="w">  </span>--server-name<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w">  </span>--model-name<span class="w"> </span>nternlm2-chat-7b<span class="w">   </span>--cache-max-entry-count<span class="w"> </span><span class="m">0</span>.1
+</code></pre></div>
+<p><img alt="alt text" src="../image-132.png" /></p>
+<h4 id="222-web">2.2.2 启动web案例</h4>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>agent
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">cd</span><span class="w"> </span>/root/agent/lagent/examples
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>streamlit<span class="w"> </span>run<span class="w"> </span>internlm2_agent_web_demo.py<span class="w"> </span>--server.address<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--server.port<span class="w"> </span><span class="m">7860</span>
+</code></pre></div>
+<img alt="alt text" src="../image-133.png" /></p>
+<h4 id="223">2.2.3 本地访问</h4>
+<ul>
+<li>本地打开cmd命令行 </li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ssh<span class="w"> </span>-CNg<span class="w"> </span>-L<span class="w"> </span><span class="m">7860</span>:127.0.0.1:7860<span class="w"> </span>-L<span class="w"> </span><span class="m">23333</span>:127.0.0.1:23333<span class="w"> </span>root@ssh.intern-ai.org.cn<span class="w"> </span>-p<span class="w"> </span><span class="m">48061</span>
+</code></pre></div>
+<p><img alt="alt text" src="../image-134.png" /></p>
+<ul>
+<li>本地访问链接</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>http://localhost:7860/
+</code></pre></div>
+<img alt="alt text" src="../image-135.png" /></p>
+<ul>
+<li>暂时报错</li>
+</ul>
+<p><img alt="alt text" src="../image-136.png" /></p>
+<h3 id="23-agentlego">2.3 直接使用 AgentLego</h3>
+<h4 id="231">2.3.1 文件获取</h4>
+<ul>
+<li>获取图片</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span>/root/agent
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>wget<span class="w"> </span>http://download.openmmlab.com/agentlego/road.jpg
+</code></pre></div>
+<p><img alt="alt text" src="../image-137.png" /></p>
+<h4 id="232">2.3.2 环境依赖</h4>
+<p>AgentLego 所实现的目标检测工具是基于 mmdet (MMDetection) 算法库中的 RTMDet-Large 模型，因此我们首先安装 mim，然后通过 mim 工具来安装 mmdet。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>agent
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">openmim</span><span class="o">==</span><span class="m">0</span>.3.9
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>mim<span class="w"> </span>install<span class="w"> </span><span class="nv">mmdet</span><span class="o">==</span><span class="m">3</span>.3.0
+</code></pre></div>
+<p><img alt="alt text" src="../image-138.png" /></p>
+<p><img alt="alt text" src="../image-139.png" /></p>
+<h4 id="233">2.3.3 代码检测</h4>
+<ul>
+<li>创建代码</li>
+</ul>
+<p>通过 touch /root/agent/direct_use.py（大小写敏感）的方式在 /root/agent 目录下新建 direct_use.py 以直接使用目标检测工具。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>touch<span class="w"> </span>/root/agent/direct_use.py
+</code></pre></div></p>
+<ul>
+<li>编写代码</li>
+</ul>
+<p>direct_use.py 的代码如下：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span>
+<span class="normal"><a href="#__codelineno-11-17">17</a></span>
+<span class="normal"><a href="#__codelineno-11-18">18</a></span>
+<span class="normal"><a href="#__codelineno-11-19">19</a></span>
+<span class="normal"><a href="#__codelineno-11-20">20</a></span>
+<span class="normal"><a href="#__codelineno-11-21">21</a></span>
+<span class="normal"><a href="#__codelineno-11-22">22</a></span>
+<span class="normal"><a href="#__codelineno-11-23">23</a></span>
+<span class="normal"><a href="#__codelineno-11-24">24</a></span>
+<span class="normal"><a href="#__codelineno-11-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>  <span class="kn">import</span> <span class="nn">re</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="kn">from</span> <span class="nn">agentlego.apis</span> <span class="kn">import</span> <span class="n">load_tool</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="c1"># load tool</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="n">tool</span> <span class="o">=</span> <span class="n">load_tool</span><span class="p">(</span><span class="s1">&#39;ObjectDetection&#39;</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="c1"># apply tool</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="n">visualization</span> <span class="o">=</span> <span class="n">tool</span><span class="p">(</span><span class="s1">&#39;/root/agent/road.jpg&#39;</span><span class="p">)</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">visualization</span><span class="p">)</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a>
+<a id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="c1"># visualize</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;/root/agent/road.jpg&#39;</span><span class="p">)</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15"></a>
+<a id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="n">preds</span> <span class="o">=</span> <span class="n">visualization</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;(\w+) \((\d+), (\d+), (\d+), (\d+)\), score (\d+)&#39;</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18"></a>
+<a id="__codelineno-11-19" name="__codelineno-11-19"></a><span class="k">for</span> <span class="n">pred</span> <span class="ow">in</span> <span class="n">preds</span><span class="p">:</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20"></a>    <span class="n">name</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">pred</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21"></a>    <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">y1</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">x2</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">y2</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+<a id="__codelineno-11-22" name="__codelineno-11-22"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-11-24" name="__codelineno-11-24"></a>
+<a id="__codelineno-11-25" name="__codelineno-11-25"></a><span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s1">&#39;/root/agent/road_detection_direct.jpg&#39;</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="alt text" src="../image-140.png" /></p>
+<ul>
+<li>执行代码</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>python<span class="w"> </span>/root/agent/direct_use.py
+</code></pre></div>
+<p><img alt="alt text" src="../image-141.png" /></p>
+<ul>
+<li>执行结果</li>
+</ul>
+<p>/root/agent 名为 road_detection_direct.jpg 的图片</p>
+<p><img alt="alt text" src="../image-142.png" /></p>
+<h3 id="24-agentlego-webui">2.4 AgentLego WebUI</h3>
+<p><a href="https://github.com/InternLM/Tutorial/blob/camp2/agent/agentlego.md#2-%E4%BD%9C%E4%B8%BA%E6%99%BA%E8%83%BD%E4%BD%93%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8">文档地址</a></p>
+<h4 id="241">2.4.1 修改模型调用脚本</h4>
+<p>修改 /root/agent/agentlego/webui/modules/agents/lagent_agent.py 文件的第 105行位置，将 internlm2-chat-20b 修改为 internlm2-chat-7b</p>
+<p><img alt="alt text" src="../image-188.png" /></p>
+<h4 id="242-lmdeploy">2.4.2 LMDeploy部署服务</h4>
+<p>使用 LMDeploy 启动一个 api_server。</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>agent
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>lmdeploy<span class="w"> </span>serve<span class="w"> </span>api_server<span class="w"> </span>/root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-7b<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">                            </span>--server-name<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">                            </span>--model-name<span class="w"> </span>internlm2-chat-7b<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">                            </span>--cache-max-entry-count<span class="w"> </span><span class="m">0</span>.1
+</code></pre></div>
+<img alt="alt text" src="../image-189.png" /></p>
+<h4 id="243-agentlego-webui">2.4.3 启动 AgentLego WebUI</h4>
+<p>新建一个 terminal 以启动 AgentLego WebUI</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>agent
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">cd</span><span class="w"> </span>/root/agent/agentlego/webui
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>python<span class="w"> </span>one_click.py
+</code></pre></div>
+<ul>
+<li>本地连接</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ssh<span class="w"> </span>-CNg<span class="w"> </span>-L<span class="w"> </span><span class="m">7860</span>:127.0.0.1:7860<span class="w"> </span>-L<span class="w"> </span><span class="m">23333</span>:127.0.0.1:23333<span class="w"> </span>root@ssh.intern-ai.org.cn<span class="w"> </span>-p<span class="w"> </span><span class="m">48061</span><span class="w"> </span>
+</code></pre></div>
+<p><img alt="alt text" src="../image-190.png" /></p>
+<h4 id="244-agentlego-webui">2.4.4 使用 AgentLego WebUI</h4>
+<ul>
+<li>选择Agent Tag页</li>
+</ul>
+<p><img alt="alt text" src="../image-191.png" /></p>
+<ul>
+<li>下拉选择New Agent</li>
+</ul>
+<p><img alt="alt text" src="../image-192.png" /></p>
+<ul>
+<li>选择 Agent Class 为 lagent.InternLM2Agent</li>
+</ul>
+<p><img alt="alt text" src="../image-193.png" /></p>
+<ul>
+<li>
+<p>输入 Agent name，自定义即可，图中输入了acondess</p>
+</li>
+<li>
+<p>点击 save to 以保存配置，这样在下次使用时只需在第2步时选择 Agent 为 internlm2 后点击 load 以加载就可以了。</p>
+</li>
+</ul>
+<p><img alt="alt text" src="../image-194.png" /></p>
+<ul>
+<li>点击Load 加载Agent</li>
+</ul>
+<p><img alt="alt text" src="../image-195.png" /></p>
+<ul>
+<li>配置工具</li>
+</ul>
+<p><img alt="alt text" src="../image-196.png" /></p>
+<ul>
+<li>加载完成</li>
+</ul>
+<p><img alt="alt text" src="../image-197.png" /></p>
+<ul>
+<li>对话</li>
+</ul>
+<p>等待工具加载完成后，点击上方 Chat 以进入对话页面。在页面下方选择工具部分只选择 ObjectDetection 工具，如下图所示。为了确保调用工具的成功率，请在使用时确保仅有这一个工具启用。</p>
+<p><img alt="alt text" src="../image-198.png" /></p>
+<ul>
+<li>上传图片，输入检测要求</li>
+</ul>
+<p><img alt="alt text" src="../image-199.png" /></p>
+<h3 id="25-agentlego">2.5 AgentLego 自定义工具</h3>
+<p>实现一个调用 MagicMaker 的 API 以实现图像生成的工具,提供图像生成、图像编辑和视频生成。</p>
+<p><a href="https://magicmaker.openxlab.org.cn/home">MagicMaker地址</a></p>
+<h4 id="251">2.5.1 创建工具文件</h4>
+<ul>
+<li>新建python脚本</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>touch<span class="w"> </span>/root/agent/agentlego/agentlego/tools/magicmaker_image_generation.py
+</code></pre></div>
+<p><img alt="alt text" src="../image-200.png" /></p>
+<ul>
+<li>编写python脚本</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span>
+<span class="normal"><a href="#__codelineno-17-11">11</a></span>
+<span class="normal"><a href="#__codelineno-17-12">12</a></span>
+<span class="normal"><a href="#__codelineno-17-13">13</a></span>
+<span class="normal"><a href="#__codelineno-17-14">14</a></span>
+<span class="normal"><a href="#__codelineno-17-15">15</a></span>
+<span class="normal"><a href="#__codelineno-17-16">16</a></span>
+<span class="normal"><a href="#__codelineno-17-17">17</a></span>
+<span class="normal"><a href="#__codelineno-17-18">18</a></span>
+<span class="normal"><a href="#__codelineno-17-19">19</a></span>
+<span class="normal"><a href="#__codelineno-17-20">20</a></span>
+<span class="normal"><a href="#__codelineno-17-21">21</a></span>
+<span class="normal"><a href="#__codelineno-17-22">22</a></span>
+<span class="normal"><a href="#__codelineno-17-23">23</a></span>
+<span class="normal"><a href="#__codelineno-17-24">24</a></span>
+<span class="normal"><a href="#__codelineno-17-25">25</a></span>
+<span class="normal"><a href="#__codelineno-17-26">26</a></span>
+<span class="normal"><a href="#__codelineno-17-27">27</a></span>
+<span class="normal"><a href="#__codelineno-17-28">28</a></span>
+<span class="normal"><a href="#__codelineno-17-29">29</a></span>
+<span class="normal"><a href="#__codelineno-17-30">30</a></span>
+<span class="normal"><a href="#__codelineno-17-31">31</a></span>
+<span class="normal"><a href="#__codelineno-17-32">32</a></span>
+<span class="normal"><a href="#__codelineno-17-33">33</a></span>
+<span class="normal"><a href="#__codelineno-17-34">34</a></span>
+<span class="normal"><a href="#__codelineno-17-35">35</a></span>
+<span class="normal"><a href="#__codelineno-17-36">36</a></span>
+<span class="normal"><a href="#__codelineno-17-37">37</a></span>
+<span class="normal"><a href="#__codelineno-17-38">38</a></span>
+<span class="normal"><a href="#__codelineno-17-39">39</a></span>
+<span class="normal"><a href="#__codelineno-17-40">40</a></span>
+<span class="normal"><a href="#__codelineno-17-41">41</a></span>
+<span class="normal"><a href="#__codelineno-17-42">42</a></span>
+<span class="normal"><a href="#__codelineno-17-43">43</a></span>
+<span class="normal"><a href="#__codelineno-17-44">44</a></span>
+<span class="normal"><a href="#__codelineno-17-45">45</a></span>
+<span class="normal"><a href="#__codelineno-17-46">46</a></span>
+<span class="normal"><a href="#__codelineno-17-47">47</a></span>
+<span class="normal"><a href="#__codelineno-17-48">48</a></span>
+<span class="normal"><a href="#__codelineno-17-49">49</a></span>
+<span class="normal"><a href="#__codelineno-17-50">50</a></span>
+<span class="normal"><a href="#__codelineno-17-51">51</a></span>
+<span class="normal"><a href="#__codelineno-17-52">52</a></span>
+<span class="normal"><a href="#__codelineno-17-53">53</a></span>
+<span class="normal"><a href="#__codelineno-17-54">54</a></span>
+<span class="normal"><a href="#__codelineno-17-55">55</a></span>
+<span class="normal"><a href="#__codelineno-17-56">56</a></span>
+<span class="normal"><a href="#__codelineno-17-57">57</a></span>
+<span class="normal"><a href="#__codelineno-17-58">58</a></span>
+<span class="normal"><a href="#__codelineno-17-59">59</a></span>
+<span class="normal"><a href="#__codelineno-17-60">60</a></span>
+<span class="normal"><a href="#__codelineno-17-61">61</a></span>
+<span class="normal"><a href="#__codelineno-17-62">62</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kn">import</span> <span class="nn">json</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kn">import</span> <span class="nn">requests</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="kn">from</span> <span class="nn">agentlego.types</span> <span class="kn">import</span> <span class="n">Annotated</span><span class="p">,</span> <span class="n">ImageIO</span><span class="p">,</span> <span class="n">Info</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="kn">from</span> <span class="nn">agentlego.utils</span> <span class="kn">import</span> <span class="n">require</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">BaseTool</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a>
+<a id="__codelineno-17-10" name="__codelineno-17-10"></a>
+<a id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="k">class</span> <span class="nc">MagicMakerImageGeneration</span><span class="p">(</span><span class="n">BaseTool</span><span class="p">):</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12"></a>
+<a id="__codelineno-17-13" name="__codelineno-17-13"></a>    <span class="n">default_desc</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;This tool can call the api of magicmaker to &#39;</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14"></a>                    <span class="s1">&#39;generate an image according to the given keywords.&#39;</span><span class="p">)</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15"></a>
+<a id="__codelineno-17-16" name="__codelineno-17-16"></a>    <span class="n">styles_option</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17"></a>        <span class="s1">&#39;dongman&#39;</span><span class="p">,</span>  <span class="c1"># 动漫</span>
+<a id="__codelineno-17-18" name="__codelineno-17-18"></a>        <span class="s1">&#39;guofeng&#39;</span><span class="p">,</span>  <span class="c1"># 国风</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19"></a>        <span class="s1">&#39;xieshi&#39;</span><span class="p">,</span>   <span class="c1"># 写实</span>
+<a id="__codelineno-17-20" name="__codelineno-17-20"></a>        <span class="s1">&#39;youhua&#39;</span><span class="p">,</span>   <span class="c1"># 油画</span>
+<a id="__codelineno-17-21" name="__codelineno-17-21"></a>        <span class="s1">&#39;manghe&#39;</span><span class="p">,</span>   <span class="c1"># 盲盒</span>
+<a id="__codelineno-17-22" name="__codelineno-17-22"></a>    <span class="p">]</span>
+<a id="__codelineno-17-23" name="__codelineno-17-23"></a>    <span class="n">aspect_ratio_options</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-17-24" name="__codelineno-17-24"></a>        <span class="s1">&#39;16:9&#39;</span><span class="p">,</span> <span class="s1">&#39;4:3&#39;</span><span class="p">,</span> <span class="s1">&#39;3:2&#39;</span><span class="p">,</span> <span class="s1">&#39;1:1&#39;</span><span class="p">,</span>
+<a id="__codelineno-17-25" name="__codelineno-17-25"></a>        <span class="s1">&#39;2:3&#39;</span><span class="p">,</span> <span class="s1">&#39;3:4&#39;</span><span class="p">,</span> <span class="s1">&#39;9:16&#39;</span>
+<a id="__codelineno-17-26" name="__codelineno-17-26"></a>    <span class="p">]</span>
+<a id="__codelineno-17-27" name="__codelineno-17-27"></a>
+<a id="__codelineno-17-28" name="__codelineno-17-28"></a>    <span class="nd">@require</span><span class="p">(</span><span class="s1">&#39;opencv-python&#39;</span><span class="p">)</span>
+<a id="__codelineno-17-29" name="__codelineno-17-29"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-17-30" name="__codelineno-17-30"></a>                 <span class="n">style</span><span class="o">=</span><span class="s1">&#39;guofeng&#39;</span><span class="p">,</span>
+<a id="__codelineno-17-31" name="__codelineno-17-31"></a>                 <span class="n">aspect_ratio</span><span class="o">=</span><span class="s1">&#39;4:3&#39;</span><span class="p">):</span>
+<a id="__codelineno-17-32" name="__codelineno-17-32"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-17-33" name="__codelineno-17-33"></a>        <span class="k">if</span> <span class="n">style</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">styles_option</span><span class="p">:</span>
+<a id="__codelineno-17-34" name="__codelineno-17-34"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="n">style</span>
+<a id="__codelineno-17-35" name="__codelineno-17-35"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-17-36" name="__codelineno-17-36"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The style must be one of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">styles_option</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-17-37" name="__codelineno-17-37"></a>
+<a id="__codelineno-17-38" name="__codelineno-17-38"></a>        <span class="k">if</span> <span class="n">aspect_ratio</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">aspect_ratio_options</span><span class="p">:</span>
+<a id="__codelineno-17-39" name="__codelineno-17-39"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">aspect_ratio</span> <span class="o">=</span> <span class="n">aspect_ratio</span>
+<a id="__codelineno-17-40" name="__codelineno-17-40"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-17-41" name="__codelineno-17-41"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The aspect ratio must be one of </span><span class="si">{</span><span class="n">aspect_ratio</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-17-42" name="__codelineno-17-42"></a>
+<a id="__codelineno-17-43" name="__codelineno-17-43"></a>    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-17-44" name="__codelineno-17-44"></a>              <span class="n">keywords</span><span class="p">:</span> <span class="n">Annotated</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span>
+<a id="__codelineno-17-45" name="__codelineno-17-45"></a>                                  <span class="n">Info</span><span class="p">(</span><span class="s1">&#39;A series of Chinese keywords separated by comma.&#39;</span><span class="p">)]</span>
+<a id="__codelineno-17-46" name="__codelineno-17-46"></a>        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImageIO</span><span class="p">:</span>
+<a id="__codelineno-17-47" name="__codelineno-17-47"></a>        <span class="kn">import</span> <span class="nn">cv2</span>
+<a id="__codelineno-17-48" name="__codelineno-17-48"></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+<a id="__codelineno-17-49" name="__codelineno-17-49"></a>            <span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://magicmaker.openxlab.org.cn/gw/edit-anything/api/v1/bff/sd/generate&#39;</span><span class="p">,</span>
+<a id="__codelineno-17-50" name="__codelineno-17-50"></a>            <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+<a id="__codelineno-17-51" name="__codelineno-17-51"></a>                <span class="s2">&quot;official&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-17-52" name="__codelineno-17-52"></a>                <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="n">keywords</span><span class="p">,</span>
+<a id="__codelineno-17-53" name="__codelineno-17-53"></a>                <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="p">,</span>
+<a id="__codelineno-17-54" name="__codelineno-17-54"></a>                <span class="s2">&quot;poseT&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-17-55" name="__codelineno-17-55"></a>                <span class="s2">&quot;aspectRatio&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">aspect_ratio</span>
+<a id="__codelineno-17-56" name="__codelineno-17-56"></a>            <span class="p">}),</span>
+<a id="__codelineno-17-57" name="__codelineno-17-57"></a>            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">}</span>
+<a id="__codelineno-17-58" name="__codelineno-17-58"></a>        <span class="p">)</span>
+<a id="__codelineno-17-59" name="__codelineno-17-59"></a>        <span class="n">image_url</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;imgUrl&#39;</span><span class="p">]</span>
+<a id="__codelineno-17-60" name="__codelineno-17-60"></a>        <span class="n">image_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">image_url</span><span class="p">)</span>
+<a id="__codelineno-17-61" name="__codelineno-17-61"></a>        <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">imdecode</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">image_response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_COLOR</span><span class="p">),</span><span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+<a id="__codelineno-17-62" name="__codelineno-17-62"></a>        <span class="k">return</span> <span class="n">ImageIO</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="252">2.5.2 注册新工具</h4>
+<p>修改 /root/agent/agentlego/agentlego/tools/<strong>init</strong>.py 文件，将我们的工具注册在工具列表中。</p>
+<p>将 MagicMakerImageGeneration 通过 from .magicmaker_image_generation import MagicMakerImageGeneration 导入到了文件中，并且将其加入了 <strong>all</strong> 列表中。</p>
+<p><img alt="alt text" src="../image-201.png" /></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-18-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-18-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-18-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-18-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-18-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-18-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-18-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-18-10">10</a></span>
+<span class="normal"><a href="#__codelineno-18-11">11</a></span>
+<span class="normal"><a href="#__codelineno-18-12">12</a></span>
+<span class="normal"><a href="#__codelineno-18-13">13</a></span>
+<span class="normal"><a href="#__codelineno-18-14">14</a></span>
+<span class="normal"><a href="#__codelineno-18-15">15</a></span>
+<span class="normal"><a href="#__codelineno-18-16">16</a></span>
+<span class="normal"><a href="#__codelineno-18-17">17</a></span>
+<span class="normal"><a href="#__codelineno-18-18">18</a></span>
+<span class="normal"><a href="#__codelineno-18-19">19</a></span>
+<span class="normal"><a href="#__codelineno-18-20">20</a></span>
+<span class="normal"><a href="#__codelineno-18-21">21</a></span>
+<span class="normal"><a href="#__codelineno-18-22">22</a></span>
+<span class="normal"><a href="#__codelineno-18-23">23</a></span>
+<span class="normal"><a href="#__codelineno-18-24">24</a></span>
+<span class="normal"><a href="#__codelineno-18-25">25</a></span>
+<span class="normal"><a href="#__codelineno-18-26">26</a></span>
+<span class="normal"><a href="#__codelineno-18-27">27</a></span>
+<span class="normal"><a href="#__codelineno-18-28">28</a></span>
+<span class="normal"><a href="#__codelineno-18-29">29</a></span>
+<span class="normal"><a href="#__codelineno-18-30">30</a></span>
+<span class="normal"><a href="#__codelineno-18-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">BaseTool</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="kn">from</span> <span class="nn">.calculator</span> <span class="kn">import</span> <span class="n">Calculator</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="kn">from</span> <span class="nn">.func</span> <span class="kn">import</span> <span class="n">make_tool</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="kn">from</span> <span class="nn">.image_canny</span> <span class="kn">import</span> <span class="n">CannyTextToImage</span><span class="p">,</span> <span class="n">ImageToCanny</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="kn">from</span> <span class="nn">.image_depth</span> <span class="kn">import</span> <span class="n">DepthTextToImage</span><span class="p">,</span> <span class="n">ImageToDepth</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="kn">from</span> <span class="nn">.image_editing</span> <span class="kn">import</span> <span class="n">ImageExpansion</span><span class="p">,</span> <span class="n">ImageStylization</span><span class="p">,</span> <span class="n">ObjectRemove</span><span class="p">,</span> <span class="n">ObjectReplace</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="kn">from</span> <span class="nn">.image_pose</span> <span class="kn">import</span> <span class="n">HumanBodyPose</span><span class="p">,</span> <span class="n">HumanFaceLandmark</span><span class="p">,</span> <span class="n">PoseToImage</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="kn">from</span> <span class="nn">.image_scribble</span> <span class="kn">import</span> <span class="n">ImageToScribble</span><span class="p">,</span> <span class="n">ScribbleTextToImage</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="kn">from</span> <span class="nn">.image_text</span> <span class="kn">import</span> <span class="n">ImageDescription</span><span class="p">,</span> <span class="n">TextToImage</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10"></a><span class="kn">from</span> <span class="nn">.imagebind</span> <span class="kn">import</span> <span class="n">AudioImageToImage</span><span class="p">,</span> <span class="n">AudioTextToImage</span><span class="p">,</span> <span class="n">AudioToImage</span><span class="p">,</span> <span class="n">ThermalToImage</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11"></a><span class="kn">from</span> <span class="nn">.object_detection</span> <span class="kn">import</span> <span class="n">ObjectDetection</span><span class="p">,</span> <span class="n">TextToBbox</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12"></a><span class="kn">from</span> <span class="nn">.ocr</span> <span class="kn">import</span> <span class="n">OCR</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="kn">from</span> <span class="nn">.scholar</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401, F403</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14"></a><span class="kn">from</span> <span class="nn">.search</span> <span class="kn">import</span> <span class="n">BingSearch</span><span class="p">,</span> <span class="n">GoogleSearch</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15"></a><span class="kn">from</span> <span class="nn">.segmentation</span> <span class="kn">import</span> <span class="n">SegmentAnything</span><span class="p">,</span> <span class="n">SegmentObject</span><span class="p">,</span> <span class="n">SemanticSegmentation</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16"></a><span class="kn">from</span> <span class="nn">.speech_text</span> <span class="kn">import</span> <span class="n">SpeechToText</span><span class="p">,</span> <span class="n">TextToSpeech</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17"></a><span class="kn">from</span> <span class="nn">.translation</span> <span class="kn">import</span> <span class="n">Translation</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18"></a><span class="kn">from</span> <span class="nn">.vqa</span> <span class="kn">import</span> <span class="n">VQA</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19"></a>
+<a id="__codelineno-18-20" name="__codelineno-18-20"></a><span class="kn">from</span> <span class="nn">.magicmaker_image_generation</span> <span class="kn">import</span> <span class="n">MagicMakerImageGeneration</span>
+<a id="__codelineno-18-21" name="__codelineno-18-21"></a>
+<a id="__codelineno-18-22" name="__codelineno-18-22"></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-18-23" name="__codelineno-18-23"></a>    <span class="s1">&#39;CannyTextToImage&#39;</span><span class="p">,</span> <span class="s1">&#39;ImageToCanny&#39;</span><span class="p">,</span> <span class="s1">&#39;DepthTextToImage&#39;</span><span class="p">,</span> <span class="s1">&#39;ImageToDepth&#39;</span><span class="p">,</span>
+<a id="__codelineno-18-24" name="__codelineno-18-24"></a>    <span class="s1">&#39;ImageExpansion&#39;</span><span class="p">,</span> <span class="s1">&#39;ObjectRemove&#39;</span><span class="p">,</span> <span class="s1">&#39;ObjectReplace&#39;</span><span class="p">,</span> <span class="s1">&#39;HumanFaceLandmark&#39;</span><span class="p">,</span>
+<a id="__codelineno-18-25" name="__codelineno-18-25"></a>    <span class="s1">&#39;HumanBodyPose&#39;</span><span class="p">,</span> <span class="s1">&#39;PoseToImage&#39;</span><span class="p">,</span> <span class="s1">&#39;ImageToScribble&#39;</span><span class="p">,</span> <span class="s1">&#39;ScribbleTextToImage&#39;</span><span class="p">,</span>
+<a id="__codelineno-18-26" name="__codelineno-18-26"></a>    <span class="s1">&#39;ImageDescription&#39;</span><span class="p">,</span> <span class="s1">&#39;TextToImage&#39;</span><span class="p">,</span> <span class="s1">&#39;VQA&#39;</span><span class="p">,</span> <span class="s1">&#39;ObjectDetection&#39;</span><span class="p">,</span> <span class="s1">&#39;TextToBbox&#39;</span><span class="p">,</span> <span class="s1">&#39;OCR&#39;</span><span class="p">,</span>
+<a id="__codelineno-18-27" name="__codelineno-18-27"></a>    <span class="s1">&#39;SegmentObject&#39;</span><span class="p">,</span> <span class="s1">&#39;SegmentAnything&#39;</span><span class="p">,</span> <span class="s1">&#39;SemanticSegmentation&#39;</span><span class="p">,</span> <span class="s1">&#39;ImageStylization&#39;</span><span class="p">,</span>
+<a id="__codelineno-18-28" name="__codelineno-18-28"></a>    <span class="s1">&#39;AudioToImage&#39;</span><span class="p">,</span> <span class="s1">&#39;ThermalToImage&#39;</span><span class="p">,</span> <span class="s1">&#39;AudioImageToImage&#39;</span><span class="p">,</span> <span class="s1">&#39;AudioTextToImage&#39;</span><span class="p">,</span>
+<a id="__codelineno-18-29" name="__codelineno-18-29"></a>    <span class="s1">&#39;SpeechToText&#39;</span><span class="p">,</span> <span class="s1">&#39;TextToSpeech&#39;</span><span class="p">,</span> <span class="s1">&#39;Translation&#39;</span><span class="p">,</span> <span class="s1">&#39;GoogleSearch&#39;</span><span class="p">,</span> <span class="s1">&#39;Calculator&#39;</span><span class="p">,</span>
+<a id="__codelineno-18-30" name="__codelineno-18-30"></a>    <span class="s1">&#39;BaseTool&#39;</span><span class="p">,</span> <span class="s1">&#39;make_tool&#39;</span><span class="p">,</span> <span class="s1">&#39;BingSearch&#39;</span><span class="p">,</span><span class="s1">&#39;MagicMakerImageGeneration&#39;</span><span class="p">,</span>
+<a id="__codelineno-18-31" name="__codelineno-18-31"></a><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="253">2.5.3 启动自定义工具</h4>
+<p>在两个 terminal 中分别启动 LMDeploy 服务和 AgentLego 的 WebUI 以体验我们自定义的工具的效果。</p>
+<ul>
+<li>启动 LMDeploy 服务</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>agent
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>lmdeploy<span class="w"> </span>serve<span class="w"> </span>api_server<span class="w"> </span>/root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-7b<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">                            </span>--server-name<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">                            </span>--model-name<span class="w"> </span>internlm2-chat-7b<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">                            </span>--cache-max-entry-count<span class="w"> </span><span class="m">0</span>.1
+</code></pre></div>
+<ul>
+<li>启动 AgentLego 服务</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>agent
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nb">cd</span><span class="w"> </span>/root/agent/agentlego/webui
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>python<span class="w"> </span>one_click.py
+</code></pre></div>
+<img alt="alt text" src="../image-202.png" /></p>
+<ul>
+<li>本地连接</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>ssh<span class="w"> </span>-CNg<span class="w"> </span>-L<span class="w"> </span><span class="m">7860</span>:127.0.0.1:7860<span class="w"> </span>-L<span class="w"> </span><span class="m">23333</span>:127.0.0.1:23333<span class="w"> </span>root@ssh.intern-ai.org.cn<span class="w"> </span>-p<span class="w"> </span><span class="m">48061</span><span class="w"> </span>
+</code></pre></div>
+<ul>
+<li>设置Tools</li>
+</ul>
+<p>Tool class 选择MagicMakerImageGeneration并点击save</p>
+<p><img alt="alt text" src="../image-204.png" /></p>
+<h4 id="254">2.5.4 应用结果</h4>
+<ul>
+<li>选择自定义tools</li>
+</ul>
+<p><img alt="alt text" src="../image-205.png" /></p>
+<ul>
+<li>输入文字要求</li>
+</ul>
+<p><img alt="alt text" src="../image-206.png" /></p>
+<p><img alt="alt text" src="../image-207.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2023 <a href="https://github.com/acondess" target="_blank" rel="noopener">acondess</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://acondess.github.io/InternLM_learn_2/" target="_blank" rel="noopener" title="acondess.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs.sticky", "navigation.top", "navigation.tabs", "navigation.expand", "navigation.sections", "toc.integrate", "toc.sections", "toc.follow", "toc.numbers", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "footer"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5cfa9459.min.js"></script>
+      
+    
+  </body>
+</html>
