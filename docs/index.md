@@ -17,6 +17,8 @@
 ## 证书 & 荣誉
 
 ![alt text](InternLM-C2-S961.png)
+
+![alt text](InternLM-C2-SE961.png)
 <!-- For full documentation visit [mkdocs.org](https://www.mkdocs.org). -->
 
 <!-- ## Commands
